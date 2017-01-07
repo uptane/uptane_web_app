@@ -1,0 +1,101 @@
+timestamp: 2016-12-06T08:16:54.882898
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512)
+);
+success!
+timestamp: 2016-12-06T08:16:54.894782
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2016-12-06T08:16:54.900625
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2016-12-06T08:16:54.907717
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2016-12-06T08:16:54.913478
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2016-12-06T08:16:54.920909
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2016-12-06T08:26:24.649880
+ALTER TABLE "auth_user" ADD "username" CHAR(128);
+timestamp: 2016-12-06T08:26:24.672850
+ALTER TABLE "auth_user" ADD "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2016-12-06T08:26:24.674559
+ALTER TABLE "auth_user" ADD "is_active" CHAR(1);
+timestamp: 2016-12-06T08:26:24.688715
+ALTER TABLE "auth_user" ADD "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2016-12-06T08:26:24.716211
+ALTER TABLE "auth_user" ADD "created_on" TIMESTAMP;
+timestamp: 2016-12-06T08:26:24.718102
+ALTER TABLE "auth_user" ADD "modified_on" TIMESTAMP;
+success!
+timestamp: 2016-12-06T08:26:24.820391
+ALTER TABLE "auth_group" ADD "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2016-12-06T08:26:24.827900
+ALTER TABLE "auth_group" ADD "is_active" CHAR(1);
+timestamp: 2016-12-06T08:26:24.829714
+ALTER TABLE "auth_group" ADD "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2016-12-06T08:26:24.831541
+ALTER TABLE "auth_group" ADD "created_on" TIMESTAMP;
+timestamp: 2016-12-06T08:26:24.841953
+ALTER TABLE "auth_group" ADD "modified_on" TIMESTAMP;
+success!
+timestamp: 2016-12-06T08:26:24.877174
+ALTER TABLE "auth_membership" ADD "is_active" CHAR(1);
+timestamp: 2016-12-06T08:26:24.878906
+ALTER TABLE "auth_membership" ADD "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2016-12-06T08:26:24.880464
+ALTER TABLE "auth_membership" ADD "created_on" TIMESTAMP;
+timestamp: 2016-12-06T08:26:24.882083
+ALTER TABLE "auth_membership" ADD "modified_on" TIMESTAMP;
+timestamp: 2016-12-06T08:26:24.883651
+ALTER TABLE "auth_membership" ADD "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+success!
+timestamp: 2016-12-06T08:26:24.923364
+ALTER TABLE "auth_permission" ADD "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2016-12-06T08:26:24.931944
+ALTER TABLE "auth_permission" ADD "is_active" CHAR(1);
+timestamp: 2016-12-06T08:26:24.933493
+ALTER TABLE "auth_permission" ADD "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2016-12-06T08:26:24.944135
+ALTER TABLE "auth_permission" ADD "created_on" TIMESTAMP;
+timestamp: 2016-12-06T08:26:24.956394
+ALTER TABLE "auth_permission" ADD "modified_on" TIMESTAMP;
+success!

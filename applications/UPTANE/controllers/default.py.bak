@@ -1,0 +1,119 @@
+# -*- coding: utf-8 -*-
+# this file is released under public domain and you can use without limitations
+
+# -------------------------------------------------------------------------
+# This is a sample controller
+# - index is the default action of any application
+# - user is required for authentication and authorization
+# - download is for downloading files uploaded in the db (does streaming)
+# -------------------------------------------------------------------------
+
+@auth.requires_login()
+def index():
+    """
+    example action using the internationalization operator T and flash
+    rendered by views/default/index.html or views/generic.html
+
+    if you need a simple wiki simply replace the two lines below with:
+    return auth.wiki()
+    """
+    user = auth.user_groups.values()[0]
+    # if OEM
+    if user == 'user_1':
+        return dict(message=T('Hello OEM!'))
+    # if Supplier 1
+    if user == 'user_2':
+        return dict(form=update_form(), db_contents=database_contents())
+    # if Supplier 2
+    if user == 'user_3':
+        return dict(form=update_form(), db_contents=database_contents())
+    else:
+        return dict(message=T('Hello unknown user..'))
+    
+def user():
+    """
+    exposes:
+    http://..../[app]/default/user/login
+    http://..../[app]/default/user/logout
+    http://..../[app]/default/user/register
+    http://..../[app]/default/user/profile
+    http://..../[app]/default/user/retrieve_password
+    http://..../[app]/default/user/change_password
+    http://..../[app]/default/user/bulk_register
+    use @auth.requires_login()
+        @auth.requires_membership('group name')
+        @auth.requires_permission('read','table name',record_id)
+    to decorate functions that need access control
+    also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
+    """
+    return dict(form=auth())
+
+
+@cache.action()
+def download():
+    """
+    allows downloading of uploaded files
+    http://..../[app]/default/download/[filename]
+    """
+    return response.download(request, db)
+
+
+def call():
+    """
+    exposes services. for example:
+    http://..../[app]/default/call/jsonrpc
+    decorate with @services.jsonrpc the functions to expose
+    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
+    """
+    return service()
+
+@auth.requires_login()
+def update_form():
+    record = db.supplier_db(request.args(0))
+    form=SQLFORM(db.supplier_db, record)
+    if form.process().accepted:
+        print'applicable_oem: '+ form.vars.applicable_oem
+        print'update_version: '+ form.vars.update_version
+        print'supplier_name: '+ auth.user.username
+        print db(supplier_db).select(applicable_oem=str(form.vars.applicable_oem))
+        #print db(db.supplier_db.applicable_oem==str(form.vars.applicable_oem)).select()
+        #print db(db.supplier_db.applicable_oem==form.vars.applicable_oem).select()
+        #print type(db.supplier_db.applicable_oem==form.vars.applicable_oem)
+        #print type(db.supplier_db.applicable_oem)
+        #print db.supplier_db.update_version==form.vars.update_version
+        #db.supplier_db.update_or_insert((db.supplier_db.applicable_oem==form.vars.applicable_oem) &
+        #                                (db.supplier_db.update_version==form.vars.update_version),
+        #                               applicable_oem=form.vars.applicable_oem,
+        #                               update_version=form.vars.update_version)
+        db.supplier_db.update_or_insert(applicable_oem=str(form.vars.applicable_oem),
+                                       update_version=str(form.vars.update_version),
+                                       supplier_name=str(auth.user.username))
+        response.flash = 'form accepted'
+    elif form.process().errors:
+        response.flash = 'form has errors'
+    else:
+        response.flash = 'please fill out the form'
+    return form
+
+@auth.requires_login()
+def database_contents():
+    # return the database contents based off the owner
+    #db_contents = T('Hello billy bob..')
+    #         db_contents = db(db.items.supplier_name=auth.user.username).select(db.supplier_db.id=1)
+
+    if db.supplier_db.id != '':
+        #query = db.supplier_db.supplier_name == 'supplier1'
+        #db_set = db(query)
+        #rows = db_set.select()
+        #print rows
+        #for row in rows:
+        #    print row
+        # The following creates a list of the db_contents that apply to the current user
+        db_contents = []
+        for row in db(db.supplier_db.supplier_name == auth.user.username).iterselect():
+            db_contents.append(row)
+        #print db_contents
+        #db_contents = db().select(db.supplier_db.supplier_name)
+    else:
+        db_contents = T('Hello billy bob..')
+    return db_contents

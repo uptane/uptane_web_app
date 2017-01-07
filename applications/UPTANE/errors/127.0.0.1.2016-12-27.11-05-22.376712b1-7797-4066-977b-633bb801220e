@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> 'Query' object has no attribute 'ecu_list'"
+p3
+sS'layer'
+p4
+S'/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 0x10f4909b0, file "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:ecu_list", line 10>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/restricted.py", line 216, in restricted\n    exec(ccode, environment)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:ecu_list", line 302, in <module>\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/globals.py", line 405, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:ecu_list", line 268, in ecu_list\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/sqlhtml.py", line 3010, in grid\n    selectable(records)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:ecu_list", line 268, in <lambda>\n  File "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:ecu_list", line 293, in selected_ecus\nAttributeError: \'Query\' object has no attribute \'ecu_list\'\n'
+p11
+s.

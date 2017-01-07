@@ -1,0 +1,19 @@
+{
+ "signatures": [
+  {
+   "keyid": "630cf584f392430b2119a4395e39624e86f5e5c5374507a789be5cf35bf090d6",
+   "method": "ed25519",
+   "sig": "8d5ed57f67b846e975520adc12ac13fedfd478892abba75c08ace7e9b0de000b1208b6cfabad40ab2dbc6a1db5f0a381dc8187f933ede3cb02a7923d031f620b"
+  }
+ ],
+ "signed": {
+  "_type": "Targets",
+  "delegations": {
+   "keys": {},
+   "roles": []
+  },
+  "expires": "2017-04-01T01:27:54Z",
+  "targets": {},
+  "version": 1
+ }
+}
