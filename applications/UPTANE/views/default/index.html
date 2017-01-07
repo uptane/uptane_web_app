@@ -1,0 +1,132 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+{{block header}}
+    <header class="container-fluid background">
+      <div class="jumbotron text-center">
+        {{if response.title:}}
+        <h1>{{=response.title}}
+          <small>{{=response.subtitle or ''}}</small></h1>
+        {{pass}}
+      </div>
+    </header>
+{{end}}
+
+{{block body}}
+    <body bgcolor="red">
+
+{{if 'form' in globals():}}
+<h2>{{=form}}</h2>
+{{else:}}
+{{pass}}
+
+{{if 'db_contents' in globals():}}
+<h2>{{=db_contents}}</h2>
+{{else:}}
+{{pass}}
+
+<!--
+{{if 'changed_ecu_list' in globals():}}
+<h2>{{=changed_ecu_list}}</h2>
+{{else:}}
+{{pass}}
+-->
+
+{{if 'edited_vehicle' in globals():}}
+    <script>
+        console.log(" hello2! " + {{=edited_vehicle}});
+        jQuery('tr[id={{=edited_vehicle}}]').each(function(){
+            var button = $("<td><a id='update_button' href='/UPTANE/default/index'>Push Change</a></td>");
+            button.click(function(){
+                alert($("#update_button").attr("href"));
+                jQuery('input[value={{=edited_vehicle}}]').attr('checked', 'checked');
+            });
+            button.appendTo(jQuery(this));
+        });
+    </script>
+{{else:}}
+{{pass}}
+
+{{if 'available_updates' in globals():}}
+    <script>
+        console.log(" hello3! " + {{=available_updates}});
+        for (i = 0; i < {{=available_updates}}.length; i++){
+            console.log( "yepp: " + i);
+            console.log({{=available_updates}}[i]);
+            var id_num = {{=available_updates}}[i];
+            jQuery('tr[id=' + id_num + ']').each(function(){
+                var button = $("<td><a id='available_update_button' href='/UPTANE/default/index'>AVAILABLE UPDATE</a></td>");
+                button.click(function(){
+                    alert($("#available_update_button").attr("href"));
+                    jQuery('input[value=id_num]').attr('checked', 'checked');
+                });
+                button.appendTo(jQuery(this));
+            });
+        }
+    </script>
+{{else:}}
+{{pass}}
+
+<h1 align="center"><button type="button" onclick="location.href='/UPTANE/default/hacked';" value="HACKED"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Skull_and_crossbones.svg"/></button></h1>
+</body>
+{{end}}
+
+<!--<h1><input type="button" onclick="location.href='http://google.com';" value="HACKED" /></h1>
+<h1><button type="button" onclick="location.href='http://google.com';">HACKED</button></h1>
+<script>
+var url = document.URL;
+console.log(" URL " + url);
+var hacked_bool = url.includes("hacked);
+console.log(" includes()? " + url.includes("hacked"))
+if (hacked_bool){
+var button = $("<h1><button type="button" onclick="location.href='/hacked';" value="HACKED"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Skull_and_crossbones.svg"/></button></h1>");
+button.appendTo(this);
+}
+else{
+<h1><button type="button" onclick="location.href='default/hacked';" value="HACKED"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Skull_and_crossbones.svg"/></button></h1>;
+
+}
+
+</script>
+-->
+
+
+
+<!--
+<p class="lead">{{=T('How did you get here?')}}</p>
+<ol>
+  <li>{{=T('You are successfully running web2py')}}</li>
+  <li>{{=XML(T('You visited the url %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
+  <li>{{=XML(T('Which called the function %s located in the file %s',
+    (A(request.function+'()',_href='#'),
+    A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
+    _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
+  <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
+    A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
+    _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
+  <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
+</ol>
+
+
+
+
+
+{{block right_sidebar}}
+<div class="panel panel-info">
+  <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
+      href="{{=URL('admin','default','index')}}">
+      <i class="glyphicon glyphicon-cog"></i>
+      {{=T("admin")}}
+    </a></h3></div>
+  <div class="panel-body">
+    {{=T("Don't know what to do?")}}
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
+    <li class="list-group-item"><a href="http://web2py.com">web2py.com</a></li>
+    <li class="list-group-item"><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
+  </ul>
+</div>
+
+{{end}}
+-->

@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> 'list' object has no attribute 'items'"
+p3
+sS'layer'
+p4
+S'/Users/ecain/Projects/SOTA/web2py/applications/sota/controllers/default.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 0x109c86ab0, file "/Users/ecain/Projects/SOTA/web2py/applications/sota/controllers/default.py:index", line 10>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/restricted.py", line 216, in restricted\n    exec(ccode, environment)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/sota/controllers/default.py:index", line 202, in <module>\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/globals.py", line 405, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/tools.py", line 4321, in f\n    return action(*a, **b)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/sota/controllers/default.py:index", line 25, in index\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/tools.py", line 4321, in f\n    return action(*a, **b)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/sota/controllers/default.py:index", line 173, in database_contents\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/sqlhtml.py", line 2997, in grid\n    selectable(records)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/sota/controllers/default.py:index", line 173, in <lambda>\n  File "/Users/ecain/Projects/SOTA/web2py/applications/sota/controllers/default.py:index", line 191, in selected_vehicle\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/html.py", line 337, in URL\n    for (key, vals) in sorted(vars.items()):\nAttributeError: \'list\' object has no attribute \'items\'\n'
+p11
+s.

@@ -1,0 +1,2296 @@
+[2016-12-28 02:11:02,986 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-28 02:30:56,794 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-28 19:47:53,762 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 22:13:31,287 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 22:16:19,530 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 22:17:16,363 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 22:19:03,097 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 22:19:51,217 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 22:20:34,026 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 23:00:53,384 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 23:00:59,689 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 23:10:19,174 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 23:27:57,204 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 23:36:04,929 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 23:36:42,700 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-29 23:37:05,645 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:16:23,920 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:16:27,516 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:22:57,862 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:23:51,135 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:24:02,200 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:25:21,843 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:25:37,323 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:26:00,757 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:26:45,076 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:27:24,990 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:27:25,001 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 00:27:25,001 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 00:27:25,001 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 00:27:25,002 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 00:28:56,230 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:29:20,108 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 00:29:20,117 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 00:29:20,117 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 00:29:20,117 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 00:29:20,118 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 14:31:07,114 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 14:31:07,127 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 14:31:07,127 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 14:31:07,127 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 14:31:07,128 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 14:43:14,640 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 14:43:14,651 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 14:43:14,652 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 14:43:14,652 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 14:43:14,652 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 14:43:17,012 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintimestamp.pub)
+
+[2016-12-30 14:43:19,359 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 14:43:21,696 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintargets.pub)
+
+[2016-12-30 14:43:24,029 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainrole1.pub)
+
+[2016-12-30 14:43:26,403 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 14:43:26,413 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 14:43:26,415 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 14:43:26,421 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 14:43:26,432 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 14:43:26,435 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 14:43:14 2016 (UTC).
+0.9998611111111111 day(s) until it expires.
+
+[2016-12-30 14:43:26,439 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 14:43:26,441 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 14:43:47,543 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 14:43:47,543 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 14:43:47,544 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 14:43:47,545 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 14:43:49,976 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintimestamp.pub)
+
+[2016-12-30 14:43:52,269 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 14:43:54,547 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintargets.pub)
+
+[2016-12-30 14:43:56,862 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainrole1.pub)
+
+[2016-12-30 14:43:59,230 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:43:59,231 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:43:59,231 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:43:59,231 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:51:50,145 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 14:51:50,158 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 14:51:50,159 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 14:51:50,159 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 14:51:50,159 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 14:51:52,457 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintimestamp.pub)
+
+[2016-12-30 14:51:54,906 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 14:51:57,301 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintargets.pub)
+
+[2016-12-30 14:51:59,902 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainrole1.pub)
+
+[2016-12-30 14:52:02,327 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 14:52:02,336 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 14:52:02,341 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 14:52:02,350 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 14:52:02,357 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 14:52:02,359 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 14:51:50 2016 (UTC).
+0.9998611111111111 day(s) until it expires.
+
+[2016-12-30 14:52:02,365 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 14:52:02,367 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 14:52:23,470 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 14:52:23,471 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 14:52:23,471 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 14:52:23,472 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 14:52:26,282 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintimestamp.pub)
+
+[2016-12-30 14:52:28,875 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 14:52:31,328 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintargets.pub)
+
+[2016-12-30 14:52:33,773 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainrole1.pub)
+
+[2016-12-30 14:52:36,277 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:52:36,278 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:52:36,278 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:52:36,278 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:53:38,664 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 14:53:38,676 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 14:53:38,676 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 14:53:38,676 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 14:53:38,677 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 14:53:40,985 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintimestamp.pub)
+
+[2016-12-30 14:53:43,295 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 14:53:45,673 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintargets.pub)
+
+[2016-12-30 14:53:48,147 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainrole1.pub)
+
+[2016-12-30 14:53:50,551 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 14:53:50,561 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 14:53:50,563 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 14:53:50,571 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 14:53:50,580 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 14:53:50,582 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 14:53:38 2016 (UTC).
+0.9998611111111111 day(s) until it expires.
+
+[2016-12-30 14:53:50,586 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 14:53:50,588 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 14:54:11,672 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 14:54:11,673 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 14:54:11,673 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 14:54:11,674 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 14:54:13,978 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintimestamp.pub)
+
+[2016-12-30 14:54:16,312 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 14:54:18,654 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintargets.pub)
+
+[2016-12-30 14:54:20,976 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainrole1.pub)
+
+[2016-12-30 14:54:23,328 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:54:23,328 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:54:23,329 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 14:54:23,329 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 15:02:32,659 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:02:32,673 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:02:32,674 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:02:32,674 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:02:32,675 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 15:02:35,083 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintimestamp.pub)
+
+[2016-12-30 15:02:37,471 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 15:02:39,868 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintargets.pub)
+
+[2016-12-30 15:02:42,285 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainrole1.pub)
+
+[2016-12-30 15:02:44,723 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 15:02:44,739 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 15:02:44,742 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 15:02:44,749 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 15:02:44,755 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 15:02:44,757 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 15:02:32 2016 (UTC).
+0.9998611111111111 day(s) until it expires.
+
+[2016-12-30 15:02:44,762 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 15:02:44,764 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 15:03:05,857 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:03:05,858 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:03:05,858 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:03:05,859 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 15:03:08,152 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintimestamp.pub)
+
+[2016-12-30 15:03:10,497 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 15:03:12,902 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/maintargets.pub)
+
+[2016-12-30 15:03:15,275 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainrole1.pub)
+
+[2016-12-30 15:03:17,581 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 15:03:17,582 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 15:03:17,582 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 15:03:17,582 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 15:04:13,168 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:04:13,184 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:04:13,184 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:04:13,184 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:04:13,185 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 15:21:34,348 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:21:34,360 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:21:34,360 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:21:34,360 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:21:34,361 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 15:26:23,492 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:27:03,771 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:30:08,802 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:30:52,779 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:30:52,790 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:30:52,790 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:30:52,790 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:30:52,791 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/applications/UPTANE/modules/uptane/keys/mainroot.pub)
+
+[2016-12-30 15:42:14,767 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:42:14,777 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:42:14,777 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:42:14,777 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:42:14,778 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/demo/keys/mainroot.pub)
+
+[2016-12-30 15:43:32,276 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:43:32,284 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:43:32,284 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:43:32,285 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:43:32,285 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 15:43:34,658 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 15:43:37,052 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 15:43:39,467 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 15:43:41,854 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 15:53:15,351 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:53:15,364 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:53:15,364 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:53:15,364 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:53:15,365 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 15:53:17,764 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 15:53:20,147 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 15:53:22,537 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 15:53:25,021 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 15:56:44,007 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 15:56:44,018 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 15:56:44,018 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 15:56:44,018 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 15:56:44,019 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 15:56:46,472 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 15:56:49,027 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 15:56:51,493 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 15:56:53,935 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:24:17,366 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:24:17,380 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 16:24:17,381 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 16:24:17,381 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 16:24:17,382 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:24:19,793 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:24:22,204 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 16:24:24,576 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 16:24:27,007 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:26:49,438 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:26:49,448 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 16:26:49,449 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 16:26:49,449 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 16:26:49,450 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:26:51,913 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:26:54,444 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 16:26:56,902 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 16:26:59,319 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:29:42,794 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:29:58,009 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:29:58,022 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 16:29:58,022 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 16:29:58,023 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 16:29:58,024 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:30:00,468 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:30:02,887 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 16:30:05,410 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 16:30:07,904 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:31:25,817 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:31:25,825 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 16:31:25,826 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 16:31:25,826 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 16:31:25,827 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:31:28,216 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:31:30,568 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 16:31:32,875 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 16:31:35,192 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:32:20,648 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:32:20,657 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 16:32:20,657 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 16:32:20,657 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 16:32:20,658 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:32:23,015 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:32:25,308 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 16:32:27,625 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 16:32:29,943 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:32:49,945 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:32:49,954 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 16:32:49,954 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 16:32:49,954 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 16:32:49,955 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:32:52,425 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:33:33,887 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:33:33,896 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo'
+
+[2016-12-30 16:33:33,896 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/metadata.staged'
+
+[2016-12-30 16:33:33,896 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/mainrepo/targets'
+
+[2016-12-30 16:33:33,897 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:33:36,392 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:33:38,687 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 16:33:41,156 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 16:33:43,495 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:34:12,749 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:34:12,759 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo'
+
+[2016-12-30 16:34:12,760 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged'
+
+[2016-12-30 16:34:12,760 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/targets'
+
+[2016-12-30 16:34:12,760 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:34:15,063 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:34:17,351 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 16:34:19,623 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 16:34:21,962 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:44:35,293 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 16:44:35,304 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo'
+
+[2016-12-30 16:44:35,305 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged'
+
+[2016-12-30 16:44:35,305 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/targets'
+
+[2016-12-30 16:44:35,306 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 16:44:37,792 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 16:44:40,172 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 16:44:42,723 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 16:44:45,170 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 16:44:47,941 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 16:44:47,955 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 16:44:47,961 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 16:44:47,968 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 16:44:47,974 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 16:44:47,977 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 16:44:35 2016 (UTC).
+0.9998611111111111 day(s) until it expires.
+
+[2016-12-30 16:44:47,982 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 16:44:47,987 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 17:17:02,165 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:17:02,178 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo'
+
+[2016-12-30 17:17:02,178 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged'
+
+[2016-12-30 17:17:02,178 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/targets'
+
+[2016-12-30 17:17:02,179 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 17:17:04,430 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 17:17:06,730 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 17:17:08,962 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 17:17:11,216 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 17:17:13,528 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 17:17:13,546 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 17:17:13,549 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 17:17:13,555 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 17:17:13,561 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 17:17:13,563 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 17:17:02 2016 (UTC).
+0.9998726851851852 day(s) until it expires.
+
+[2016-12-30 17:17:13,567 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 17:17:13,569 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 17:17:34,670 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo'
+
+[2016-12-30 17:17:34,671 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged'
+
+[2016-12-30 17:17:34,671 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/targets'
+
+[2016-12-30 17:17:34,672 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 17:17:37,060 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 17:17:39,325 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 17:17:41,583 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 17:17:43,829 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 17:17:46,123 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:17:46,124 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:17:46,124 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:17:46,124 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:36:14,118 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:38:31,240 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:40:08,617 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:40:52,475 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:42:27,609 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:42:55,360 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:42:55,386 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo'
+
+[2016-12-30 17:42:55,386 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged'
+
+[2016-12-30 17:42:55,386 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/targets'
+
+[2016-12-30 17:42:55,387 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 17:42:57,489 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 17:42:59,657 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 17:43:01,757 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 17:43:03,814 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 17:43:05,924 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 17:43:05,935 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 17:43:05,939 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 17:43:05,950 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 17:43:05,955 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 17:43:05,957 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 17:42:55 2016 (UTC).
+0.9998842592592593 day(s) until it expires.
+
+[2016-12-30 17:43:05,960 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 17:43:05,962 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 17:43:05,969 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 17:43:08,087 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 17:43:10,318 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 17:43:12,542 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 17:45:41,498 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:45:41,527 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo'
+
+[2016-12-30 17:45:41,528 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged'
+
+[2016-12-30 17:45:41,528 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/targets'
+
+[2016-12-30 17:45:41,528 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 17:45:43,666 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 17:45:45,742 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 17:45:47,847 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 17:45:49,922 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 17:45:52,029 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 17:45:52,037 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 17:45:52,039 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 17:45:52,046 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 17:45:52,051 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 17:45:52,053 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 17:45:41 2016 (UTC).
+0.9998726851851852 day(s) until it expires.
+
+[2016-12-30 17:45:52,055 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 17:45:52,057 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 17:45:52,063 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 17:45:54,146 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 17:45:56,255 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 17:45:58,380 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 17:46:41,014 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:46:41,035 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 17:46:43,266 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 17:46:45,395 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 17:46:47,503 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 17:48:02,795 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:48:02,818 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 17:48:04,910 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 17:48:06,979 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 17:48:09,066 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 17:53:07,850 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 17:53:07,872 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 17:53:09,946 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 17:53:12,014 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 17:53:14,053 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 17:53:16,129 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/111'
+
+[2016-12-30 17:53:16,129 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged'
+
+[2016-12-30 17:53:16,129 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/111/targets'
+
+[2016-12-30 17:53:16,131 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/113'
+
+[2016-12-30 17:53:16,131 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged'
+
+[2016-12-30 17:53:16,132 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/113/targets'
+
+[2016-12-30 17:53:16,132 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:53:16,132 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:53:16,132 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:53:16,133 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:53:16,133 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/112'
+
+[2016-12-30 17:53:16,134 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged'
+
+[2016-12-30 17:53:16,134 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/112/targets'
+
+[2016-12-30 17:53:16,134 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:53:16,134 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:53:16,135 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:53:16,135 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 17:53:16,145 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/root.json'
+
+[2016-12-30 17:53:16,148 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/root.json'
+
+[2016-12-30 17:53:16,152 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/targets.json'
+
+[2016-12-30 17:53:16,156 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/snapshot.json'
+
+[2016-12-30 17:53:16,157 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 17:53:16 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 17:53:16,160 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 17:53:16,162 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 17:53:16,173 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/root.json'
+
+[2016-12-30 17:53:16,175 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/root.json'
+
+[2016-12-30 17:53:16,178 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/targets.json'
+
+[2016-12-30 17:53:16,183 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/snapshot.json'
+
+[2016-12-30 17:53:16,184 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 17:53:16 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 17:53:16,188 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 17:53:16,190 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 17:53:16,201 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/root.json'
+
+[2016-12-30 17:53:16,203 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/root.json'
+
+[2016-12-30 17:53:16,207 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/targets.json'
+
+[2016-12-30 17:53:16,211 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/snapshot.json'
+
+[2016-12-30 17:53:16,212 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 17:53:16 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 17:53:16,215 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 17:53:16,217 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:00:35,847 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:00:35,881 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 18:00:38,137 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 18:00:40,387 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 18:00:42,664 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 18:00:44,924 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/111'
+
+[2016-12-30 18:00:44,924 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged'
+
+[2016-12-30 18:00:44,925 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/111/targets'
+
+[2016-12-30 18:00:44,927 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/112'
+
+[2016-12-30 18:00:44,927 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged'
+
+[2016-12-30 18:00:44,927 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/112/targets'
+
+[2016-12-30 18:00:44,928 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:00:44,928 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:00:44,928 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:00:44,928 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:00:44,929 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/113'
+
+[2016-12-30 18:00:44,929 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged'
+
+[2016-12-30 18:00:44,929 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/director/113/targets'
+
+[2016-12-30 18:00:44,930 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:00:44,930 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:00:44,931 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:00:44,931 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:00:44,942 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:00:44,944 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:00:44,948 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/targets.json'
+
+[2016-12-30 18:00:44,952 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/snapshot.json'
+
+[2016-12-30 18:00:44,954 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:00:44 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 18:00:44,957 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:00:44,959 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:00:44,970 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:00:44,972 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:00:44,976 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/targets.json'
+
+[2016-12-30 18:00:44,980 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/snapshot.json'
+
+[2016-12-30 18:00:44,983 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:00:44 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 18:00:44,986 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:00:44,988 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:00:44,999 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:00:45,001 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:00:45,005 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/targets.json'
+
+[2016-12-30 18:00:45,009 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/snapshot.json'
+
+[2016-12-30 18:00:45,011 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:00:44 2016 (UTC).
+0.999988425925926 day(s) until it expires.
+
+[2016-12-30 18:00:45,014 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:00:45,016 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:04,329 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:03:04,359 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 18:03:06,639 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 18:03:08,819 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 18:03:10,990 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 18:03:13,211 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112'
+
+[2016-12-30 18:03:13,212 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged'
+
+[2016-12-30 18:03:13,212 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/targets'
+
+[2016-12-30 18:03:13,215 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111'
+
+[2016-12-30 18:03:13,215 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged'
+
+[2016-12-30 18:03:13,215 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/targets'
+
+[2016-12-30 18:03:13,216 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:13,216 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:13,216 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:13,217 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:13,218 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113'
+
+[2016-12-30 18:03:13,218 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged'
+
+[2016-12-30 18:03:13,218 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/targets'
+
+[2016-12-30 18:03:13,218 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:13,219 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:13,219 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:13,219 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:13,228 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:03:13,230 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:03:13,234 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/targets.json'
+
+[2016-12-30 18:03:13,238 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/snapshot.json'
+
+[2016-12-30 18:03:13,240 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:03:13 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 18:03:13,242 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:13,244 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:13,255 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:03:13,257 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:03:13,261 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/targets.json'
+
+[2016-12-30 18:03:13,265 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/snapshot.json'
+
+[2016-12-30 18:03:13,267 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:03:13 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 18:03:13,270 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:13,272 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:13,284 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:03:13,286 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:03:13,289 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/targets.json'
+
+[2016-12-30 18:03:13,294 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/snapshot.json'
+
+[2016-12-30 18:03:13,296 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:03:13 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 18:03:13,299 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:13,300 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:34,422 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 18:03:36,511 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 18:03:38,630 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 18:03:40,714 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 18:03:42,819 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112'
+
+[2016-12-30 18:03:42,819 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged'
+
+[2016-12-30 18:03:42,820 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/targets'
+
+[2016-12-30 18:03:42,820 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,821 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,821 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,822 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,822 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111'
+
+[2016-12-30 18:03:42,823 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged'
+
+[2016-12-30 18:03:42,823 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/targets'
+
+[2016-12-30 18:03:42,823 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,824 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,824 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,824 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,825 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113'
+
+[2016-12-30 18:03:42,825 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged'
+
+[2016-12-30 18:03:42,825 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/targets'
+
+[2016-12-30 18:03:42,826 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,826 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,826 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,827 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:03:42,835 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:03:42,840 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:03:42,844 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/targets.json'
+
+[2016-12-30 18:03:42,848 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/snapshot.json'
+
+[2016-12-30 18:03:42,850 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:03:13 2016 (UTC).
+0.9996643518518519 day(s) until it expires.
+
+[2016-12-30 18:03:42,853 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:42,855 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:42,865 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:03:42,868 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:03:42,873 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/targets.json'
+
+[2016-12-30 18:03:42,877 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/snapshot.json'
+
+[2016-12-30 18:03:42,879 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:03:13 2016 (UTC).
+0.9996643518518519 day(s) until it expires.
+
+[2016-12-30 18:03:42,882 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:42,884 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:42,895 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:03:42,897 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:03:42,901 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/targets.json'
+
+[2016-12-30 18:03:42,906 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/snapshot.json'
+
+[2016-12-30 18:03:42,908 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:03:13 2016 (UTC).
+0.9996643518518519 day(s) until it expires.
+
+[2016-12-30 18:03:42,910 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:03:42,912 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:05,685 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:04:05,720 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 18:04:08,049 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 18:04:10,325 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 18:04:12,613 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 18:04:14,800 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112'
+
+[2016-12-30 18:04:14,800 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged'
+
+[2016-12-30 18:04:14,801 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/targets'
+
+[2016-12-30 18:04:14,802 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111'
+
+[2016-12-30 18:04:14,803 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged'
+
+[2016-12-30 18:04:14,803 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/targets'
+
+[2016-12-30 18:04:14,803 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:14,803 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:14,804 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:14,804 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:14,804 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113'
+
+[2016-12-30 18:04:14,805 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged'
+
+[2016-12-30 18:04:14,805 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/targets'
+
+[2016-12-30 18:04:14,805 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:14,806 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:14,806 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:14,806 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:14,816 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:04:14,819 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:04:14,824 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/targets.json'
+
+[2016-12-30 18:04:14,830 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/snapshot.json'
+
+[2016-12-30 18:04:14,832 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:04:14 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 18:04:14,835 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:14,838 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:14,850 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:04:14,851 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:04:14,855 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/targets.json'
+
+[2016-12-30 18:04:14,861 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/snapshot.json'
+
+[2016-12-30 18:04:14,863 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:04:14 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 18:04:14,865 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:14,867 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:14,880 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:04:14,882 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:04:14,885 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/targets.json'
+
+[2016-12-30 18:04:14,890 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/snapshot.json'
+
+[2016-12-30 18:04:14,892 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:04:14 2016 (UTC).
+1.0 day(s) until it expires.
+
+[2016-12-30 18:04:14,895 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:14,897 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:36,694 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorroot.pub)
+
+[2016-12-30 18:04:38,942 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directortimestamp.pub)
+
+[2016-12-30 18:04:41,144 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/directorsnapshot.pub)
+
+[2016-12-30 18:04:43,401 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/director.pub)
+
+[2016-12-30 18:04:45,688 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112'
+
+[2016-12-30 18:04:45,689 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged'
+
+[2016-12-30 18:04:45,689 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/targets'
+
+[2016-12-30 18:04:45,689 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,690 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,690 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,690 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,691 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111'
+
+[2016-12-30 18:04:45,691 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged'
+
+[2016-12-30 18:04:45,691 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/targets'
+
+[2016-12-30 18:04:45,692 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,692 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,692 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,692 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,693 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113'
+
+[2016-12-30 18:04:45,693 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged'
+
+[2016-12-30 18:04:45,693 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/targets'
+
+[2016-12-30 18:04:45,694 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,694 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,694 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,694 UTC] [tuf.repository_tool] [WARNING] [add_verification_key:643@repository_tool.py]
+Adding a verification key that has already been used.
+
+[2016-12-30 18:04:45,701 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:04:45,705 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/root.json'
+
+[2016-12-30 18:04:45,711 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/targets.json'
+
+[2016-12-30 18:04:45,715 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/snapshot.json'
+
+[2016-12-30 18:04:45,717 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:04:14 2016 (UTC).
+0.9996412037037037 day(s) until it expires.
+
+[2016-12-30 18:04:45,720 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:45,722 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/112/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:45,734 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:04:45,736 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/root.json'
+
+[2016-12-30 18:04:45,742 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/targets.json'
+
+[2016-12-30 18:04:45,747 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/snapshot.json'
+
+[2016-12-30 18:04:45,749 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:04:14 2016 (UTC).
+0.9996412037037037 day(s) until it expires.
+
+[2016-12-30 18:04:45,752 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:45,755 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/111/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:45,770 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:04:45,772 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/root.json'
+
+[2016-12-30 18:04:45,779 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/targets.json'
+
+[2016-12-30 18:04:45,784 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/snapshot.json'
+
+[2016-12-30 18:04:45,786 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 18:04:14 2016 (UTC).
+0.9996412037037037 day(s) until it expires.
+
+[2016-12-30 18:04:45,789 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:04:45,791 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/director/director/113/metadata.staged/timestamp.json'
+
+[2016-12-30 18:14:22,487 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:14:27,414 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:22:24,840 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:25:19,966 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:26:35,588 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:29:22,609 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:29:41,592 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:30:00,753 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:30:01,354 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:37:10,951 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:37:18,381 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:38:34,092 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:38:43,207 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:39:36,128 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:39:42,567 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:42:15,363 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:49:35,532 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:49:44,027 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:50:27,860 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:50:31,889 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:57:13,799 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 18:58:01,095 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:14:55,467 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:15:29,502 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:15:54,404 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:15:56,228 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:26:18,384 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:31:20,714 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:31:45,745 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:32:58,661 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:33:08,053 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:37:02,863 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:37:34,698 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:38:16,243 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:39:15,789 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:40:45,199 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:40:59,917 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:41:01,592 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:41:57,392 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:43:13,458 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:43:50,483 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:44:10,308 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:45:39,237 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:54:03,113 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:54:14,945 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:55:04,184 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:55:26,914 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:58:33,940 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:58:44,926 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:59:11,947 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:59:16,821 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:59:49,456 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 19:59:55,033 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 20:14:49,630 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 20:18:42,117 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 20:18:49,361 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 20:20:45,657 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 20:23:04,408 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 20:23:21,437 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 20:32:24,197 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 21:24:16,194 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 21:24:16,198 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo'
+
+[2016-12-30 21:24:16,198 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged'
+
+[2016-12-30 21:24:16,198 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/targets'
+
+[2016-12-30 21:24:16,199 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 21:24:18,578 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 21:24:20,964 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 21:24:23,207 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 21:24:25,552 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 21:24:27,916 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 21:24:27,931 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 21:24:27,935 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 21:24:27,944 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 21:24:27,949 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 21:24:27,953 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 21:24:16 2016 (UTC).
+0.9998726851851852 day(s) until it expires.
+
+[2016-12-30 21:24:27,957 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 21:24:27,959 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 21:31:10,452 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 21:31:10,456 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2803@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo'
+
+[2016-12-30 21:31:10,457 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2827@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged'
+
+[2016-12-30 21:31:10,457 UTC] [tuf.repository_tool] [INFO] [create_new_repository:2840@repository_tool.py]
+Creating '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/targets'
+
+[2016-12-30 21:31:10,457 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainroot.pub)
+
+[2016-12-30 21:31:12,674 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintimestamp.pub)
+
+[2016-12-30 21:31:14,924 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainsnapshot.pub)
+
+[2016-12-30 21:31:17,132 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/maintargets.pub)
+
+[2016-12-30 21:31:19,459 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/demo/keys/mainrole1.pub)
+
+[2016-12-30 21:31:21,779 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/role1.json'
+
+[2016-12-30 21:31:21,789 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 21:31:21,791 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/root.json'
+
+[2016-12-30 21:31:21,803 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/targets.json'
+
+[2016-12-30 21:31:21,809 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/snapshot.json'
+
+[2016-12-30 21:31:21,811 UTC] [tuf.repository_lib] [WARNING] [_log_warning_if_expires_soon:739@repository_lib.py]
+'timestamp.json' expires Sat Dec 31 21:31:10 2016 (UTC).
+0.9998726851851852 day(s) until it expires.
+
+[2016-12-30 21:31:21,815 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 21:31:21,818 UTC] [tuf.repository_lib] [DEBUG] [write_metadata_file:1964@repository_lib.py]
+Saving '/Users/ecain/Projects/SOTA/web2py/applications/UPTANE/modules/uptane/mainrepo/metadata.staged/timestamp.json'
+
+[2016-12-30 23:11:51,986 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 23:12:03,108 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 23:14:54,835 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 23:15:01,549 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 23:26:51,758 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 23:29:43,709 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 23:41:26,334 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2016-12-30 23:42:09,847 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:26:41,754 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:32:41,192 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:34:12,720 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:36:42,941 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:36:58,168 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:38:08,434 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:48:30,093 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:49:40,157 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:53:47,442 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-02 17:56:35,654 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+

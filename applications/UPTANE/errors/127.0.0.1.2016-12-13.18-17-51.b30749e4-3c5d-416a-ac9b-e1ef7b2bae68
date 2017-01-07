@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<class 'sqlite3.OperationalError'> no such table: ecu_db"
+p3
+sS'layer'
+p4
+S'/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 0x10ff37ab0, file "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:index", line 10>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/restricted.py", line 216, in restricted\n    exec(ccode, environment)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:index", line 174, in <module>\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/globals.py", line 405, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/tools.py", line 4321, in f\n    return action(*a, **b)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:index", line 25, in index\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/tools.py", line 4321, in f\n    return action(*a, **b)\n  File "/Users/ecain/Projects/SOTA/web2py/applications/SOTA/controllers/default.py:index", line 171, in database_contents\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/sqlhtml.py", line 2415, in grid\n    create_form = SQLFORM(table, **sqlformargs)\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/sqlhtml.py", line 1408, in __init__\n    inp = self.widgets.multiple.widget(field, default)\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/sqlhtml.py", line 373, in widget\n    return OptionsWidget.widget(field, value, **attributes)\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/sqlhtml.py", line 324, in widget\n    options = requires[0].options()\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/validators.py", line 2647, in _options\n    options = self.other.options(*args, **kwargs)\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/validators.py", line 600, in options\n    self.build_set()\n  File "/Users/ecain/Projects/SOTA/web2py/gluon/validators.py", line 586, in build_set\n    records = self.dbset(table).select(*fields, **dd)\n  File "/usr/local/lib/python2.7/site-packages/pydal/objects.py", line 2045, in select\n    return adapter.select(self.query, fields, attributes)\n  File "/usr/local/lib/python2.7/site-packages/pydal/adapters/sqlite.py", line 82, in select\n    return super(SQLite, self).select(query, fields, attributes)\n  File "/usr/local/lib/python2.7/site-packages/pydal/adapters/base.py", line 746, in select\n    return self._select_aux(sql, fields, attributes, colnames)\n  File "/usr/local/lib/python2.7/site-packages/pydal/adapters/base.py", line 704, in _select_aux\n    rows = self._select_aux_execute(sql)\n  File "/usr/local/lib/python2.7/site-packages/pydal/adapters/base.py", line 698, in _select_aux_execute\n    self.execute(sql)\n  File "/usr/local/lib/python2.7/site-packages/pydal/adapters/__init__.py", line 67, in wrap\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python2.7/site-packages/pydal/adapters/base.py", line 416, in execute\n    rv = self.cursor.execute(command, *args[1:], **kwargs)\nOperationalError: no such table: ecu_db\n'
+p11
+s.
