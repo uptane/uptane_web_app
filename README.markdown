@@ -47,9 +47,14 @@ PyDAL uses a separate stable release cycle to the rest of web2py. PyDAL releases
 
 To start web2py there is NO NEED to install it. Just unzip and do:
 
-    python web2py.py
+    python3 web2py.py
+    
+To provide an admin password use the -a parameter, if using https supply the certificate and private key via the -c and -k options.  
+  Next, provide the address via the -i option, and the port via the -p option. The command will appear as follows:
 
-That's it!!!
+    python3 web2py.py -a 'uptane' -c server.crt -k server.key -i 127.0.0.1 -p 8000
+
+That's it!
 
 ## web2py directory structure
 
