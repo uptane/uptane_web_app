@@ -9,6 +9,7 @@
 # -------------------------------------------------------------------------
 from web2py import gluon
 from applications.UPTANE.modules.test_external import create_meta
+from collections import OrderedDict
 
 @auth.requires_login()
 def index():
@@ -82,12 +83,12 @@ def determine_available_updates():
             ecu = db(db.ecu_db.id == e).select().first()
             #print('\becu:\t{0}'.format(ecu))
             # Retrieve the name from the ecu object
-            ecu_name = ecu.ecu_name
-            #print('\becu_name:\t{0}'.format(ecu_name))
-            # Query the database for updates for ecu_name
-            ecu_name_updates = db(db.ecu_db.ecu_name == ecu_name).select()
-            #print('\becu_name_updates:\t{0}'.format(ecu_name_updates))
-            for name_update in ecu_name_updates:
+            ecu_type = ecu.ecu_type
+            #print('\becu_type:\t{0}'.format(ecu_type))
+            # Query the database for updates for ecu_type
+            ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select()
+            #print('\becu_type_updates:\t{0}'.format(ecu_type_updates))
+            for name_update in ecu_type_updates:
                 # Iterate through to determine if id # is > current ecu_id (not ideal, but straight-forward solution
                 #   versus checking the version #'s b/n the updates
                 if name_update.id > e:
@@ -162,11 +163,11 @@ def update_form():
         # print type(auth.user.username)
         #db.supplier_db.update()
 
-        meta = create_meta(form.vars.ecu_name + '_' + form.vars.update_version)
+        meta = create_meta(form.vars.ecu_type + '_' + form.vars.update_version)
         id_added = db.ecu_db.update_or_insert((db.ecu_db.supplier_name == auth.user.username) &
-                                        (db.ecu_db.ecu_name == form.vars.ecu_name) &
+                                        (db.ecu_db.ecu_type == form.vars.ecu_type) &
                                         (db.ecu_db.update_version == form.vars.update_version),
-                                        ecu_name=form.vars.ecu_name,
+                                        ecu_type=form.vars.ecu_type,
                                         update_version=form.vars.update_version,
                                         supplier_name=auth.user.username,
                                         metadata=meta,
@@ -186,9 +187,9 @@ def update_form():
 def add_ecu_validation(form):
     meta = create_meta('3')
     id_added = db.ecu_db.update_or_insert((db.ecu_db.supplier_name == auth.user.username) &
-                                        (db.ecu_db.ecu_name == form.vars.ecu_name) &
+                                        (db.ecu_db.ecu_type == form.vars.ecu_type) &
                                         (db.ecu_db.update_version == form.vars.update_version),
-                                        ecu_name=form.vars.ecu_name,
+                                        ecu_type=form.vars.ecu_type,
                                         update_version=form.vars.update_version,
                                         supplier_name=auth.user.username,
                                         metadata=meta,
@@ -197,6 +198,27 @@ def add_ecu_validation(form):
 @auth.requires_login()
 def create_vehicle(form):
     print('\n\ncreating vehicle now\n{0}\n'.format(form.vars))
+
+@auth.requires_login()
+def get_director_versions():
+    for vehicle in db(db.vehicle_db.oem==auth.user.username).select():
+        #print('\nvehicle: {0}'.format(vehicle))
+        director_version = ''
+        version_dict = {}
+        #print('ecu_list unsorted: {0}\necu_list sorted: {1}'.format(vehicle.ecu_list, sorted(vehicle.ecu_list)))
+        for ecu in vehicle.ecu_list:
+            ecu_type       = db(db.ecu_db.id==ecu).select().first().ecu_type
+            update_version = db(db.ecu_db.id==ecu).select().first().update_version
+            version_dict[ecu_type] = update_version
+            director_version += ' ' + str(ecu_type) + ' : ' + str(update_version)
+            print('director_version: {0}'.format(director_version))
+            #print('version_dict: {0}'.format(version_dict))
+            print('ordered: version_dict: {0}'.format(OrderedDict(sorted(version_dict.items()))))
+        # Director Version
+        db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = director_version)
+        # Dictionary Version
+        #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = version_dict)
+#        print('\nAFTER vehicle: {0}'.format(vehicle))
 
 
 @auth.requires_login()
@@ -231,11 +253,14 @@ def database_contents():
         return db_contents
     #else it's an OEM; so display database applicable to them
     else:
+        print('\nrequest: {0}'.format(request.vars['ecu_list']))
+        get_director_versions()
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username,
                                    selectable=lambda vehicle_id: selected_vehicle(vehicle_id), csv=False,
                                    searchable=False, details=False, editable=True, oncreate=create_vehicle,
-                                   selectable_submit_button='Edit Vehicle')#,
-                                   #links = [lambda row: A('Push Update',_href=URL("default","show",args=[row.id]))])
+                                   selectable_submit_button='View Vehicle Data')#,
+                                   #links = [lambda row: A('Director Updates', body=lambda row:row.virtual1)])
+                                   # HREF link to another page - may be good for 'available updates': links = [lambda row: A('Director Updates', _href=URL("default","show",args=[row.id]))])
         changed_ecu_list = request.vars['changed_ecu_list']
         edited_vehicle=request.vars['vehicle_id']
         print('changed!!!')
@@ -263,26 +288,26 @@ def selected_vehicle(vehicle_id):
     #print selected_vehicle.ecu_list
     vehicle_ecu_list = []
     ecu_id_list = []
-    ecu_name_list = []
+    ecu_type_list = []
     for ecu in vehicle.ecu_list:
         #print ecu
         #print type(ecu)
         selected_ecu = db(db.ecu_db.id==ecu).select().first()
-        #print selected_ecu.ecu_name
+        #print selected_ecu.ecu_type
         #print type(selected_ecu)
         # Add all ecu_id's to the ecu_id_list
         vehicle_ecu_list.append(selected_ecu)
         ecu_id_list.append(selected_ecu.id)
-        # Only add ecu_names if they are not currently in the ecu_name_list
-        if selected_ecu.ecu_name not in ecu_name_list:ecu_name_list.append(selected_ecu.ecu_name)
-        #name = selected_ecu.ecu_name
+        # Only add ecu_types if they are not currently in the ecu_type_list
+        if selected_ecu.ecu_type not in ecu_type_list:ecu_type_list.append(selected_ecu.ecu_type)
+        #name = selected_ecu.ecu_type
         #print name
     print('ecu_id_list')
     print(vehicle_ecu_list)
     #ecu_view = (dict(ecu_list=SQLFORM.grid((db.ecu_db.id==ecu_id_list[0]))))
     #return locals()
 
-    redirect(URL('ecu_list', vars=dict(vehicle_ecu_list=vehicle_ecu_list, ecu_name_list=ecu_name_list, ecu_id_list=ecu_id_list, vehicle_id=vehicle_id)))
+    redirect(URL('ecu_list', vars=dict(vehicle_ecu_list=vehicle_ecu_list, ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list, vehicle_id=vehicle_id)))
     #ecu_list(ecu_id_list)
     #redirect(URL('next', 'list_records', vars=vehicle_id[0]))
 
@@ -290,22 +315,22 @@ def selected_vehicle(vehicle_id):
 def ecu_list():
     vehicle_ecu_list =  request.vars['vehicle_ecu_list']
     ecu_id_list =  request.vars['ecu_id_list']
-    ecu_name_list = request.vars['ecu_name_list']
+    ecu_type_list = request.vars['ecu_type_list']
     vehicle_id = request.vars['vehicle_id']
-    vehicle_name = db(db.vehicle_db.id==vehicle_id).select().first().name
+    vehicle_note = db(db.vehicle_db.id==vehicle_id).select().first().note
     #print ecu_id_list
-    #print ecu_name_list
+    #print ecu_type_list
     #print type(ecu_id_list)
-    #print len(ecu_name_list)
+    #print len(ecu_type_list)
     # Now have to build the query that will effect what is shown on the screen
     num_ecus = 0
     query = ''
-    for ecu in iter(ecu_name_list):
+    for ecu in iter(ecu_type_list):
         #print ecu
         num_ecus += 1
-        #query+="({0}=='{1}')".format(db.ecu_db.ecu_name,ecu)
-        query+="(db.ecu_db.ecu_name=='" + ecu + "')"
-        if num_ecus < len(ecu_name_list):
+        #query+="({0}=='{1}')".format(db.ecu_db.ecu_type,ecu)
+        query+="(db.ecu_db.ecu_type=='" + ecu + "')"
+        if num_ecus < len(ecu_type_list):
             query+=" | "
 
     print(query)
@@ -318,13 +343,13 @@ def ecu_list():
     #print type(mod_query)
     #print new_query2
     #print type(new_query2)
-        #ecu_name_list.append(ecu.ecu_name)
-    #print 'ecu_name_list'
-    #print ecu_name_list
+        #ecu_type_list.append(ecu.ecu_type)
+    #print 'ecu_type_list'
+    #print ecu_type_list
     #print 'afterwards'
     #return dict(ecu_list='Luke, I am your father')
     #return dict(ecu_list=SQLFORM.grid(db.vehicle_db.id==3))
-    #records = db(db.ecu_db.ecu_name=='ecu1')
+    #records = db(db.ecu_db.ecu_type=='ecu1')
     #print records
     #print 'yep'
     # THIS WORKS
@@ -335,13 +360,14 @@ def ecu_list():
     #content=SQLFORM.grid(mod_query, selectable=lambda ecu_id: selected_ecus(ecu_id_list))
     #return content
 
-    return dict(ecu_name_list=ecu_name_list, ecu_id_list=ecu_id_list,
+    return dict(ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list,
                 ecu_list=SQLFORM.grid(mod_query, selectable=lambda ecus: selected_ecus(ecus), csv=False,
-                                      searchable=False,editable=False, deletable=False, create=False,#details=False
-                                      selectable_submit_button='Select ECU\'s'),
-                vehicle_name=vehicle_name)#, selected=ecu_id_list))
-    #return dict(ecu_list=SQLFORM.grid((db.ecu_db.ecu_name=='ecu1') | (db.ecu_db.ecu_name=='ecu2')))
-    #redirect(URL('ecu_list', vars=dict(ecu_list=SQLFORM.grid((db.ecu_db.ecu_name=='ecu1') | (db.ecu_db.ecu_name=='ecu1'))))
+                                      orderby=[db.ecu_db.ecu_type, ~db.ecu_db.update_version],
+                                      searchable=False,editable=False, deletable=False, create=False,details=False,
+                                      selectable_submit_button='Create Bundle'),
+                vehicle_note=vehicle_note)#, selected=ecu_id_list))
+    #return dict(ecu_list=SQLFORM.grid((db.ecu_db.ecu_type=='ecu1') | (db.ecu_db.ecu_type=='ecu2')))
+    #redirect(URL('ecu_list', vars=dict(ecu_list=SQLFORM.grid((db.ecu_db.ecu_type=='ecu1') | (db.ecu_db.ecu_type=='ecu1'))))
 
     #db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username, selectable=lambda vehicle_id: selected_vehicle(vehicle_id))
 

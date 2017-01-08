@@ -2370,6 +2370,7 @@ class SQLFORM(FORM):
             fields = [f for f in fields] + [field_id]
         if upload == '<default>':
             upload = lambda filename: url(args=['download', filename])
+            print('\nInside SQLhtml.py filename: {0}'.format(upload))
             if request.args(-2) == 'download':
                 stream = response.download(request, db)
                 raise HTTP(200, stream, **response.headers)
@@ -2903,8 +2904,16 @@ class SQLFORM(FORM):
                     elif field.type == 'upload':
                         if value:
                             if callable(upload):
+                                # First gather the name of the file from the value
+                                retrieve_filename = str(value).split('.')[-2]
+
+                                # Next, convert the name of the file from hex to ascii and use this value
+                                # as the filename displayed to the user
+                                display_filename = bytes.fromhex(retrieve_filename).decode('utf-8')
+                                print('hex to ascii: {0}'.format(display_filename))
+
                                 value = A(
-                                    T('file'), _href=upload(value))
+                                    T(display_filename), _href=upload(value))
                             elif upload:
                                 value = A(T('file'),
                                           _href='%s/%s' % (upload, value))
