@@ -2312,3 +2312,6 @@ open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/timeserver.pub)
 [2017-01-09 22:07:10,436 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
 open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/timeserver.pub)
 
+[2017-01-09 22:21:32,199 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+

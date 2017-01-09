@@ -10,8 +10,8 @@
 from web2py import gluon
 from applications.UPTANE.modules.test_external import create_meta
 from collections import OrderedDict
-import demo
-import demo.demo_primary as dp
+import uptane.demo as demo
+#import demo.demo_primary as dp
 import xmlrpc.client
 import os
 
