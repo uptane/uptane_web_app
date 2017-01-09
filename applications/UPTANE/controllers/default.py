@@ -248,13 +248,8 @@ def get_vehicle_versions():
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                             ':' + str(demo.DIRECTOR_SERVER_PORT))
     print('director created')
-    print('last vehicle manifest: {0}'.format(director.get_last_vehicle_manifest('111')))
+    #print('last vehicle manifest: {0}'.format(director.get_last_vehicle_manifest('111')))
 
-
-    var2 = supplier.write_supplier_repo()
-    print('supplier.write_supplier_repo: {0}'.format(var2))
-    #var3 = supplier.write_supplier_repo()
-    #print('supplier.write_supplier_repo: {0}'.format(var3))
 
     for vehicle in db(db.vehicle_db.oem==auth.user.username).select():
         print('vehicle: {0} : vin#: {1}'.format(vehicle, vehicle.vin))
@@ -376,7 +371,7 @@ def ecu_list():
         if num_ecus < len(ecu_type_list):
             query+=" | "
 
-    print(query)
+    print('time for the query: {0}'.format(query))
     # This line changes our custom query (created above) from a str to a type Query
     # This enables us to send the query as the first argument for SQLFORM.grid()
     mod_query = db(eval(query))
@@ -407,12 +402,17 @@ def ecu_list():
                 ecu_list=SQLFORM.grid(mod_query, selectable=lambda ecus: selected_ecus(ecus), csv=False,
                                       orderby=[db.ecu_db.ecu_type, ~db.ecu_db.update_version],
                                       searchable=False,editable=False, deletable=False, create=False,details=False,
-                                      selectable_submit_button='Create Bundle'),
+                                      selectable_submit_button='Create Bundle',
+                                      onupdate=create_bundle_update()),
                 vehicle_note=vehicle_note)#, selected=ecu_id_list))
     #return dict(ecu_list=SQLFORM.grid((db.ecu_db.ecu_type=='ecu1') | (db.ecu_db.ecu_type=='ecu2')))
     #redirect(URL('ecu_list', vars=dict(ecu_list=SQLFORM.grid((db.ecu_db.ecu_type=='ecu1') | (db.ecu_db.ecu_type=='ecu1'))))
 
     #db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username, selectable=lambda vehicle_id: selected_vehicle(vehicle_id))
+
+@auth.requires_login()
+def create_bundle_update():
+    print('\n\nUP inside the update')
 
 
 @auth.requires_login()
@@ -421,8 +421,18 @@ def selected_ecus(selected_ecus):
     ecu_id_list = request.vars['ecu_id_list']
     changed_ecu_list = []
     vehicle_id = request.vars['vehicle_id']
+
+    isPrimary = False
+    isSecondary = False
     for ecu in selected_ecus:
         if str(ecu) not in ecu_id_list:
+            print('ecu: {0}'.format(ecu))
+            cur_ecu = db(db.ecu_db.id==ecu).select().first()
+            print('\ncur_ecu: {0}'.format(cur_ecu))
+            if 'INFO' == cur_ecu.ecu_type:
+                isPrimary=True
+            else:
+                isSecondary=True
             changed_ecu_list.append(ecu)
         else:
             print(str(ecu) + ' is in the list!')
@@ -430,6 +440,36 @@ def selected_ecus(selected_ecus):
     print('changed_ecu_list: {0}'.format(changed_ecu_list))
     if changed_ecu_list:
         db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
+
+
+        director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                                ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+        # Do a check to see if it's the Primary or Secondary (potentially add it after appending to
+        #   changed_ecu_list w/ boolean isPrimary, isSecondary)
+
+
+        # Add the bundle to the vehicle
+        cwd = os.getcwd()
+
+        print('\ncwd now: {0}'.format(cwd))
+        print('\ncur_ecu: {0}'.format(cur_ecu))
+        print('\nisPrimary: {0}\tisSecondary: {1}'.format(isPrimary, isSecondary))
+        # Retrieve the filepath
+        #filepath = cwd + str(/path/to/file)
+        #print('filepath: {0}'.format(filepath))
+        #fname_after_split=str(update_image).split('.')[-2]
+        #filepath_in_repo =  bytes.fromhex(fname_after_split).decode('utf-8')
+        # After getting the file image name, convert the name of the file from hex to ascii
+        # and use this value to populate the supplier db with
+        #vehicle_id = request.vars['vehicle_id']
+        #print('vehicle_id: {0}'.format(vehicle_id))
+        # vin =
+        #ecu_serial =
+
+        #director.add_target_to_director(filepath, filepath_in_repo, vin, ecu_serial)
+        #director.write_director_repo()
+
 
 
     redirect(URL('index', vars=dict(ecu_id_list=ecu_id_list, selected_ecu_list=selected_ecus, changed_ecu_list=changed_ecu_list, vehicle_id=vehicle_id)))
