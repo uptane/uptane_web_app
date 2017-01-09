@@ -11,6 +11,7 @@ from web2py import gluon
 from applications.UPTANE.modules.test_external import create_meta
 from collections import OrderedDict
 import demo
+import demo.demo_primary as dp
 import xmlrpc.client
 import os
 
@@ -439,39 +440,50 @@ def selected_ecus(selected_ecus):
 
     print('changed_ecu_list: {0}'.format(changed_ecu_list))
     if changed_ecu_list:
-        db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
+        if len(changed_ecu_list) == 1:
+            db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
 
 
-        director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                                ':' + str(demo.DIRECTOR_SERVER_PORT))
+            director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                                    ':' + str(demo.DIRECTOR_SERVER_PORT))
 
-        # Do a check to see if it's the Primary or Secondary (potentially add it after appending to
-        #   changed_ecu_list w/ boolean isPrimary, isSecondary)
+            # Do a check to see if it's the Primary or Secondary (potentially add it after appending to
+            #   changed_ecu_list w/ boolean isPrimary, isSecondary)
+            print('\ncur_ecu: {0}'.format(cur_ecu))
+            print('\nisPrimary: {0}\tisSecondary: {1}'.format(isPrimary, isSecondary))
+
+            # Add the bundle to the vehicle
+            cwd = os.getcwd()
+            print('\ncwd now: {0}'.format(cwd))
+
+            # Retrieve the filename
+            filename = return_filename(cur_ecu.update_image)
+            filepath = cwd + str('/applications/UPTANE/static/uploads/'+filename)
 
 
-        # Add the bundle to the vehicle
-        cwd = os.getcwd()
+            vehicle_id = request.vars['vehicle_id']
+            #print('vehicle_id: {0}'.format(vehicle_id))
+            vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
+            ecu_serial = cur_ecu.serial
 
-        print('\ncwd now: {0}'.format(cwd))
-        print('\ncur_ecu: {0}'.format(cur_ecu))
-        print('\nisPrimary: {0}\tisSecondary: {1}'.format(isPrimary, isSecondary))
-        # Retrieve the filepath
-        #filepath = cwd + str(/path/to/file)
-        #print('filepath: {0}'.format(filepath))
-        #fname_after_split=str(update_image).split('.')[-2]
-        #filepath_in_repo =  bytes.fromhex(fname_after_split).decode('utf-8')
-        # After getting the file image name, convert the name of the file from hex to ascii
-        # and use this value to populate the supplier db with
-        #vehicle_id = request.vars['vehicle_id']
-        #print('vehicle_id: {0}'.format(vehicle_id))
-        # vin =
-        #ecu_serial =
+            print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
 
-        #director.add_target_to_director(filepath, filepath_in_repo, vin, ecu_serial)
-        #director.write_director_repo()
+            #if isPrimary:
+            #    demo.demo_primary.clean_slate(vin, ecu_serial)
+            #director.add_target_to_director(filepath, filename, vin, ecu_serial)
+            #director.write_director_repo()
 
 
 
     redirect(URL('index', vars=dict(ecu_id_list=ecu_id_list, selected_ecu_list=selected_ecus, changed_ecu_list=changed_ecu_list, vehicle_id=vehicle_id)))
 
+@auth.requires_login()
+def return_filename(update_image):
+    print('update_image: {0}'.format(update_image))
 
+    # After getting the file image name, convert the name of the file from hex to ascii
+    # and use this value to populate the supplier db with
+    fname_after_split=str(update_image).split('.')[-2]
+    filename = bytes.fromhex(fname_after_split).decode('utf-8')
+    print('filename: {0}'.format(filename))
+    return str(filename)
