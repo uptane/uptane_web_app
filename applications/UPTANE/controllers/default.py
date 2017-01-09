@@ -10,6 +10,9 @@
 from web2py import gluon
 from applications.UPTANE.modules.test_external import create_meta
 from collections import OrderedDict
+import demo
+import xmlrpc.client
+import os
 
 @auth.requires_login()
 def index():
@@ -120,6 +123,9 @@ def all_records():
 
 @auth.requires_login()
 def update_form():
+    print('\ncreating supplier now')
+    supplier = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
+                                            ':' + str(demo.MAIN_REPO_SERVICE_PORT))
     record = db.ecu_db(request.args(0))
     print(record)
     form=SQLFORM(db.ecu_db, record)
@@ -163,6 +169,24 @@ def update_form():
         # print type(auth.user.username)
         #db.supplier_db.update()
 
+
+        # Adding the update to the supplier_repo
+        cwd = os.getcwd()
+        print('current working directory: {0}'.format(cwd))
+        update_image = form.vars.update_image
+        print('directory of update_image: {0}'.format(update_image))
+        # After getting the file image name, convert the name of the file from hex to ascii
+        # and use this value to populate the supplier db with
+        fname_after_split=str(update_image).split('.')[-2]
+        fname = bytes.fromhex(fname_after_split).decode('utf-8')
+        print('fname: {0}'.format(fname))
+
+        var1 = supplier.add_target_to_supplier_repo(cwd+'/applications/UPTANE/static/uploads/'+update_image, fname)
+        #print('supplier.add_target_to_supplier_repo: {0}\n'.format(var1))
+        var2 = supplier.write_supplier_repo()
+        #print('write_supplier_repo: {0}'.format(var2))
+
+
         meta = create_meta(form.vars.ecu_type + '_' + form.vars.update_version)
         id_added = db.ecu_db.update_or_insert((db.ecu_db.supplier_name == auth.user.username) &
                                         (db.ecu_db.ecu_type == form.vars.ecu_type) &
@@ -172,7 +196,7 @@ def update_form():
                                         supplier_name=auth.user.username,
                                         metadata=meta,
                                         update_image=form.vars.update_image)
-        print(id_added)
+        print('id_added: {0}\necu:{1}'.format(id_added, db.ecu_db.id==id_added))
         print('after update or insert')
         response.flash = 'form accepted'
     elif form.process().errors:
@@ -214,12 +238,30 @@ def get_director_versions():
             print('director_version: {0}'.format(director_version))
             #print('version_dict: {0}'.format(version_dict))
             print('ordered: version_dict: {0}'.format(OrderedDict(sorted(version_dict.items()))))
-        # Director Version
+        # Director Str Version
         db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = director_version)
         # Dictionary Version
         #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = version_dict)
-#        print('\nAFTER vehicle: {0}'.format(vehicle))
 
+@auth.requires_login()
+def get_vehicle_versions():
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                            ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('director created')
+    print('last vehicle manifest: {0}'.format(director.get_last_vehicle_manifest('111')))
+
+
+    var2 = supplier.write_supplier_repo()
+    print('supplier.write_supplier_repo: {0}'.format(var2))
+    #var3 = supplier.write_supplier_repo()
+    #print('supplier.write_supplier_repo: {0}'.format(var3))
+
+    for vehicle in db(db.vehicle_db.oem==auth.user.username).select():
+        print('vehicle: {0} : vin#: {1}'.format(vehicle, vehicle.vin))
+        #Add a new vehicle to the director repo (which includes writing to the repo)
+        #director.add_new_vehicle(vehicle.vin)
+        #director.write_director_repo()
+        #print('\nvin#: {0} manifest: {1}'.format(vehicle.vin, director.get_last_vehicle_manifest(vehicle.vin)))
 
 @auth.requires_login()
 def database_contents():
@@ -255,6 +297,7 @@ def database_contents():
     else:
         print('\nrequest: {0}'.format(request.vars['ecu_list']))
         get_director_versions()
+        get_vehicle_versions()
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username,
                                    selectable=lambda vehicle_id: selected_vehicle(vehicle_id), csv=False,
                                    searchable=False, details=False, editable=True, oncreate=create_vehicle,
