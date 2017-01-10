@@ -10,11 +10,12 @@
 from web2py import gluon
 from applications.UPTANE.modules.test_external import create_meta
 from collections import OrderedDict
-import uptane.demo as demo
-#import demo.demo_primary as dp
+import demo
+import demo.demo_primary as dp
 import xmlrpc.client
 import os
 
+#print('\n\n\n\npath: {0}'.format(os.path.abspath(demo.__file__)))
 @auth.requires_login()
 def index():
     """
@@ -175,14 +176,15 @@ def update_form():
         cwd = os.getcwd()
         print('current working directory: {0}'.format(cwd))
         update_image = form.vars.update_image
-        print('directory of update_image: {0}'.format(update_image))
+        #print('directory of update_image: {0}'.format(update_image))
         # After getting the file image name, convert the name of the file from hex to ascii
         # and use this value to populate the supplier db with
-        fname_after_split=str(update_image).split('.')[-2]
-        fname = bytes.fromhex(fname_after_split).decode('utf-8')
-        print('fname: {0}'.format(fname))
+        filename = return_filename(update_image)
+        #fname_after_split=str(update_image).split('.')[-2]
+        #fname = bytes.fromhex(fname_after_split).decode('utf-8')
+        #print('fname: {0}'.format(fname))
 
-        var1 = supplier.add_target_to_supplier_repo(cwd+'/applications/UPTANE/static/uploads/'+update_image, fname)
+        var1 = supplier.add_target_to_supplier_repo(cwd+'/applications/UPTANE/static/uploads/'+update_image, filename)
         #print('supplier.add_target_to_supplier_repo: {0}\n'.format(var1))
         var2 = supplier.write_supplier_repo()
         #print('write_supplier_repo: {0}'.format(var2))
@@ -440,9 +442,8 @@ def selected_ecus(selected_ecus):
 
     print('changed_ecu_list: {0}'.format(changed_ecu_list))
     if changed_ecu_list:
+        db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
         if len(changed_ecu_list) == 1:
-            db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
-
 
             director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                                     ':' + str(demo.DIRECTOR_SERVER_PORT))
@@ -458,7 +459,7 @@ def selected_ecus(selected_ecus):
 
             # Retrieve the filename
             filename = return_filename(cur_ecu.update_image)
-            filepath = cwd + str('/applications/UPTANE/static/uploads/'+filename)
+            filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
 
 
             vehicle_id = request.vars['vehicle_id']
@@ -470,8 +471,8 @@ def selected_ecus(selected_ecus):
 
             #if isPrimary:
             #    demo.demo_primary.clean_slate(vin, ecu_serial)
-            #director.add_target_to_director(filepath, filename, vin, ecu_serial)
-            #director.write_director_repo()
+            director.add_target_to_director(filepath, filename, vin, ecu_serial)
+            director.write_director_repo()
 
 
 
