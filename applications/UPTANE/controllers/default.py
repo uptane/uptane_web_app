@@ -319,12 +319,17 @@ def get_vehicle_versions(list_of_vehicles):
     # Add a new vehicle to the director repo (then write to director repo)
     for vehicle in list_of_vehicles:#db(db.vehicle_db.oem==auth.user.username).select():
         print('vehicle: {0} : vin#: {1}'.format(vehicle, vehicle.vin))
-        vv = director.get_last_vehicle_manifest('Please Work')
-        # Parsing through vehicle version manifest for pertinent information
-        #if 'signed' in vv:
-        #    print(vv['signed']['ecu_version_manifests'])
-        vehicle.update_record(vehicle_version=vv)
-        #director.get_last_vehicle_manifest(vehicle.vin)
+        try:
+            vv = director.get_last_vehicle_manifest(vehicle.vin)
+            print('\nvv: {0}'.format(vv))
+            # Parsing through vehicle version manifest for pertinent information
+            #if 'signed' in vv:
+            #    print(vv['signed']['ecu_version_manifests'])
+            vehicle.update_record(vehicle_version=vv)
+            #director.get_last_vehicle_manifest(vehicle.vin)
+        except Exception:
+            vehicle.update_record(vehicle_version='None')
+            print('did not work with this error: {0}'.format(Exception))
 
 @auth.requires_login()
 def get_time_elapsed(list_of_vehicles):
