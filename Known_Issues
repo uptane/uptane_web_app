@@ -1,2 +1,5 @@
 1. Cannot handle a vehicle w/ only 1 ECU
 2. A LOT of validation is not currently being done
+3. Uploading a file (update image) for ECU: Currently, we're expecting (thus require) the update to be in the following directory:
+    uptane_web_app > applications > UPTANE > test_uploads
+4.
