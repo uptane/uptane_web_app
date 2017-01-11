@@ -2435,3 +2435,12 @@ open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/primary.pub)
 [2017-01-11 20:51:22,832 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
 open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/secondary.pub)
 
+[2017-01-11 21:36:02,926 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-11 22:25:23,194 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/primary.pub)
+
+[2017-01-11 22:25:23,195 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/secondary.pub)
+
