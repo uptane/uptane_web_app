@@ -38,7 +38,6 @@
         jQuery('tr[id={{=edited_vehicle}}]').each(function(){
             var button = $("<td><a id='update_button' href='/UPTANE/default/index'>Push Change</a></td>");
             button.click(function(){
-                alert($("#update_button").attr("href"));
                 jQuery('input[value={{=edited_vehicle}}]').attr('checked', 'checked');
             });
             button.appendTo(jQuery(this));
@@ -55,10 +54,9 @@
             console.log({{=available_updates}}[i]);
             var id_num = {{=available_updates}}[i];
             jQuery('tr[id=' + id_num + ']').each(function(){
-                var button = $("<td><a id='available_update_button' href='/UPTANE/default/index'>AVAILABLE UPDATE</a></td>");
+                var button = $("<td><div id='available_update_button'>AVAILABLE UPDATE</div></td>");
                 button.click(function(){
                     alert($("#available_update_button").attr("href"));
-                    jQuery('input[value=id_num]').attr('checked', 'checked');
                 });
                 button.appendTo(jQuery(this));
             });
@@ -67,7 +65,9 @@
 {{else:}}
 {{pass}}
 
+<!--
 <h1 align="center"><button type="button" onclick="location.href='/UPTANE/default/hacked';" value="HACKED"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Skull_and_crossbones.svg"/></button></h1>
+-->
 </body>
 {{end}}
 
