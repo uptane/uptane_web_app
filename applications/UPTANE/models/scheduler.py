@@ -24,7 +24,7 @@
 
 #from gluon.scheduler import Scheduler
 #scheduler = Scheduler(db)
-print('inside scheduler')
+#print('inside scheduler')
 #clean_slate()
 #scheduler.queue_task(clean_slate())
 
