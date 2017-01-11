@@ -11,9 +11,9 @@ from web2py import gluon
 from applications.UPTANE.modules.test_external import create_meta
 from collections import OrderedDict
 import demo
-import demo.demo_primary as dp
 import xmlrpc.client
 import os
+import datetime
 
 #print('\n\n\n\npath: {0}'.format(os.path.abspath(demo.__file__)))
 @auth.requires_login()
@@ -87,23 +87,32 @@ def determine_available_updates():
             # Retrieve the ecu based off the id
             ecu = db(db.ecu_db.id == e).select().first()
             #print('\becu:\t{0}'.format(ecu))
-            # Retrieve the name from the ecu object
+            # Retrieve the type from the ecu object
             ecu_type = ecu.ecu_type
             #print('\becu_type:\t{0}'.format(ecu_type))
-            # Query the database for updates for ecu_type
-            ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select()
+            # Query the database for updates for ecu_type and select the last one (i.e., most recent update)
+            ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select().last()
+            # If the last update for this ecu_type id is > ecu.id then there's a newer update available
+            # so append the vehicle id to the available update list
+            if ecu_type_updates.id > e:
+                available_update_list.append(v.id)
+                break
+            else:
+                continue
+
+            #ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select()
             #print('\becu_type_updates:\t{0}'.format(ecu_type_updates))
-            for name_update in ecu_type_updates:
-                # Iterate through to determine if id # is > current ecu_id (not ideal, but straight-forward solution
-                #   versus checking the version #'s b/n the updates
-                if name_update.id > e:
-                    if v.id not in available_update_list:
-                        available_update_list.append(v.id)
-                    #print('\nAppended the current vehicle: {0}'.format(v.id))
-                    break
-                else:
-                    #print('\nCurrent id: {0} is <= e {1}'.format(name_update.id, e))
-                    continue
+            #for name_update in ecu_type_updates:
+            #    # Iterate through to determine if id # is > current ecu_id (not ideal, but straight-forward solution
+            #    #   versus checking the version #'s b/n the updates
+            #    if name_update.id > e:
+            #        if v.id not in available_update_list:
+            #            available_update_list.append(v.id)
+            #        #print('\nAppended the current vehicle: {0}'.format(v.id))
+            #        break
+            #    else:
+            #        #print('\nCurrent id: {0} is <= e {1}'.format(name_update.id, e))
+            #        continue
 
         # If one ECU has an update, end the loop and add the vehicle to the available_update_list
     print(available_update_list)
@@ -184,9 +193,10 @@ def update_form():
         #fname = bytes.fromhex(fname_after_split).decode('utf-8')
         #print('fname: {0}'.format(fname))
 
-        var1 = supplier.add_target_to_supplier_repo(cwd+'/applications/UPTANE/static/uploads/'+update_image, filename)
+        # Add uploaded images to supplier repo + write to repo
+        supplier.add_target_to_supplier_repo(cwd+'/applications/UPTANE/static/uploads/'+update_image, filename)
         #print('supplier.add_target_to_supplier_repo: {0}\n'.format(var1))
-        var2 = supplier.write_supplier_repo()
+        supplier.write_supplier_repo()
         #print('write_supplier_repo: {0}'.format(var2))
 
 
@@ -224,11 +234,62 @@ def add_ecu_validation(form):
 
 @auth.requires_login()
 def create_vehicle(form):
-    print('\n\ncreating vehicle now\n{0}\n'.format(form.vars))
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+    # Add a new vehicle to the director repo (which includes writing to the repo)
+    director.add_new_vehicle(form.vars.vin)
+    director.write_director_repo(form.vars.vin)
+
+    # There's a different public key for Primary and Secondary ECU's
+    #print('demo.DIRECTOR_SERVER_HOST:PORT;  {0}:{1}'.format(demo.DIRECTOR_SERVER_HOST, demo.DIRECTOR_SERVER_PORT))
+    #print('uptane.WORKING_DIR;  {0}'.format(uptane.WORKING_DIR))
+    #print('demo.DEMO_DIR;  {0}'.format(demo.DEMO_DIR))
+    #print('DEMO_KEYS_DIR: {0}\njoin with os: {1}'.format(
+    #        demo.DEMO_KEYS_DIR, os.path.join(demo.DEMO_KEYS_DIR, 'primary')))
+    pri_ecu_key = demo.import_public_key('primary')
+    sec_ecu_key = demo.import_public_key('secondary')
+    ecu_pub_key = ''
+    print('\n\n\ncreating vehicle now\n{0}\ttype: {1}\n'.format(form.vars, type(form.vars)))
+    print('pri_ecu_key: {0}\nsec_ecu_key: {1}\necu_pub_key: {2}'.format(pri_ecu_key, sec_ecu_key, ecu_pub_key))
+    for e_id in form.vars.ecu_list:
+        ecu = db(db.ecu_db.id==e_id).select().first()
+
+        # Retrieve the filename to add the target to the director
+        cwd = os.getcwd()
+        filename = return_filename(ecu.update_image)
+        filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
+        director.add_target_to_director(filepath, filename, form.vars.vin, ecu.serial)
+        # Necessary?
+        director.write_director_repo(form.vars.vin)
+
+
+        # Register the ecu w/ the vehicle
+        isPrimary = True if ecu.ecu_type == 'INFO' else False
+        ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
+        print('\necu.serial: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(ecu.serial, form.vars.vin, isPrimary))
+        # only register ecus ONCE - correct?
+        director.register_ecu_serial(ecu.serial, ecu_pub_key, form.vars.vin, isPrimary)
+
+
 
 @auth.requires_login()
-def get_director_versions():
-    for vehicle in db(db.vehicle_db.oem==auth.user.username).select():
+def get_supplier_versions(list_of_vehicles):
+    info = db(db.ecu_db.ecu_type=='INFO').select().last()
+    bcu = db(db.ecu_db.ecu_type=='BCU').select().last()
+    tcu = db(db.ecu_db.ecu_type=='TCU').select().last()
+    print('\n\ninfo_row: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
+    supplier_version = str(bcu.ecu_type) + " : " + str(bcu.update_version) + '\n' + \
+                       str(tcu.ecu_type) + " : " + str(tcu.update_version) + '\n' + \
+                       str(info.ecu_type) + " : " + str(info.update_version)
+
+    for vehicle in list_of_vehicles:
+        # Assume all vehicles have TCU, BCU, and INFO
+        vehicle.update_record(supplier_version=supplier_version)
+
+@auth.requires_login()
+def get_director_versions(list_of_vehicles):
+    for vehicle in list_of_vehicles:#db(db.vehicle_db.oem==auth.user.username).select():
         #print('\nvehicle: {0}'.format(vehicle))
         director_version = ''
         version_dict = {}
@@ -242,24 +303,46 @@ def get_director_versions():
             #print('version_dict: {0}'.format(version_dict))
             print('ordered: version_dict: {0}'.format(OrderedDict(sorted(version_dict.items()))))
         # Director Str Version
-        db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = director_version)
+        vehicle.update_record(director_version = director_version)
+        #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = director_version)
         # Dictionary Version
         #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = version_dict)
 
 @auth.requires_login()
-def get_vehicle_versions():
+def get_vehicle_versions(list_of_vehicles):
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                             ':' + str(demo.DIRECTOR_SERVER_PORT))
     print('director created')
     #print('last vehicle manifest: {0}'.format(director.get_last_vehicle_manifest('111')))
 
 
-    for vehicle in db(db.vehicle_db.oem==auth.user.username).select():
+    # Add a new vehicle to the director repo (then write to director repo)
+    for vehicle in list_of_vehicles:#db(db.vehicle_db.oem==auth.user.username).select():
         print('vehicle: {0} : vin#: {1}'.format(vehicle, vehicle.vin))
-        #Add a new vehicle to the director repo (which includes writing to the repo)
-        #director.add_new_vehicle(vehicle.vin)
-        #director.write_director_repo()
-        #print('\nvin#: {0} manifest: {1}'.format(vehicle.vin, director.get_last_vehicle_manifest(vehicle.vin)))
+        vv = director.get_last_vehicle_manifest('Please Work')
+        # Parsing through vehicle version manifest for pertinent information
+        #if 'signed' in vv:
+        #    print(vv['signed']['ecu_version_manifests'])
+        vehicle.update_record(vehicle_version=vv)
+        #director.get_last_vehicle_manifest(vehicle.vin)
+
+@auth.requires_login()
+def get_time_elapsed(list_of_vehicles):
+    for vehicle in list_of_vehicles:
+        cur_time = datetime.datetime.now()
+        checkin_date = vehicle.checkin_date
+        elapsed_time = cur_time - checkin_date
+
+        # Convert the elapsed_time to days (d), hours (h), minutes (m), and seconds (s)
+        d = divmod(elapsed_time.total_seconds(), 86400)
+        h = divmod(d[1], 3600)
+        m = divmod(h[1], 60)
+        s = m[1]
+
+        elapsed_time_string = '{0} days'.format(int(d[0]))
+        #elapsed_time_string = '{0} days, {1} hours, {2} minutes'.format(int(d[0]),int(h[0]),int(m[0]))
+        vehicle.update_record(time_elapsed=elapsed_time_string)
+
 
 @auth.requires_login()
 def database_contents():
@@ -294,12 +377,18 @@ def database_contents():
     #else it's an OEM; so display database applicable to them
     else:
         print('\nrequest: {0}'.format(request.vars['ecu_list']))
-        get_director_versions()
-        get_vehicle_versions()
+        list_of_vehicles = db(db.vehicle_db.oem==auth.user.username).select()
+        get_supplier_versions(list_of_vehicles)
+        get_director_versions(list_of_vehicles)
+        get_vehicle_versions(list_of_vehicles)
+        get_time_elapsed(list_of_vehicles)
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username,
                                    selectable=lambda vehicle_id: selected_vehicle(vehicle_id), csv=False,
                                    searchable=False, details=False, editable=True, oncreate=create_vehicle,
-                                   selectable_submit_button='View Vehicle Data')#,
+                                   selectable_submit_button='View Vehicle Data',
+                                   maxtextlengths={'vehicle_db.supplier_version' : 50,
+                                                   'vehicle_db.director_version'  : 50,#,
+                                                   'vehicle_db.vehicle_version'  : 50})#,
                                    #links = [lambda row: A('Director Updates', body=lambda row:row.virtual1)])
                                    # HREF link to another page - may be good for 'available updates': links = [lambda row: A('Director Updates', _href=URL("default","show",args=[row.id]))])
         changed_ecu_list = request.vars['changed_ecu_list']
@@ -432,6 +521,8 @@ def selected_ecus(selected_ecus):
             print('ecu: {0}'.format(ecu))
             cur_ecu = db(db.ecu_db.id==ecu).select().first()
             print('\ncur_ecu: {0}'.format(cur_ecu))
+            # EAC - todo UPDATE isPrimary mutator
+            #         isPrimary = True if ecu == 'INFO' else False
             if 'INFO' == cur_ecu.ecu_type:
                 isPrimary=True
             else:
@@ -470,9 +561,8 @@ def selected_ecus(selected_ecus):
             print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
 
             #if isPrimary:
-            #    demo.demo_primary.clean_slate(vin, ecu_serial)
             director.add_target_to_director(filepath, filename, vin, ecu_serial)
-            director.write_director_repo()
+            director.write_director_repo(vin)
 
 
 
