@@ -396,7 +396,7 @@ def database_contents():
         list_of_vehicles = db(db.vehicle_db.oem==auth.user.username).select()
         get_supplier_versions(list_of_vehicles)
         get_director_versions(list_of_vehicles)
-        get_vehicle_versions(list_of_vehicles)
+        #get_vehicle_versions(list_of_vehicles)
         get_time_elapsed(list_of_vehicles)
         db.vehicle_db.id.readable=False
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username,
