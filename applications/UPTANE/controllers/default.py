@@ -243,7 +243,8 @@ def create_vehicle(form):
 
     # Add a new vehicle to the director repo (which includes writing to the repo)
     director.add_new_vehicle(form.vars.vin)
-    director.write_director_repo(form.vars.vin)
+    # Necessary? - EAC
+    #director.write_director_repo(form.vars.vin)
 
     # There's a different public key for Primary and Secondary ECU's
     #print('demo.DIRECTOR_SERVER_HOST:PORT;  {0}:{1}'.format(demo.DIRECTOR_SERVER_HOST, demo.DIRECTOR_SERVER_PORT))
@@ -263,12 +264,16 @@ def create_vehicle(form):
         cwd = os.getcwd()
         filename = return_filename(ecu.update_image)
         filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
-        director.add_target_to_director(filepath, filename, form.vars.vin, ecu.serial+str(form.vars.vin))
-        director.write_director_repo(form.vars.vin)
 
+        # Determine if ECU is primary or secondary
+        isPrimary = True if ecu.ecu_type == 'INFO' else False
+
+        # If it's a secondary, then add the target to the director and write to the director repo
+        if not isPrimary:
+            director.add_target_to_director(filepath, filename, form.vars.vin, ecu.serial+str(form.vars.vin))
+            director.write_director_repo(form.vars.vin)
 
         # Register the ecu w/ the vehicle
-        isPrimary = True if ecu.ecu_type == 'INFO' else False
         ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
         print('\necu.serial: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(ecu.serial, form.vars.vin, isPrimary))
         # only register ecus ONCE - correct?
@@ -283,10 +288,10 @@ def get_supplier_versions(list_of_vehicles):
     info = db(db.ecu_db.ecu_type=='INFO').select().last()
     bcu = db(db.ecu_db.ecu_type=='BCU').select().last()
     tcu = db(db.ecu_db.ecu_type=='TCU').select().last()
-    print('\n\ninfo_row: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
+    print('\n\ninfo: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
     supplier_version = str(bcu.ecu_type) + " : " + str(bcu.update_version) + '\n' + \
-                       str(tcu.ecu_type) + " : " + str(tcu.update_version) + '\n' + \
-                       str(info.ecu_type) + " : " + str(info.update_version)
+                       str(info.ecu_type) + " : " + str(info.update_version) + '\n' + \
+                       str(tcu.ecu_type) + " : " + str(tcu.update_version)
 
     for vehicle in list_of_vehicles:
         # Assume all vehicles have TCU, BCU, and INFO
@@ -372,6 +377,7 @@ def database_contents():
             #    print row
             # The following creates a list of the db_contents that apply to the current user
             #db_contents = []
+            db.ecu_db.id.readable=False
             db_contents = SQLFORM.grid(db.ecu_db.supplier_name==auth.user.username, searchable=False, csv=False,
                                        create=False)
                                        #onvalidation=add_ecu_validation)
@@ -392,6 +398,7 @@ def database_contents():
         get_director_versions(list_of_vehicles)
         get_vehicle_versions(list_of_vehicles)
         get_time_elapsed(list_of_vehicles)
+        db.vehicle_db.id.readable=False
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username,
                                    selectable=lambda vehicle_id: selected_vehicle(vehicle_id), csv=False,
                                    searchable=False, details=False, editable=True, oncreate=create_vehicle,
@@ -597,3 +604,7 @@ def return_filename(update_image):
     filename = bytes.fromhex(fname_after_split).decode('utf-8')
     print('filename: {0}'.format(filename))
     return str(filename)
+
+@auth.requires_login()
+def myaction():
+    print('\n\nMY ACTION CLICKED!!!!')

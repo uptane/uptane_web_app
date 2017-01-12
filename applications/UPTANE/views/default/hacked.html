@@ -50,10 +50,37 @@
 {{else:}}
 {{pass}}
 
-<h1 align="center"><button class="hack_btn">HACK 1</button><button class="hack_btn">HACK 2</button><button class="hack_btn">HACK 3</button></h1>
+<script>
+  $(document).ready(function(){
+    $('#hack1').click(function(){
+        alert("HACK1");
+    });
+    $('#hack2').click(function(){
+        alert("HACK2");
+    });
+    $('#hack3').click(function(){
+        alert("HACK3");
+    });
+    $('#hack4').click(function(){
+        alert("HACK4");
+    });
+    $('#hack5').click(function(){
+        alert("HACK5");
+    });
+    $('#hack6').click(function(){
+        alert("HACK6");
+    });
+  });
+</script>
 
 
-<h1 align="center"><button type="button" onclick="location.href='/UPTANE/default/index';" value="SAFETY"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/480px-Yes_Check_Circle.svg.png"/></button></h1>
+<h1><button>{{=A('click me', callback=URL('myaction'))}}</button></h1>
+<h1 align="center"><button id="hack1" class="hack_btn" onclick="doFunction();">HACK 1</button><button id="hack2" class="hack_btn">HACK 2</button>
+                    <button id="hack3" class="hack_btn">HACK 3</button><button id="hack4" class="hack_btn">HACK 4</button>
+                    <button id="hack5" class="hack_btn">HACK 5</button><button id="hack6" class="hack_btn">HACK 6</button>
+</h1>
+
+<h1 align="center"><input type="button" class="safety_btn" onclick="location.href='/UPTANE/default/index';"></button></h1>
 
 
 </body>
