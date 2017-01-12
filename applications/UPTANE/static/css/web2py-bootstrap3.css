@@ -326,8 +326,8 @@ input[type=checkbox], input[type=radio] {
 }
 
 .hack_btn1 {
-    height:300px;
-    width:300px;
+    height:200px;
+    width:200px;
     font-size: 10%;
 }
 
@@ -358,4 +358,15 @@ input.safety_btn{
     width:100px;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/480px-Yes_Check_Circle.svg.png)
     background-size: 100%;
+}
+
+.hack_table{
+border: 0px solid #000000; border-collapse: collapse;
+}
+
+.hack_table td{ padding: 0.5em 0.7em; border: 0px solid #000000; vertical-align: top; font-size:150%;
+}
+
+.hack_links{
+    font-size:30px;
 }
