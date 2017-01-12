@@ -270,14 +270,14 @@ def create_vehicle(form):
 
         # If it's a secondary, then add the target to the director and write to the director repo
         if not isPrimary:
-            director.add_target_to_director(filepath, filename, form.vars.vin, ecu.serial+str(form.vars.vin))
-            director.write_director_repo(form.vars.vin)
+            director.add_target_to_director(filepath, filename, form.vars.vin, ecu.firmware+str(form.vars.vin))
+        #    director.write_director_repo(form.vars.vin)
 
         # Register the ecu w/ the vehicle
         ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
-        print('\necu.serial: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(ecu.serial, form.vars.vin, isPrimary))
+        print('\necu.firmware: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(ecu.firmware, form.vars.vin, isPrimary))
         # only register ecus ONCE - correct?
-        director.register_ecu_serial(ecu.serial+str(form.vars.vin), ecu_pub_key, form.vars.vin, isPrimary)
+        director.register_ecu_serial(ecu.firmware+str(form.vars.vin), ecu_pub_key, form.vars.vin, isPrimary)
         # Necessary?
         #director.write_director_repo(form.vars.vin)
 
@@ -570,7 +570,7 @@ def selected_ecus(selected_ecus):
             vehicle_id = request.vars['vehicle_id']
             #print('vehicle_id: {0}'.format(vehicle_id))
             vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
-            ecu_serial = cur_ecu.serial+str(vin)
+            ecu_serial = cur_ecu.firmware+str(vin)
 
             print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
 
@@ -584,9 +584,9 @@ def selected_ecus(selected_ecus):
             # Register the ecu w/ the vehicle
             isPrimary = True if cur_ecu.ecu_type == 'INFO' else False
             ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
-            print('\necu.serial: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(cur_ecu.serial, vin, isPrimary))
+            print('\necu.firmware: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(cur_ecu.firmware, vin, isPrimary))
             # only register ecus ONCE - correct?
-            director.register_ecu_serial(cur_ecu.serial+str(vin), ecu_pub_key, vin, isPrimary)
+            director.register_ecu_serial(cur_ecu.firmware+str(vin), ecu_pub_key, vin, isPrimary)
 
 
 

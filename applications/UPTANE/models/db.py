@@ -128,7 +128,7 @@ auth.settings.reset_password_requires_verification = True
 #                migrate=False)
 
 db.define_table('ecu_db',
-                db.Field.Virtual('serial', lambda row: str(row.ecu_db.id)+'.'+str(row.ecu_db.ecu_type)+':'+str(row.ecu_db.update_version)),
+                db.Field.Virtual('firmware', lambda row: str(row.ecu_db.id)+'.'+str(row.ecu_db.ecu_type)+':'+str(row.ecu_db.update_version)),
                 db.Field('supplier_name', 'string', length=25, default=auth.user.username if auth.user else None, readable=False, writable=False),
                 db.Field('ecu_type', 'string', requires=IS_IN_SET(['BCU', 'INFO', 'TCU'])),
                 db.Field('update_version', 'string', length=25,  requires=IS_NOT_EMPTY()),
