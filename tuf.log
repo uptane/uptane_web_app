@@ -2618,3 +2618,24 @@ open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/primary.pub)
 [2017-01-12 19:39:25,220 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
 open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/secondary.pub)
 
+[2017-01-12 19:49:49,770 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-01-12 19:52:01,488 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/primary.pub)
+
+[2017-01-12 19:52:01,490 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/secondary.pub)
+
+[2017-01-12 19:52:10,067 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/primary.pub)
+
+[2017-01-12 19:52:10,068 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/secondary.pub)
+
+[2017-01-12 20:41:41,682 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/primary.pub)
+
+[2017-01-12 20:41:41,684 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/secondary.pub)
+

@@ -325,6 +325,12 @@ input[type=checkbox], input[type=radio] {
     font-size: 50%;
 }
 
+.hack_btn1 {
+    height:300px;
+    width:300px;
+    font-size: 10%;
+}
+
 input.hacked_btn {
     background-image: url(../images/hacked_btn_img.png);
     background-position:0px 0px;
