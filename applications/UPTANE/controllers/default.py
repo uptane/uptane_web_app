@@ -606,5 +606,75 @@ def return_filename(update_image):
     return str(filename)
 
 @auth.requires_login()
-def myaction():
-    print('\n\nMY ACTION CLICKED!!!!')
+def hack1():
+    print('\n\nHack1 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    # Commenting this out b/c may not contain TEST_VIN in db
+    #var2=director.get_last_vehicle_manifest('TEST_VIN')
+    #print('Heres the output: {0}'.format(var2))
+@auth.requires_login()
+def hack2():
+    print('\n\nHack2 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack3():
+    print('\n\nHack3 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack4():
+    print('\n\nHack4 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack5():
+    print('\n\nHack5 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack6():
+    print('\n\nHack6 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack7():
+    print('\n\nHack7 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack8():
+    print('\n\nHack8 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack9():
+    print('\n\nHack9 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack10():
+    print('\n\nHack10 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack11():
+    print('\n\nHack11 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack12():
+    print('\n\nHack12 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
