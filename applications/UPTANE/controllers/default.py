@@ -137,9 +137,11 @@ def update_form():
     print('\ncreating supplier now')
     supplier = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
                                             ':' + str(demo.MAIN_REPO_SERVICE_PORT))
-    record = db.ecu_db(request.args(0))
+    print(request.args)
+    record = db.ecu_db(request.args(1))
     print(record)
-    form=SQLFORM(db.ecu_db, record)
+    form=SQLFORM(db.ecu_db)#, record)
+    #form=SQLFORM(db.ecu_db, record)
     #print db.tables
     #print db.supplier_db.fields
     #print type(db.supplier_db)
@@ -234,8 +236,10 @@ def add_ecu_validation(form):
 
 @auth.requires_login()
 def create_vehicle(form):
+    print('\n\nCREATE_VEHICLE()')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nAFTER CREATING DIRECTOR@ ADDR: {0}:{1}'.format(str(demo.DIRECTOR_SERVER_HOST), str(demo.DIRECTOR_SERVER_PORT)))
 
     # Add a new vehicle to the director repo (which includes writing to the repo)
     director.add_new_vehicle(form.vars.vin)
@@ -259,8 +263,7 @@ def create_vehicle(form):
         cwd = os.getcwd()
         filename = return_filename(ecu.update_image)
         filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
-        director.add_target_to_director(filepath, filename, form.vars.vin, ecu.serial)
-        # Necessary?
+        director.add_target_to_director(filepath, filename, form.vars.vin, ecu.serial+str(form.vars.vin))
         director.write_director_repo(form.vars.vin)
 
 
@@ -269,7 +272,9 @@ def create_vehicle(form):
         ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
         print('\necu.serial: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(ecu.serial, form.vars.vin, isPrimary))
         # only register ecus ONCE - correct?
-        director.register_ecu_serial(ecu.serial, ecu_pub_key, form.vars.vin, isPrimary)
+        director.register_ecu_serial(ecu.serial+str(form.vars.vin), ecu_pub_key, form.vars.vin, isPrimary)
+        # Necessary?
+        #director.write_director_repo(form.vars.vin)
 
 
 
@@ -523,15 +528,6 @@ def selected_ecus(selected_ecus):
     isSecondary = False
     for ecu in selected_ecus:
         if str(ecu) not in ecu_id_list:
-            print('ecu: {0}'.format(ecu))
-            cur_ecu = db(db.ecu_db.id==ecu).select().first()
-            print('\ncur_ecu: {0}'.format(cur_ecu))
-            # EAC - todo UPDATE isPrimary mutator
-            #         isPrimary = True if ecu == 'INFO' else False
-            if 'INFO' == cur_ecu.ecu_type:
-                isPrimary=True
-            else:
-                isSecondary=True
             changed_ecu_list.append(ecu)
         else:
             print(str(ecu) + ' is in the list!')
@@ -546,12 +542,18 @@ def selected_ecus(selected_ecus):
 
             # Do a check to see if it's the Primary or Secondary (potentially add it after appending to
             #   changed_ecu_list w/ boolean isPrimary, isSecondary)
+
+            cur_ecu = db(db.ecu_db.id==changed_ecu_list[0]).select().first()
             print('\ncur_ecu: {0}'.format(cur_ecu))
-            print('\nisPrimary: {0}\tisSecondary: {1}'.format(isPrimary, isSecondary))
+
+            isPrimary = True if cur_ecu.ecu_type == 'INFO' else False
+
+            print('\ncur_ecu: {0}'.format(cur_ecu))
+            print('\nisPrimary: {0}'.format(isPrimary))
 
             # Add the bundle to the vehicle
             cwd = os.getcwd()
-            print('\ncwd now: {0}'.format(cwd))
+            print('\ncwd now2: {0}'.format(cwd))
 
             # Retrieve the filename
             filename = return_filename(cur_ecu.update_image)
@@ -561,13 +563,25 @@ def selected_ecus(selected_ecus):
             vehicle_id = request.vars['vehicle_id']
             #print('vehicle_id: {0}'.format(vehicle_id))
             vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
-            ecu_serial = cur_ecu.serial
+            ecu_serial = cur_ecu.serial+str(vin)
 
             print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
 
-            #if isPrimary:
             director.add_target_to_director(filepath, filename, vin, ecu_serial)
             director.write_director_repo(vin)
+
+            pri_ecu_key = demo.import_public_key('primary')
+            sec_ecu_key = demo.import_public_key('secondary')
+            ecu_pub_key = ''
+
+            # Register the ecu w/ the vehicle
+            isPrimary = True if cur_ecu.ecu_type == 'INFO' else False
+            ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
+            print('\necu.serial: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(cur_ecu.serial, vin, isPrimary))
+            # only register ecus ONCE - correct?
+            director.register_ecu_serial(cur_ecu.serial+str(vin), ecu_pub_key, vin, isPrimary)
+
+
 
 
 

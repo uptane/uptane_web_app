@@ -32,6 +32,7 @@ if not request.env.web2py_runtime_gae:
              pool_size=myconf.get('db.pool_size'),
              migrate_enabled=myconf.get('db.migrate'),
              check_reserved=['all'])#,
+             #migrate=True,
              #fake_migrate_all=True)
 else:
     # ---------------------------------------------------------------------
@@ -121,6 +122,10 @@ auth.settings.reset_password_requires_verification = True
 # Consult manual for more options, validators, etc.
 #
 
+#db.define_table('serial_num_db',
+#                db.Field.Virtual('serial_num', lambda row: str(row.ecu_db.id)+'.'+str(row.ecu_db.ecu_type)+':'+str(row.ecu_db.update_version)),
+#                fake_migrate=False,
+#                migrate=False)
 
 db.define_table('ecu_db',
                 db.Field.Virtual('serial', lambda row: str(row.ecu_db.id)+'.'+str(row.ecu_db.ecu_type)+':'+str(row.ecu_db.update_version)),
@@ -130,13 +135,13 @@ db.define_table('ecu_db',
                 db.Field('update_image', 'upload', uploadfolder=request.folder+'static/uploads' ,required=True, requires=IS_NOT_EMPTY()),
                 db.Field('metadata', 'string', required=True, requires=IS_NOT_EMPTY(), readable=False, writable=False),
                 fake_migrate=False,
-                migrate=True)
+                migrate=False)
 
 db.define_table('vehicle_db',
                 db.Field('vin', 'string', length=25, unique=True),
                 db.Field('note', 'string', length=25, requires=IS_NOT_EMPTY()),
                 db.Field('oem', 'string', length=25, default=auth.user.username if auth.user else None, readable=False, writable=False),
-                db.Field('ecu_list', 'list:reference ecu_db', required=True, readable=False),
+                db.Field('ecu_list', 'list:reference ecu_db', required=True, readable=True),
                 db.Field('supplier_version', 'string', required=True, writable=False, default=''),
                 db.Field('director_version', 'string', required=True, writable=False, default=''),# requires=IS_NOT_EMPTY()),
                 #db.Field.Method('virtual1', lambda row: row.vehicle_db.ecu_list),# requires=IS_NOT_EMPTY()),
@@ -146,7 +151,7 @@ db.define_table('vehicle_db',
                 db.Field('time_elapsed', 'string', length=25, default='', writable=False),
                 db.Field('checkin_date', 'datetime', length=25, required=True, requires=IS_NOT_EMPTY(), readable=False),
                 fake_migrate=False,
-                migrate=True)
+                migrate=False)
 
 
 # More API examples for controllers:

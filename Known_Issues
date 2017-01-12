@@ -2,4 +2,8 @@
 2. A LOT of validation is not currently being done
 3. Uploading a file (update image) for ECU: Currently, we're expecting (thus require) the update to be in the following directory:
     uptane_web_app > applications > UPTANE > test_uploads
-4.
+4. If an error is experienced with interfacing w/ 'nyu uptane' via write_[director||supplier]_repo() or even dp.clean_slate() \
+    it must be noted that the servers will need to be killed then reinvoked, b/c if not then, creating a new vehicle will \
+    NOT create the 3 directories that are normally created (missing metadata directory)- i.e., it gets in this real weird state...
+5. Running into an error when trying to add a second vehicle via interface
+    - 'nyu uptane' is not creating the metadata/ directory thus running into issues...
