@@ -137,9 +137,11 @@ def update_form():
     print('\ncreating supplier now')
     supplier = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
                                             ':' + str(demo.MAIN_REPO_SERVICE_PORT))
-    record = db.ecu_db(request.args(0))
+    print(request.args)
+    record = db.ecu_db(request.args(1))
     print(record)
-    form=SQLFORM(db.ecu_db, record)
+    form=SQLFORM(db.ecu_db)#, record)
+    #form=SQLFORM(db.ecu_db, record)
     #print db.tables
     #print db.supplier_db.fields
     #print type(db.supplier_db)
@@ -234,11 +236,14 @@ def add_ecu_validation(form):
 
 @auth.requires_login()
 def create_vehicle(form):
+    print('\n\nCREATE_VEHICLE()')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nAFTER CREATING DIRECTOR@ ADDR: {0}:{1}'.format(str(demo.DIRECTOR_SERVER_HOST), str(demo.DIRECTOR_SERVER_PORT)))
 
     # Add a new vehicle to the director repo (which includes writing to the repo)
     director.add_new_vehicle(form.vars.vin)
+    # Necessary? - EAC
     director.write_director_repo(form.vars.vin)
 
     # There's a different public key for Primary and Secondary ECU's
@@ -259,17 +264,22 @@ def create_vehicle(form):
         cwd = os.getcwd()
         filename = return_filename(ecu.update_image)
         filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
-        director.add_target_to_director(filepath, filename, form.vars.vin, ecu.serial)
-        # Necessary?
-        director.write_director_repo(form.vars.vin)
 
+        # Determine if ECU is primary or secondary
+        isPrimary = True if ecu.ecu_type == 'INFO' else False
+
+        # If it's a secondary, then add the target to the director and write to the director repo
+        if not isPrimary:
+            director.add_target_to_director(filepath, filename, form.vars.vin, ecu.ecu_type+str(form.vars.vin))
+        #    director.write_director_repo(form.vars.vin)
 
         # Register the ecu w/ the vehicle
-        isPrimary = True if ecu.ecu_type == 'INFO' else False
         ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
-        print('\necu.serial: {0}\tform.vars.vin: {1}\tisPrimary: {2}'.format(ecu.serial, form.vars.vin, isPrimary))
+        print('\necu.ecu_type: {0} + form.vars.vin: {1}\tisPrimary: {2}'.format(ecu.ecu_type, form.vars.vin, isPrimary))
         # only register ecus ONCE - correct?
-        director.register_ecu_serial(ecu.serial, ecu_pub_key, form.vars.vin, isPrimary)
+        director.register_ecu_serial(ecu.ecu_type+str(form.vars.vin), ecu_pub_key, form.vars.vin, isPrimary)
+        # Necessary?
+        #director.write_director_repo(form.vars.vin)
 
 
 
@@ -278,10 +288,10 @@ def get_supplier_versions(list_of_vehicles):
     info = db(db.ecu_db.ecu_type=='INFO').select().last()
     bcu = db(db.ecu_db.ecu_type=='BCU').select().last()
     tcu = db(db.ecu_db.ecu_type=='TCU').select().last()
-    print('\n\ninfo_row: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
+    print('\n\ninfo: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
     supplier_version = str(bcu.ecu_type) + " : " + str(bcu.update_version) + '\n' + \
-                       str(tcu.ecu_type) + " : " + str(tcu.update_version) + '\n' + \
-                       str(info.ecu_type) + " : " + str(info.update_version)
+                       str(info.ecu_type) + " : " + str(info.update_version) + '\n' + \
+                       str(tcu.ecu_type) + " : " + str(tcu.update_version)
 
     for vehicle in list_of_vehicles:
         # Assume all vehicles have TCU, BCU, and INFO
@@ -323,8 +333,8 @@ def get_vehicle_versions(list_of_vehicles):
             vv = director.get_last_vehicle_manifest(vehicle.vin)
             print('\nvv: {0}'.format(vv))
             # Parsing through vehicle version manifest for pertinent information
-            #if 'signed' in vv:
-            #    print(vv['signed']['ecu_version_manifests'])
+            if 'signed' in vv:
+                print(vv['signed']['ecu_version_manifests'])
             vehicle.update_record(vehicle_version=vv)
             #director.get_last_vehicle_manifest(vehicle.vin)
         except Exception:
@@ -367,6 +377,7 @@ def database_contents():
             #    print row
             # The following creates a list of the db_contents that apply to the current user
             #db_contents = []
+            db.ecu_db.id.readable=False
             db_contents = SQLFORM.grid(db.ecu_db.supplier_name==auth.user.username, searchable=False, csv=False,
                                        create=False)
                                        #onvalidation=add_ecu_validation)
@@ -387,6 +398,7 @@ def database_contents():
         get_director_versions(list_of_vehicles)
         get_vehicle_versions(list_of_vehicles)
         get_time_elapsed(list_of_vehicles)
+        db.vehicle_db.id.readable=False
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username,
                                    selectable=lambda vehicle_id: selected_vehicle(vehicle_id), csv=False,
                                    searchable=False, details=False, editable=True, oncreate=create_vehicle,
@@ -523,15 +535,6 @@ def selected_ecus(selected_ecus):
     isSecondary = False
     for ecu in selected_ecus:
         if str(ecu) not in ecu_id_list:
-            print('ecu: {0}'.format(ecu))
-            cur_ecu = db(db.ecu_db.id==ecu).select().first()
-            print('\ncur_ecu: {0}'.format(cur_ecu))
-            # EAC - todo UPDATE isPrimary mutator
-            #         isPrimary = True if ecu == 'INFO' else False
-            if 'INFO' == cur_ecu.ecu_type:
-                isPrimary=True
-            else:
-                isSecondary=True
             changed_ecu_list.append(ecu)
         else:
             print(str(ecu) + ' is in the list!')
@@ -546,12 +549,18 @@ def selected_ecus(selected_ecus):
 
             # Do a check to see if it's the Primary or Secondary (potentially add it after appending to
             #   changed_ecu_list w/ boolean isPrimary, isSecondary)
+
+            cur_ecu = db(db.ecu_db.id==changed_ecu_list[0]).select().first()
             print('\ncur_ecu: {0}'.format(cur_ecu))
-            print('\nisPrimary: {0}\tisSecondary: {1}'.format(isPrimary, isSecondary))
+
+            isPrimary = True if cur_ecu.ecu_type == 'INFO' else False
+
+            print('\ncur_ecu: {0}'.format(cur_ecu))
+            print('\nisPrimary: {0}'.format(isPrimary))
 
             # Add the bundle to the vehicle
             cwd = os.getcwd()
-            print('\ncwd now: {0}'.format(cwd))
+            print('\ncwd now2: {0}'.format(cwd))
 
             # Retrieve the filename
             filename = return_filename(cur_ecu.update_image)
@@ -561,13 +570,25 @@ def selected_ecus(selected_ecus):
             vehicle_id = request.vars['vehicle_id']
             #print('vehicle_id: {0}'.format(vehicle_id))
             vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
-            ecu_serial = cur_ecu.serial
+            ecu_serial = cur_ecu.ecu_type+str(vin)
 
             print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
 
-            #if isPrimary:
             director.add_target_to_director(filepath, filename, vin, ecu_serial)
             director.write_director_repo(vin)
+
+            pri_ecu_key = demo.import_public_key('primary')
+            sec_ecu_key = demo.import_public_key('secondary')
+            ecu_pub_key = ''
+
+            # Register the ecu w/ the vehicle
+            isPrimary = True if cur_ecu.ecu_type == 'INFO' else False
+            ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
+            print('\necu.type+vin: {0}{1}\tform.vars.vin: {2}\tisPrimary: {3}'.format(cur_ecu.ecu_type, str(vin), vin, isPrimary))
+            # only register ecus ONCE - correct?
+            director.register_ecu_serial(cur_ecu.ecu_type+str(vin), ecu_pub_key, vin, isPrimary)
+
+
 
 
 
@@ -583,3 +604,77 @@ def return_filename(update_image):
     filename = bytes.fromhex(fname_after_split).decode('utf-8')
     print('filename: {0}'.format(filename))
     return str(filename)
+
+@auth.requires_login()
+def hack1():
+    print('\n\nHack1 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    # Commenting this out b/c may not contain TEST_VIN in db
+    #var2=director.get_last_vehicle_manifest('TEST_VIN')
+    #print('Heres the output: {0}'.format(var2))
+@auth.requires_login()
+def hack2():
+    print('\n\nHack2 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack3():
+    print('\n\nHack3 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack4():
+    print('\n\nHack4 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack5():
+    print('\n\nHack5 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack6():
+    print('\n\nHack6 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack7():
+    print('\n\nHack7 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack8():
+    print('\n\nHack8 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack9():
+    print('\n\nHack9 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack10():
+    print('\n\nHack10 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack11():
+    print('\n\nHack11 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def hack12():
+    print('\n\nHack12 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))

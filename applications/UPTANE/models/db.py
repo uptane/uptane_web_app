@@ -32,6 +32,7 @@ if not request.env.web2py_runtime_gae:
              pool_size=myconf.get('db.pool_size'),
              migrate_enabled=myconf.get('db.migrate'),
              check_reserved=['all'])#,
+             #migrate=True,
              #fake_migrate_all=True)
 else:
     # ---------------------------------------------------------------------
@@ -121,16 +122,20 @@ auth.settings.reset_password_requires_verification = True
 # Consult manual for more options, validators, etc.
 #
 
+#db.define_table('serial_num_db',
+#                db.Field.Virtual('serial_num', lambda row: str(row.ecu_db.id)+'.'+str(row.ecu_db.ecu_type)+':'+str(row.ecu_db.update_version)),
+#                fake_migrate=False,
+#                migrate=False)
 
 db.define_table('ecu_db',
-                db.Field.Virtual('serial', lambda row: str(row.ecu_db.id)+'.'+str(row.ecu_db.ecu_type)+':'+str(row.ecu_db.update_version)),
+                #db.Field.Virtual('firmware', lambda row: str(row.ecu_db.id)+'.'+str(row.ecu_db.ecu_type)+':'+str(row.ecu_db.update_version)),
                 db.Field('supplier_name', 'string', length=25, default=auth.user.username if auth.user else None, readable=False, writable=False),
                 db.Field('ecu_type', 'string', requires=IS_IN_SET(['BCU', 'INFO', 'TCU'])),
                 db.Field('update_version', 'string', length=25,  requires=IS_NOT_EMPTY()),
                 db.Field('update_image', 'upload', uploadfolder=request.folder+'static/uploads' ,required=True, requires=IS_NOT_EMPTY()),
                 db.Field('metadata', 'string', required=True, requires=IS_NOT_EMPTY(), readable=False, writable=False),
                 fake_migrate=False,
-                migrate=True)
+                migrate=False)
 
 db.define_table('vehicle_db',
                 db.Field('vin', 'string', length=25, unique=True),
@@ -146,7 +151,7 @@ db.define_table('vehicle_db',
                 db.Field('time_elapsed', 'string', length=25, default='', writable=False),
                 db.Field('checkin_date', 'datetime', length=25, required=True, requires=IS_NOT_EMPTY(), readable=False),
                 fake_migrate=False,
-                migrate=True)
+                migrate=False)
 
 
 # More API examples for controllers:

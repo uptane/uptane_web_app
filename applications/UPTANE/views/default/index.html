@@ -6,14 +6,17 @@
       <div class="jumbotron text-center">
         {{if response.title:}}
         <h1>{{=response.title}}
-          <small>{{=response.subtitle or ''}}</small></h1>
+            {{if auth.user.username == 'oem1':}}
+                <small> - OEM Repo</small></h1>
+            {{else:}}
+                <small> - Supplier Repo</small></h1>
+            {{pass}}
         {{pass}}
       </div>
     </header>
 {{end}}
 
 {{block body}}
-    <body bgcolor="red">
 
 {{if 'form' in globals():}}
 <h2>{{=form}}</h2>
@@ -65,9 +68,12 @@
 {{else:}}
 {{pass}}
 
-<!--
-<h1 align="center"><button type="button" onclick="location.href='/UPTANE/default/hacked';" value="HACKED"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Skull_and_crossbones.svg"/></button></h1>
--->
+
+{{if auth.user.username == 'oem1':}}
+<h1 align="right"><input type="button" class="hacked_btn" onclick="location.href='hacked';"/></h1>
+{{else:}}
+{{pass}}
+
 </body>
 {{end}}
 
