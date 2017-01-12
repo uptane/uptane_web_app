@@ -2642,3 +2642,6 @@ open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/secondary.pub)
 [2017-01-12 21:01:13,007 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
 Added a console handler.
 
+[2017-01-12 22:25:06,272 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
