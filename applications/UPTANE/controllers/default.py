@@ -394,9 +394,9 @@ def database_contents():
     else:
         print('\nrequest: {0}'.format(request.vars['ecu_list']))
         list_of_vehicles = db(db.vehicle_db.oem==auth.user.username).select()
-        get_supplier_versions(list_of_vehicles)
-        get_director_versions(list_of_vehicles)
-        get_vehicle_versions(list_of_vehicles)
+        #get_supplier_versions(list_of_vehicles)
+        #get_director_versions(list_of_vehicles)
+        #get_vehicle_versions(list_of_vehicles)
         get_time_elapsed(list_of_vehicles)
         db.vehicle_db.id.readable=False
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username,
@@ -415,7 +415,7 @@ def database_contents():
         print(edited_vehicle)
         print('\nDetermining vehicles w/ available updates')
         available_updates = []
-        available_updates = determine_available_updates()
+        #available_updates = determine_available_updates()
 
         #db_contents = SQLFORM.smartgrid(db.vehicle_db)
         if changed_ecu_list == None:
