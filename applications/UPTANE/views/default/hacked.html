@@ -51,20 +51,24 @@
 {{pass}}
 
 <table class="hack_table" align="center">
-<h1 align="center"><tr><td>{{=A('Man-in-the-Middle', callback=URL('hack1'))}}</td><td>{{=A('Director Rollback', callback=URL('hack2'))}}</td>
-                    <td>{{=A('Supplier Compromised', callback=URL('hack3'))}}</td><td>{{=A('Director Compromised', callback=URL('hack4'))}}</td>
-                    <td>{{=A('Arbitrary Package', callback=URL('hack5'))}}</td><td>{{=A('General Attack', callback=URL('hack6'))}}</td></tr></h1>
+<h1 align="center"><tr><td>{{=A('Man-in-the-Middle', _class="tdhack1",callback=URL('hack1'))}}</td><td>{{=A('Director Rollback', _class="tdhack2", callback=URL('hack2'))}}</td>
+                    <td>{{=A('Supplier Compromised', _class="tdhack3", callback=URL('hack3'))}}</td><td>{{=A('Director Compromised', _class="tdhack4", callback=URL('hack4'))}}</td>
+                    <td>{{=A('Arbitrary Package', _class="tdhack5", callback=URL('hack5'))}}</td><td>{{=A('General Attack', _class="tdhack6", callback=URL('hack6'))}}</td></tr></h1>
 
-<h1 align="center" class="hack_links"><tr><td>{{=A('MITM Restore', callback=URL('hack7'))}}</td><td>{{=A('Director Rollback Restore', callback=URL('hack8'))}}</td>
-                    <td>{{=A('Supplier Restore', callback=URL('hack9'))}}</td><td>{{=A('Director Restore', callback=URL('hack10'))}}</td>
-                    <td>{{=A('Update Supplier Key', callback=URL('hack11'))}}</td><td>{{=A('Update Director Key', callback=URL('hack12'))}}</td></tr></h1>
+
+
+<h1 align="center" class="hack_links"><tr><td>{{=A('MITM Restore', _class="fix1", callback=URL('fix1'))}}</td><td>{{=A('Director Rollback Restore', _class="fix2", callback=URL('fix2'))}}</td>
+                    <td>{{=A('Supplier Restore', _class="fix3", callback=URL('fix3'))}}</td><td>{{=A('Director Restore', _class="fix4", callback=URL('fix4'))}}</td>
+                    <td>{{=A('Update Supplier Key', _class="fix5", callback=URL('fix5'))}}</td><td>{{=A('Update Director Key', _class="fix6", callback=URL('fix6'))}}</td></tr></h1>
 </table>
-<!--<h1 align="center"><button id="hack1" class="hack_btn" onclick="/hacked1';">HACK 1</button><button id="hack2" class="hack_btn">HACK 2</button>
-                    <button id="hack3" class="hack_btn">HACK 3</button><button id="hack4" class="hack_btn">HACK 4</button>
-                    <button id="hack5" class="hack_btn">HACK 5</button><button id="hack6" class="hack_btn">HACK 6</button>
-</h1>-->
+<!--
+                    <tr>
+                        <td><a class="tdhack1" data-w2p_method="POST" href="/UPTANE/default/hack1"></a></td>
+                        <td>{{=A('hello', _class="tdhack2", callback=URL('hack2'))}}</td>
+                    </tr>
+-->
 
-<h1 align="center"><input type="button" class="safety_btn" onclick="location.href='/UPTANE/default/index';"></button></h1>
+<h1 align="center"><input type="button" class="safety_btn" onclick="location.href='/UPTANE/default/index';"/></h1>
 
 
 </body>
