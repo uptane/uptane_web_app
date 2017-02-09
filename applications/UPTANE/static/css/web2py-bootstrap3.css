@@ -370,3 +370,104 @@ border: 0px solid #000000; border-collapse: collapse;
 .hack_links{
     font-size:30px;
 }
+
+.tdhack1 {
+    background-image: url(../images/Evil.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.tdhack2
+{
+    background-image: url(../images/Rollback.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.tdhack3 {
+    background-image: url(../images/MixAndMatch.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.tdhack4 {
+    background-image: url(../images/Evil.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.tdhack5 {
+    background-image: url(../images/MixAndMatch.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.tdhack6 {
+    background-image: url(../images/Rollback.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+
+
+.fix1 {
+    background-image: url(../images/Evil.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.fix2 {
+    background-image: url(../images/Rollback.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.fix3 {
+    background-image: url(../images/MixAndMatch.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.fix4 {
+    background-image: url(../images/Evil.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.fix5 {
+    background-image: url(../images/MixAndMatch.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.fix6 {
+    background-image: url(../images/Rollback.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+
