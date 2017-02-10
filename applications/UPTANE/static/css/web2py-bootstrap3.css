@@ -361,10 +361,13 @@ input.safety_btn{
 }
 
 .hack_table{
-border: 0px solid #000000; border-collapse: collapse;
+    border: 0px; solid #000000; border-collapse: collapse;
 }
 
-.hack_table td{ padding: 0.5em 0.7em; border: 0px solid #000000; vertical-align: top; font-size:150%;
+.hack_table td{ padding: 0.5em 0.7em; border: 0px; solid #000000; vertical-align: top; font-size:150%;
+}
+
+.hack_table td{ padding: 0.5em 0.7em; border: 0px; solid #000000; vertical-align: top; font-size:150%;
 }
 
 .hack_links{

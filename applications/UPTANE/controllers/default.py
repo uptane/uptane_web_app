@@ -10,10 +10,11 @@
 from web2py import gluon
 from applications.UPTANE.modules.test_external import create_meta
 from collections import OrderedDict
-import demo
-import xmlrpc.client
-import os
 import datetime
+import demo
+import os
+import re
+import xmlrpc.client
 
 #print('\n\n\n\npath: {0}'.format(os.path.abspath(demo.__file__)))
 @auth.requires_login()
@@ -129,8 +130,10 @@ def call():
 
 @auth.requires_login()
 def all_records():
+    print('ALL RECORDS BABY!!!')
     grid = SQLFORM.grid(db.ecu_db.supplier_name==auth.user.username,user_signature=False, csv=False)
     return locals()
+
 
 @auth.requires_login()
 def update_form():
@@ -394,12 +397,12 @@ def database_contents():
     else:
         print('\nrequest: {0}'.format(request.vars['ecu_list']))
         list_of_vehicles = db(db.vehicle_db.oem==auth.user.username).select()
-        #get_supplier_versions(list_of_vehicles)
-        #get_director_versions(list_of_vehicles)
+        get_supplier_versions(list_of_vehicles)
+        get_director_versions(list_of_vehicles)
         #get_vehicle_versions(list_of_vehicles)
         get_time_elapsed(list_of_vehicles)
         db.vehicle_db.id.readable=False
-        db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username,
+        db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username, create=True,
                                    selectable=lambda vehicle_id: selected_vehicle(vehicle_id), csv=False,
                                    searchable=False, details=False, editable=True, oncreate=create_vehicle,
                                    selectable_submit_button='View Vehicle Data',
@@ -408,11 +411,31 @@ def database_contents():
                                                    'vehicle_db.vehicle_version'  : 50})#,
                                    #links = [lambda row: A('Director Updates', body=lambda row:row.virtual1)])
                                    # HREF link to another page - may be good for 'available updates': links = [lambda row: A('Director Updates', _href=URL("default","show",args=[row.id]))])
+        print('request.args: {0}\n'.format(request.args))
+
+        # If we are adding a new vehicle to the database
+        if 'new' in request.args:
+            print('db_contents: {0}\ttype: {1}\n\n'.format(db_contents, type(db_contents)))
+            # Regex used to find all ecu 'options' within the db_contents div tag
+            reg_val = re.findall("\>\d{1,3}\<", str(db_contents))
+            # If there is a match, pull value from ecu_db
+            if reg_val:
+                for reg in reg_val:
+                    print('reg!: {0}\n'.format(reg))
+                    ecu_id= reg[1:-1]
+                    ecu = db(db.ecu_db.id==ecu_id).select().first()
+                    ecu_name = ecu.ecu_type
+                    ecu_ver  = ecu.update_version
+                    ecu_str  = '>' + ecu_name + ' - ' + ecu_ver + '<'
+
+                    # Find old 'option' string and replace with newly retrieved ECU Type + Version
+                    db_contents = gluon.html.XML(str(db_contents).replace(reg, ecu_str))
+
+
         changed_ecu_list = request.vars['changed_ecu_list']
         edited_vehicle=request.vars['vehicle_id']
-        print('changed!!!')
-        print(changed_ecu_list)
-        print(edited_vehicle)
+        print('changed ecu_list: {0}'.format(changed_ecu_list))
+        print('edited_vehicle: {0}'.format(edited_vehicle))
         print('\nDetermining vehicles w/ available updates')
         available_updates = []
         #available_updates = determine_available_updates()
