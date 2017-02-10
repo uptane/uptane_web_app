@@ -2605,6 +2605,7 @@ class SQLFORM(FORM):
                 buttontext=T('Add Record'),
                 title=T("Add record to database"),
                 buttonurl=url(args=['new', tablename]))
+                #buttonurl=url(args=['all_records']))
             if not searchable:
                 console.append(add)
         else:
