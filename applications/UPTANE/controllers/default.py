@@ -291,7 +291,7 @@ def get_supplier_versions(list_of_vehicles):
     info = db(db.ecu_db.ecu_type=='INFO').select().last()
     bcu = db(db.ecu_db.ecu_type=='BCU').select().last()
     tcu = db(db.ecu_db.ecu_type=='TCU').select().last()
-    print('\n\ninfo: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
+    #print('\n\ninfo: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
     supplier_version = str(bcu.ecu_type) + " : " + str(bcu.update_version) + '\n' + \
                        str(info.ecu_type) + " : " + str(info.update_version) + '\n' + \
                        str(tcu.ecu_type) + " : " + str(tcu.update_version)
@@ -415,13 +415,11 @@ def database_contents():
 
         # If we are adding a new vehicle to the database
         if 'new' in request.args:
-            print('db_contents: {0}\ttype: {1}\n\n'.format(db_contents, type(db_contents)))
             # Regex used to find all ecu 'options' within the db_contents div tag
             reg_val = re.findall("\>\d{1,3}\<", str(db_contents))
             # If there is a match, pull value from ecu_db
             if reg_val:
                 for reg in reg_val:
-                    print('reg!: {0}\n'.format(reg))
                     ecu_id= reg[1:-1]
                     ecu = db(db.ecu_db.id==ecu_id).select().first()
                     ecu_name = ecu.ecu_type
