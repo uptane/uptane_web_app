@@ -334,15 +334,41 @@ def get_vehicle_versions(list_of_vehicles):
         print('vehicle: {0} : vin#: {1}'.format(vehicle, vehicle.vin))
         try:
             vv = director.get_last_vehicle_manifest(vehicle.vin)
-            print('\nvv: {0}'.format(vv))
+            #print('\nvv: {0}'.format(vv))
             # Parsing through vehicle version manifest for pertinent information
+            #   e.g., ecu's on vehicle and their respective versions, attacks_detected, etc.
             if 'signed' in vv:
-                print(vv['signed']['ecu_version_manifests'])
-            vehicle.update_record(vehicle_version=vv)
+                #print('\n\n:{0}'.format(vv['signed']['ecu_version_manifests']))
+                # Get the ECU serial #'s from the vehicle version manifest
+                try:
+                    ecu_serials = list(vv['signed']['ecu_version_manifests'].keys())
+                    # TODO - currently demo does not support updating primary
+                    #primary_serial = vv['signed']['primary_ecu_serial']
+                    #ecu_serials.append(primary_serial)
+                    ecu_serial_list = ''
+                    #print('\necu_serials: {0}'.format(ecu_serials))
+                    if ecu_serials:
+                        for ecu in ecu_serials:
+                            ecu_mani = director.get_last_ecu_manifest(ecu)
+                            if ecu_mani:
+                                #print('\necu_manifest: {0}'.format(ecu_mani))
+                                file_path = ecu_mani['signed']['installed_image']['filepath']
+                                ecu_serial_list += '{0} : {1}  '.format(ecu[0:3], str(file_path[-7:-4]))
+                            else:
+                                print('\nNo such luck getting this ecus \'{0}\' manifest: {1}'.format(ecu, ecu_mani))
+
+                    print('\necu_serial_list: {0}'.format(ecu_serial_list))
+
+                except Exception as ex:
+                    print('Error experienced when trying to gather ECU serial numbers from vehicle version manifest: '
+                          '{0}'.format(ex))
+                #try:
+                #    ecu_manifest = director.get_last_ecu_manifest()
+            vehicle.update_record(vehicle_version=ecu_serial_list)
             #director.get_last_vehicle_manifest(vehicle.vin)
-        except Exception:
+        except Exception as e:
             vehicle.update_record(vehicle_version='None')
-            print('did not work with this error: {0}'.format(Exception))
+            print('did not work with this error: {0}'.format(e))
 
 @auth.requires_login()
 def get_time_elapsed(list_of_vehicles):
@@ -399,7 +425,7 @@ def database_contents():
         list_of_vehicles = db(db.vehicle_db.oem==auth.user.username).select()
         get_supplier_versions(list_of_vehicles)
         get_director_versions(list_of_vehicles)
-        #get_vehicle_versions(list_of_vehicles)
+        get_vehicle_versions(list_of_vehicles)
         get_time_elapsed(list_of_vehicles)
         db.vehicle_db.id.readable=False
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username, create=True,

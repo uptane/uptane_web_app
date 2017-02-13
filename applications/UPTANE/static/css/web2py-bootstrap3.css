@@ -400,7 +400,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack4 {
-    background-image: url(../images/Evil.png);
+    background-image: url(../images/Devious.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -408,7 +408,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack5 {
-    background-image: url(../images/MixAndMatch.png);
+    background-image: url(../images/Eavesdrop.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -416,7 +416,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack6 {
-    background-image: url(../images/Rollback.png);
+    background-image: url(../images/Freeze.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -426,7 +426,7 @@ input.safety_btn{
 
 
 .fix1 {
-    background-image: url(../images/Evil.png);
+    background-image: url(../images/Infinite.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -434,7 +434,7 @@ input.safety_btn{
     display: block;
 }
 .fix2 {
-    background-image: url(../images/Rollback.png);
+    background-image: url(../images/MixBundle.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -442,7 +442,7 @@ input.safety_btn{
     display: block;
 }
 .fix3 {
-    background-image: url(../images/MixAndMatch.png);
+    background-image: url(../images/Partial.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -450,7 +450,7 @@ input.safety_btn{
     display: block;
 }
 .fix4 {
-    background-image: url(../images/Evil.png);
+    background-image: url(../images/Silence.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -458,7 +458,7 @@ input.safety_btn{
     display: block;
 }
 .fix5 {
-    background-image: url(../images/MixAndMatch.png);
+    background-image: url(../images/SlowRetrieval.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
