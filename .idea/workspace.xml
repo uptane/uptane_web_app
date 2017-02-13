@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f2a48ee-abc9-4f1e-8877-28733aa5c1c4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/UPTANE/static/images/Devious.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/UPTANE/static/images/Eavesdrop.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/UPTANE/static/images/Freeze.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/UPTANE/static/images/Infinite.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/UPTANE/static/images/MixBundle.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/UPTANE/static/images/Partial.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/UPTANE/static/images/Silence.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/UPTANE/static/images/SlowRetrieval.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/UPTANE/databases/storage.sqlite" afterPath="$PROJECT_DIR$/applications/UPTANE/databases/storage.sqlite" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/UPTANE/modules/uptane" afterPath="$PROJECT_DIR$/applications/UPTANE/modules/uptane" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/UPTANE/models/db.py" afterPath="$PROJECT_DIR$/applications/UPTANE/models/db.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/UPTANE/controllers/default.py" afterPath="$PROJECT_DIR$/applications/UPTANE/controllers/default.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/UPTANE/views/default/hacked.html" afterPath="$PROJECT_DIR$/applications/UPTANE/views/default/hacked.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/httpserver.log" afterPath="$PROJECT_DIR$/httpserver.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parameters_8000.py" afterPath="$PROJECT_DIR$/parameters_8000.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tuf.log" afterPath="$PROJECT_DIR$/tuf.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/UPTANE/static/css/web2py-bootstrap3.css" afterPath="$PROJECT_DIR$/applications/UPTANE/static/css/web2py-bootstrap3.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web2py.iws" />
@@ -45,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/applications/UPTANE/models/db.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="2580">
-              <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+              <caret line="148" column="93" selection-start-line="148" selection-start-column="93" selection-end-line="148" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -54,41 +47,11 @@
       <file leaf-file-name="default.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/applications/UPTANE/controllers/default.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28178695" vertical-offset="3294" max-vertical-offset="10605">
-              <caret line="236" column="54" selection-start-line="236" selection-start-column="54" selection-end-line="236" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.33333334" vertical-offset="9204" max-vertical-offset="10995">
+              <caret line="633" column="72" selection-start-line="633" selection-start-column="63" selection-end-line="633" selection-end-column="72" />
               <folding>
                 <element signature="e#470#494#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="html.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gluon/html.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.333333" vertical-offset="7674" max-vertical-offset="42675">
-              <caret line="549" column="9" selection-start-line="549" selection-start-column="9" selection-end-line="549" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sqlhtml.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gluon/sqlhtml.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.555555" vertical-offset="38364" max-vertical-offset="55455">
-              <caret line="2607" column="53" selection-start-line="2607" selection-start-column="53" selection-end-line="2607" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/applications/UPTANE/views/default/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.3529413" vertical-offset="135" max-vertical-offset="2190">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -106,18 +69,8 @@
       <file leaf-file-name="web2py-bootstrap3.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/css/web2py-bootstrap3.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5700" max-vertical-offset="7230">
-              <caret line="386" column="49" selection-start-line="386" selection-start-column="49" selection-end-line="386" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web2py.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/css/web2py.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="4815">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6210" max-vertical-offset="7230">
+              <caret line="457" column="19" selection-start-line="457" selection-start-column="19" selection-end-line="457" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -157,17 +110,17 @@
         <option value="$PROJECT_DIR$/demo/keys/primary.pub" />
         <option value="$PROJECT_DIR$/demo/keys/primary" />
         <option value="$PROJECT_DIR$/applications/UPTANE/static/css/web2py.css" />
-        <option value="$PROJECT_DIR$/applications/UPTANE/models/db.py" />
-        <option value="$PROJECT_DIR$/applications/UPTANE/static/css/web2py-bootstrap3.css" />
         <option value="$PROJECT_DIR$/gluon/sqlhtml.py" />
         <option value="$PROJECT_DIR$/applications/UPTANE/views/default/index.html" />
-        <option value="$PROJECT_DIR$/applications/UPTANE/controllers/default.py" />
         <option value="$PROJECT_DIR$/applications/UPTANE/views/default/hacked.html" />
+        <option value="$PROJECT_DIR$/applications/UPTANE/models/db.py" />
+        <option value="$PROJECT_DIR$/applications/UPTANE/static/css/web2py-bootstrap3.css" />
+        <option value="$PROJECT_DIR$/applications/UPTANE/controllers/default.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="395" />
+    <option name="x" value="413" />
     <option name="y" value="23" />
     <option name="width" value="1226" />
     <option name="height" value="997" />
@@ -282,6 +235,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uptane_web_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uptane_web_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UPTANE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -475,8 +454,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="395" y="23" width="1226" height="997" extended-state="0" />
-    <editor active="false" />
+    <frame x="413" y="23" width="1226" height="997" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -484,7 +463,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18318966" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2903752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2903752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -522,76 +501,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/modules/uptane/uptane/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/modules/uptane/uptane/services/inventorydb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1525424" vertical-offset="1935" max-vertical-offset="2820">
-          <caret line="61" column="16" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/modules/uptane/uptane/services/timeserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10169491" vertical-offset="540" max-vertical-offset="1425">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/modules/uptane/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/modules/uptane/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5625" vertical-offset="513" max-vertical-offset="1425">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gluon/shell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3540" max-vertical-offset="7260">
-          <caret line="273" column="30" selection-start-line="273" selection-start-column="30" selection-end-line="273" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/modules/uptane/exec_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gluon/widget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0370371" vertical-offset="15785" max-vertical-offset="19590">
-          <caret line="1076" column="52" selection-start-line="1076" selection-start-column="52" selection-end-line="1076" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gluon/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12030">
@@ -789,16 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Rollback.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/MixAndMatch.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/hacked_btn_img.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -808,27 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="4815">
           <caret line="18" column="16" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Evil.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/css/web2py-bootstrap3.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5700" max-vertical-offset="7230">
-          <caret line="386" column="49" selection-start-line="386" selection-start-column="49" selection-end-line="386" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/UPTANE/models/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="2580">
-          <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -865,10 +743,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/models/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="2580">
+          <caret line="148" column="93" selection-start-line="148" selection-start-column="93" selection-end-line="148" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Eavesdrop.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Evil.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Freeze.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/gplus-32.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/facebook.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Infinite.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/MixAndMatch.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/MixBundle.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Rollback.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Partial.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Silence.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/SlowRetrieval.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/images/Devious.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/UPTANE/static/css/web2py-bootstrap3.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6210" max-vertical-offset="7230">
+          <caret line="457" column="19" selection-start-line="457" selection-start-column="19" selection-end-line="457" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/applications/UPTANE/controllers/default.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28178695" vertical-offset="3294" max-vertical-offset="10605">
-          <caret line="236" column="54" selection-start-line="236" selection-start-column="54" selection-end-line="236" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="9204" max-vertical-offset="10995">
+          <caret line="633" column="72" selection-start-line="633" selection-start-column="63" selection-end-line="633" selection-end-column="72" />
           <folding>
             <element signature="e#470#494#0" expanded="true" />
           </folding>
