@@ -44,8 +44,12 @@ def index():
 
 @auth.requires_login()
 def hacked():
-    print(' HACKED  !!!')
     return database_contents()
+
+@auth.requires_login()
+def hacked_repo():
+    return dict(form=update_form(), db_contents=database_contents())
+
 
 def user():
     """
@@ -81,20 +85,20 @@ def determine_available_updates():
     print('vehicles:\t {0}'.format(vehicles))
     # Retrieve a list of vehicles associated w/ OEM
     for v in vehicles:
-        #print('\bv:\t{0}'.format(v))
+        #print('\nv:\t{0}'.format(v))
         # Iterate through ECUs for each vehicle to determine if a newer one exists
         for e in v.ecu_list:
-            #print('\be:\t{0}'.format(e))
+            #print('\ne:\t{0}'.format(e))
             # Retrieve the ecu based off the id
             ecu = db(db.ecu_db.id == e).select().first()
-            #print('\becu:\t{0}'.format(ecu))
+            #print('\necu:\t{0}'.format(ecu))
             # Retrieve the type from the ecu object
             ecu_type = ecu.ecu_type
-            #print('\becu_type:\t{0}'.format(ecu_type))
+            #print('\necu_type:\t{0}'.format(ecu_type))
             # Query the database for updates for ecu_type and select the last one (i.e., most recent update)
             ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select().last()
             # If the last update for this ecu_type id is > ecu.id then there's a newer update available
-            # so append the vehicle id to the available update list
+            # so append the vehicle id to the available update list and break
             if ecu_type_updates.id > e:
                 available_update_list.append(v.id)
                 break
@@ -102,7 +106,7 @@ def determine_available_updates():
                 continue
 
             #ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select()
-            #print('\becu_type_updates:\t{0}'.format(ecu_type_updates))
+            #print('\necu_type_updates:\t{0}'.format(ecu_type_updates))
             #for name_update in ecu_type_updates:
             #    # Iterate through to determine if id # is > current ecu_id (not ideal, but straight-forward solution
             #    #   versus checking the version #'s b/n the updates
@@ -115,7 +119,6 @@ def determine_available_updates():
             #        #print('\nCurrent id: {0} is <= e {1}'.format(name_update.id, e))
             #        continue
 
-        # If one ECU has an update, end the loop and add the vehicle to the available_update_list
     print(available_update_list)
     return available_update_list
 
@@ -445,18 +448,19 @@ def database_contents():
         db.vehicle_db.id.readable=False
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username, create=True,
                                    selectable=lambda vehicle_id: selected_vehicle(vehicle_id), csv=False,
-                                   searchable=False, details=False, editable=True, oncreate=create_vehicle,
+                                   searchable=False, details=False, editable=False, oncreate=create_vehicle,
                                    selectable_submit_button='View Vehicle Data',
                                    maxtextlengths={'vehicle_db.supplier_version' : 50,
                                                    'vehicle_db.director_version'  : 50,#,
                                                    'vehicle_db.vehicle_version'  : 50})#,
-                                   #links = [lambda row: A('Director Updates', body=lambda row:row.virtual1)])
-                                   # HREF link to another page - may be good for 'available updates': links = [lambda row: A('Director Updates', _href=URL("default","show",args=[row.id]))])
-        print('request.args: {0}\n'.format(request.args))
+                                    # HREF link to another page - may be good for 'available updates': links = [lambda row: A('Director Updates', _href=URL("default","show",args=[row.id]))])
+
+        #print('request.args: {0}\n'.format(request.args))
 
         # If we are adding a new vehicle to the database
         if 'new' in request.args:
             # Regex used to find all ecu 'options' within the db_contents div tag
+            #   String we are parsing db_contents for, thus reasoning for specific regex: '<div>[ecu_id]</div>'
             reg_val = re.findall("\>\d{1,3}\<", str(db_contents))
             # If there is a match, pull value from ecu_db
             if reg_val:
@@ -477,7 +481,7 @@ def database_contents():
         print('edited_vehicle: {0}'.format(edited_vehicle))
         print('\nDetermining vehicles w/ available updates')
         available_updates = []
-        #available_updates = determine_available_updates()
+        available_updates = determine_available_updates()
 
         #db_contents = SQLFORM.smartgrid(db.vehicle_db)
         if changed_ecu_list == None:
@@ -572,7 +576,7 @@ def ecu_list():
     return dict(ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list,
                 ecu_list=SQLFORM.grid(mod_query, selectable=lambda ecus: selected_ecus(ecus), csv=False,
                                       orderby=[db.ecu_db.ecu_type, ~db.ecu_db.update_version],
-                                      searchable=False,editable=False, deletable=False, create=False,details=False,
+                                      searchable=False, editable=False, deletable=False, create=False,details=False,
                                       selectable_submit_button='Create Bundle',
                                       onupdate=create_bundle_update()),
                 vehicle_note=vehicle_note)#, selected=ecu_id_list))
@@ -608,12 +612,11 @@ def selected_ecus(selected_ecus):
             director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                                     ':' + str(demo.DIRECTOR_SERVER_PORT))
 
-            # Do a check to see if it's the Primary (potentially add it after appending to
-            #   changed_ecu_list w/ boolean is_primary)
-
             cur_ecu = db(db.ecu_db.id==changed_ecu_list[0]).select().first()
             print('\ncur_ecu: {0}'.format(cur_ecu))
 
+            # Do a check to see if it's the Primary (potentially add it after appending to
+            #   changed_ecu_list w/ boolean is_primary)
             is_primary = True if cur_ecu.ecu_type == 'INFO' else False
 
             print('\ncur_ecu: {0}'.format(cur_ecu))
@@ -629,7 +632,7 @@ def selected_ecus(selected_ecus):
 
 
             vehicle_id = request.vars['vehicle_id']
-            #print('vehicle_id: {0}'.format(vehicle_id))
+            print('vehicle_id: {0}'.format(vehicle_id))
             vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
             ecu_serial = cur_ecu.ecu_type+str(vin)
 
@@ -646,7 +649,6 @@ def selected_ecus(selected_ecus):
             is_primary = True if cur_ecu.ecu_type == 'INFO' else False
             ecu_pub_key = pri_ecu_key if is_primary else sec_ecu_key
             print('\necu.type+vin: {0}{1}\tform.vars.vin: {2}\tis_primary: {3}'.format(cur_ecu.ecu_type, str(vin), vin, is_primary))
-            # only register ecus ONCE - correct?
             director.register_ecu_serial(cur_ecu.ecu_type+str(vin), ecu_pub_key, vin, is_primary)
 
 
@@ -666,14 +668,14 @@ def return_filename(update_image):
     print('filename: {0}'.format(filename))
     return str(filename)
 
+
+# The calls below are intended to be used with the hacked.html page
 @auth.requires_login()
 def hack1():
     print('\n\nHack1 CLICKED!!!!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
-    # Commenting this out b/c may not contain TEST_VIN in db
-    #var2=director.get_last_vehicle_manifest('TEST_VIN')
-    #print('Heres the output: {0}'.format(var2))
+
 @auth.requires_login()
 def hack2():
     print('\n\nHack2 CLICKED!!!!')
@@ -737,5 +739,78 @@ def fix5():
 @auth.requires_login()
 def fix6():
     print('\n\nFix6 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+# The calls below are intended to be used with the hacked_repo.html page
+@auth.requires_login()
+def repo_hack1():
+    print('\n\nRepo Hack1 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_hack2():
+    print('\n\nRepo Hack2 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_hack3():
+    print('\n\nRepo Hack3 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_hack4():
+    print('\n\nRepo Hack4 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_hack5():
+    print('\n\nRepo Hack5 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_hack6():
+    print('\n\nRepo Hack6 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_fix1():
+    print('\n\nRepo Fix1 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_fix2():
+    print('\n\nRepo Fix2 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_fix3():
+    print('\n\nRepo Fix3 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_fix4():
+    print('\n\nRepo Fix4 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_fix5():
+    print('\n\nRepo Fix5 CLICKED!!!!')
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+@auth.requires_login()
+def repo_fix6():
+    print('\n\nRepo Fix6 CLICKED!!!!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))

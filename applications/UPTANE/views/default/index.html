@@ -38,7 +38,7 @@
 {{pass}}
 -->
 
-{{if 'edited_vehicle' in globals():}}
+<!--{{if 'edited_vehicle' in globals():}}
     <script>
         console.log(" hello2! " + {{=edited_vehicle}});
         jQuery('tr[id={{=edited_vehicle}}]').each(function(){
@@ -51,6 +51,7 @@
     </script>
 {{else:}}
 {{pass}}
+-->
 
 {{if 'available_updates' in globals():}}
     <script>
@@ -75,6 +76,7 @@
 {{if auth.user.username == 'oem1':}}
 <h1 align="right"><input type="button" class="hacked_btn" onclick="location.href='hacked';"/></h1>
 {{else:}}
+<h1 align="right"><input type="button" class="hacked_btn" onclick="location.href='hacked_repo';"/></h1>
 {{pass}}
 
 </body>

@@ -1,0 +1,37 @@
+{{extend 'layout.html'}}
+
+<!--
+
+-->
+<body class="hack_body">
+
+
+{{if 'form' in globals():}}
+<h2>{{=form}}</h2>
+{{else:}}
+{{pass}}
+
+
+{{if 'db_contents' in globals():}}
+<h2>{{=db_contents}}</h2>
+{{else:}}
+{{pass}}
+
+
+
+<table class="hack_table" align="center">
+<h1 align="center"><tr><td>{{=A('', _title="Man-in-the-Middle" , _class="repohack1",callback=URL('repo_hack1'))}}</td><td>{{=A('', _title='Director Rollback',  _class="repohack2", callback=URL('repo_hack2'))}}</td>
+                    <td>{{=A('', _title="Supplier Compromised", _class="repohack3", callback=URL('repo_hack3'))}}</td><td>{{=A('', _title="Director Compromised", _class="repohack4", callback=URL('repo_hack4'))}}</td>
+                    <td>{{=A('', _title="Arbitrary Package", _class="repohack5", callback=URL('repo_hack5'))}}</td><td>{{=A('', _title="General Attack", _class="repohack6", callback=URL('repo_hack6'))}}</td></tr></h1>
+
+
+
+<h1 align="center" class="hack_links"><tr><td>{{=A('', _title="MITM Restore", _class="repofix1", callback=URL('repo_fix1'))}}</td><td>{{=A('', _title="Director Rollback Restore", _class="repofix2", callback=URL('repo_fix2'))}}</td>
+                    <td>{{=A('', _title="Supplier Restore", _class="repofix3", callback=URL('repo_fix3'))}}</td><td>{{=A('', _title="Director Restore", _class="repofix4", callback=URL('repo_fix4'))}}</td>
+                    <td>{{=A('', _title="Update Supplier Key", _class="repofix5", callback=URL('repo_fix5'))}}</td><td>{{=A('', _title="Update Director Key", _class="repofix6", callback=URL('repo_fix6'))}}</td></tr></h1>
+</table>
+
+<h1 align="center"><input type="button" class="safety_btn" onclick="location.href='/UPTANE/default/index';"/></h1>
+
+
+</body>

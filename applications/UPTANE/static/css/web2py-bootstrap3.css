@@ -474,3 +474,103 @@ input.safety_btn{
     display: block;
 }
 
+
+.repohack1 {
+    background-image: url(../images/Evil.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repohack2
+{
+    background-image: url(../images/Rollback.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repohack3 {
+    background-image: url(../images/MixAndMatch.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repohack4 {
+    background-image: url(../images/Devious.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repohack5 {
+    background-image: url(../images/Eavesdrop.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repohack6 {
+    background-image: url(../images/Freeze.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+
+
+.repofix1 {
+    background-image: url(../images/Infinite.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repofix2 {
+    background-image: url(../images/MixBundle.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repofix3 {
+    background-image: url(../images/Partial.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repofix4 {
+    background-image: url(../images/Silence.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repofix5 {
+    background-image: url(../images/SlowRetrieval.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
+.repofix6 {
+    background-image: url(../images/Rollback.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
+}
