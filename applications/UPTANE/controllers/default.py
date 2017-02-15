@@ -269,18 +269,18 @@ def create_vehicle(form):
         filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
 
         # Determine if ECU is primary or secondary
-        isPrimary = True if ecu.ecu_type == 'INFO' else False
+        is_primary = True if ecu.ecu_type == 'INFO' else False
 
         # If it's a secondary, then add the target to the director and write to the director repo
-        if not isPrimary:
+        if not is_primary:
             director.add_target_to_director(filepath, filename, form.vars.vin, ecu.ecu_type+str(form.vars.vin))
-        #    director.write_director_repo(form.vars.vin)
+            director.write_director_repo(form.vars.vin)
 
         # Register the ecu w/ the vehicle
-        ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
-        print('\necu.ecu_type: {0} + form.vars.vin: {1}\tisPrimary: {2}'.format(ecu.ecu_type, form.vars.vin, isPrimary))
+        ecu_pub_key = pri_ecu_key if is_primary else sec_ecu_key
+        print('\necu.ecu_type: {0} + form.vars.vin: {1}\tis_primary: {2}'.format(ecu.ecu_type, form.vars.vin, is_primary))
         # only register ecus ONCE - correct?
-        director.register_ecu_serial(ecu.ecu_type+str(form.vars.vin), ecu_pub_key, form.vars.vin, isPrimary)
+        director.register_ecu_serial(ecu.ecu_type+str(form.vars.vin), ecu_pub_key, form.vars.vin, is_primary)
         # Necessary?
         #director.write_director_repo(form.vars.vin)
 
@@ -325,50 +325,66 @@ def get_director_versions(list_of_vehicles):
 def get_vehicle_versions(list_of_vehicles):
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                             ':' + str(demo.DIRECTOR_SERVER_PORT))
-    print('director created')
-    #print('last vehicle manifest: {0}'.format(director.get_last_vehicle_manifest('111')))
 
-
-    # Add a new vehicle to the director repo (then write to director repo)
-    for vehicle in list_of_vehicles:#db(db.vehicle_db.oem==auth.user.username).select():
-        print('vehicle: {0} : vin#: {1}'.format(vehicle, vehicle.vin))
+    # Iterate through the list of vehicles in order to return the vehicle reported versions
+    for vehicle in list_of_vehicles:
+        #print('vehicle: {0} : vin#: {1}'.format(vehicle, vehicle.vin))
         try:
-            vv = director.get_last_vehicle_manifest(vehicle.vin)
-            #print('\nvv: {0}'.format(vv))
-            # Parsing through vehicle version manifest for pertinent information
-            #   e.g., ecu's on vehicle and their respective versions, attacks_detected, etc.
-            if 'signed' in vv:
-                #print('\n\n:{0}'.format(vv['signed']['ecu_version_manifests']))
-                # Get the ECU serial #'s from the vehicle version manifest
+            ecu_list = ['BCU', 'INFO', 'TCU']
+            ecu_serial_list = ''
+            is_default = True
+            # Iterate through the list of ECU's (which is currently hardcoded) and gather their ecu_manifest
+            #   From each ecu_manifest, parse the file name of their current image and add it to the ecu_serial_list
+            for ecu in ecu_list:
+                ecu_manifest = director.get_last_ecu_manifest(str(ecu)+str(vehicle.vin))
                 try:
-                    ecu_serials = list(vv['signed']['ecu_version_manifests'].keys())
-                    # TODO - currently demo does not support updating primary
-                    #primary_serial = vv['signed']['primary_ecu_serial']
-                    #ecu_serials.append(primary_serial)
-                    ecu_serial_list = ''
-                    #print('\necu_serials: {0}'.format(ecu_serials))
-                    if ecu_serials:
-                        for ecu in ecu_serials:
-                            ecu_mani = director.get_last_ecu_manifest(ecu)
-                            if ecu_mani:
-                                #print('\necu_manifest: {0}'.format(ecu_mani))
-                                file_path = ecu_mani['signed']['installed_image']['filepath']
-                                ecu_serial_list += '{0} : {1}  '.format(ecu[0:3], str(file_path[-7:-4]))
-                            else:
-                                print('\nNo such luck getting this ecus \'{0}\' manifest: {1}'.format(ecu, ecu_mani))
+                    file_path = ecu_manifest['signed']['installed_image']['filepath']
+                    if file_path == '/secondary_firmware.txt':
+                        ecu_serial_list += '{0} : {1}  '.format(str(ecu), 'N/A')
+                    else:
+                        is_default = False
+                        ecu_serial_list += '{0} : {1}  '.format(str(ecu), file_path[-7:-4])
+                except Exception:
+                    # This is to catch the error received from an ECU manifest that returns an error
+                    ecu_serial_list += '{0} : {1}  '.format(str(ecu), 'N/A') if is_default else '{0} : {1}  '.format(str(ecu), '1.0')
 
-                    print('\necu_serial_list: {0}'.format(ecu_serial_list))
-
-                except Exception as ex:
-                    print('Error experienced when trying to gather ECU serial numbers from vehicle version manifest: '
-                          '{0}'.format(ex))
-                #try:
-                #    ecu_manifest = director.get_last_ecu_manifest()
             vehicle.update_record(vehicle_version=ecu_serial_list)
-            #director.get_last_vehicle_manifest(vehicle.vin)
         except Exception as e:
             vehicle.update_record(vehicle_version='None')
             print('did not work with this error: {0}'.format(e))
+
+@auth.requires_login()
+def get_status(list_of_vehicles):
+    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                            ':' + str(demo.DIRECTOR_SERVER_PORT))
+
+    # Iterate through the list of vehicles in order to return the ECU reported attacks detected
+    for vehicle in list_of_vehicles:
+        try:
+            # Get the vehicle's manifest
+            vv = director.get_last_vehicle_manifest(vehicle.vin)
+            attack_status = ''
+            if 'signed' in vv:
+                try:
+                    # Retrieve all of the reported ecu_version manifests keys
+                    ecu_serials = list(vv['signed']['ecu_version_manifests'].keys())
+                    if ecu_serials:
+                        for ecu in ecu_serials:
+                            # Retrieve the ECU's last manifest to parse the attacks_detected
+                            ecu_mani = director.get_last_ecu_manifest(ecu)
+                            if ecu_mani:
+                                attack_status = ecu_mani['signed']['attacks_detected']
+                except Exception:
+                    print('Unable to get the ecu_version_manifests from the vehicle manifest.')
+
+            # If the attack_status is not the default of '' then we'll return the reported attack_status
+            #   otherwise, we'll return a value of 'Good'
+            attack_status = attack_status if attack_status else 'Good1'
+            vehicle.update_record(status=attack_status)
+
+        except Exception as e:
+            vehicle.update_record(status='Unknown')
+            print('get_status failed with this error: {0}'.format(e))
 
 @auth.requires_login()
 def get_time_elapsed(list_of_vehicles):
@@ -391,8 +407,6 @@ def get_time_elapsed(list_of_vehicles):
 @auth.requires_login()
 def database_contents():
     # return the database contents based off the owner
-    #db_contents = T('Hello billy bob..')
-    #         db_contents = db(db.items.supplier_name=auth.user.username).select(db.supplier_db.id=1)
     current_user = auth.user.username
 
     # If it's a supplier, pull up data based off their username
@@ -426,6 +440,7 @@ def database_contents():
         get_supplier_versions(list_of_vehicles)
         get_director_versions(list_of_vehicles)
         get_vehicle_versions(list_of_vehicles)
+        get_status(list_of_vehicles)
         get_time_elapsed(list_of_vehicles)
         db.vehicle_db.id.readable=False
         db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username, create=True,
@@ -578,8 +593,7 @@ def selected_ecus(selected_ecus):
     changed_ecu_list = []
     vehicle_id = request.vars['vehicle_id']
 
-    isPrimary = False
-    isSecondary = False
+    is_primary = False
     for ecu in selected_ecus:
         if str(ecu) not in ecu_id_list:
             changed_ecu_list.append(ecu)
@@ -594,16 +608,16 @@ def selected_ecus(selected_ecus):
             director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                                     ':' + str(demo.DIRECTOR_SERVER_PORT))
 
-            # Do a check to see if it's the Primary or Secondary (potentially add it after appending to
-            #   changed_ecu_list w/ boolean isPrimary, isSecondary)
+            # Do a check to see if it's the Primary (potentially add it after appending to
+            #   changed_ecu_list w/ boolean is_primary)
 
             cur_ecu = db(db.ecu_db.id==changed_ecu_list[0]).select().first()
             print('\ncur_ecu: {0}'.format(cur_ecu))
 
-            isPrimary = True if cur_ecu.ecu_type == 'INFO' else False
+            is_primary = True if cur_ecu.ecu_type == 'INFO' else False
 
             print('\ncur_ecu: {0}'.format(cur_ecu))
-            print('\nisPrimary: {0}'.format(isPrimary))
+            print('\nis_primary: {0}'.format(is_primary))
 
             # Add the bundle to the vehicle
             cwd = os.getcwd()
@@ -629,11 +643,11 @@ def selected_ecus(selected_ecus):
             ecu_pub_key = ''
 
             # Register the ecu w/ the vehicle
-            isPrimary = True if cur_ecu.ecu_type == 'INFO' else False
-            ecu_pub_key = pri_ecu_key if isPrimary else sec_ecu_key
-            print('\necu.type+vin: {0}{1}\tform.vars.vin: {2}\tisPrimary: {3}'.format(cur_ecu.ecu_type, str(vin), vin, isPrimary))
+            is_primary = True if cur_ecu.ecu_type == 'INFO' else False
+            ecu_pub_key = pri_ecu_key if is_primary else sec_ecu_key
+            print('\necu.type+vin: {0}{1}\tform.vars.vin: {2}\tis_primary: {3}'.format(cur_ecu.ecu_type, str(vin), vin, is_primary))
             # only register ecus ONCE - correct?
-            director.register_ecu_serial(cur_ecu.ecu_type+str(vin), ecu_pub_key, vin, isPrimary)
+            director.register_ecu_serial(cur_ecu.ecu_type+str(vin), ecu_pub_key, vin, is_primary)
 
 
 
