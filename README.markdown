@@ -52,7 +52,7 @@ To start web2py there is NO NEED to install it. Just unzip and do:
 To provide an admin password use the -a parameter, if using https supply the certificate and private key via the -c and -k options.  
   Next, provide the address via the -i option, and the port via the -p option. The command will appear as follows:
 
-    python3 web2py.py -a 'uptane' -c server.crt -k server.key -i 127.0.0.1 -p 8000
+    python3 web2py.py -a 'admin-password' -c server.crt -k server.key -i 127.0.0.1 -p 8000
 
 That's it!
 

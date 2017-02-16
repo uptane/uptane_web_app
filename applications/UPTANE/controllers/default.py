@@ -82,7 +82,7 @@ def download():
 def determine_available_updates():
     available_update_list = []
     vehicles =  db(db.vehicle_db.oem == auth.user.username).select()
-    print('vehicles:\t {0}'.format(vehicles))
+    #print('vehicles:\t {0}'.format(vehicles))
     # Retrieve a list of vehicles associated w/ OEM
     for v in vehicles:
         #print('\nv:\t{0}'.format(v))
@@ -105,21 +105,7 @@ def determine_available_updates():
             else:
                 continue
 
-            #ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select()
-            #print('\necu_type_updates:\t{0}'.format(ecu_type_updates))
-            #for name_update in ecu_type_updates:
-            #    # Iterate through to determine if id # is > current ecu_id (not ideal, but straight-forward solution
-            #    #   versus checking the version #'s b/n the updates
-            #    if name_update.id > e:
-            #        if v.id not in available_update_list:
-            #            available_update_list.append(v.id)
-            #        #print('\nAppended the current vehicle: {0}'.format(v.id))
-            #        break
-            #    else:
-            #        #print('\nCurrent id: {0} is <= e {1}'.format(name_update.id, e))
-            #        continue
-
-    print(available_update_list)
+    #print(available_update_list)
     return available_update_list
 
 def call():
@@ -249,15 +235,8 @@ def create_vehicle(form):
 
     # Add a new vehicle to the director repo (which includes writing to the repo)
     director.add_new_vehicle(form.vars.vin)
-    # Necessary? - EAC
     director.write_director_repo(form.vars.vin)
 
-    # There's a different public key for Primary and Secondary ECU's
-    #print('demo.DIRECTOR_SERVER_HOST:PORT;  {0}:{1}'.format(demo.DIRECTOR_SERVER_HOST, demo.DIRECTOR_SERVER_PORT))
-    #print('uptane.WORKING_DIR;  {0}'.format(uptane.WORKING_DIR))
-    #print('demo.DEMO_DIR;  {0}'.format(demo.DEMO_DIR))
-    #print('DEMO_KEYS_DIR: {0}\njoin with os: {1}'.format(
-    #        demo.DEMO_KEYS_DIR, os.path.join(demo.DEMO_KEYS_DIR, 'primary')))
     pri_ecu_key = demo.import_public_key('primary')
     sec_ecu_key = demo.import_public_key('secondary')
     ecu_pub_key = ''
@@ -409,34 +388,22 @@ def get_time_elapsed(list_of_vehicles):
 
 @auth.requires_login()
 def database_contents():
-    # return the database contents based off the owner
+    # return the database contents based off the current_user
     current_user = auth.user.username
 
     # If it's a supplier, pull up data based off their username
     if current_user == 'supplier1' or current_user == 'supplier2':
         if db.ecu_db.id != '':
-            #query = db.supplier_db.supplier_name == 'supplier1'
-            #db_set = db(query)
-            #rows = db_set.select()
-            #print rows
-            #for row in rows:
-            #    print row
-            # The following creates a list of the db_contents that apply to the current user
-            #db_contents = []
+            # The following sets the ID#'s to non-readable and pulls all ECU's created by the current user
             db.ecu_db.id.readable=False
             db_contents = SQLFORM.grid(db.ecu_db.supplier_name==auth.user.username, searchable=False, csv=False,
                                        create=False)
                                        #onvalidation=add_ecu_validation)
-
-            #for row in db(db.supplier_db.supplier_name == auth.user.username).iterselect():
-            #    db_contents.append(row)
-
-            #print db_contents
-            #db_contents = db().select(db.supplier_db.supplier_name)
         else:
             db_contents = T('Hello, you have no ecu/vehicles....')
         return db_contents
-    #else it's an OEM; so display database applicable to them
+
+    # Else it's an OEM; so display database applicable to them
     else:
         print('\nrequest: {0}'.format(request.vars['ecu_list']))
         list_of_vehicles = db(db.vehicle_db.oem==auth.user.username).select()
@@ -531,10 +498,7 @@ def ecu_list():
     ecu_type_list = request.vars['ecu_type_list']
     vehicle_id = request.vars['vehicle_id']
     vehicle_note = db(db.vehicle_db.id==vehicle_id).select().first().note
-    #print ecu_id_list
-    #print ecu_type_list
-    #print type(ecu_id_list)
-    #print len(ecu_type_list)
+
     # Now have to build the query that will effect what is shown on the screen
     num_ecus = 0
     query = ''
@@ -546,32 +510,11 @@ def ecu_list():
         if num_ecus < len(ecu_type_list):
             query+=" | "
 
-    print('time for the query: {0}'.format(query))
+    #print('query: {0}'.format(query))
     # This line changes our custom query (created above) from a str to a type Query
     # This enables us to send the query as the first argument for SQLFORM.grid()
     mod_query = db(eval(query))
-    #new_query = db.ecu_db(eval(query)).select()
-    #new_query2 = db.ecu_db(eval(query))
-    print(mod_query)
-    #print type(mod_query)
-    #print new_query2
-    #print type(new_query2)
-        #ecu_type_list.append(ecu.ecu_type)
-    #print 'ecu_type_list'
-    #print ecu_type_list
-    #print 'afterwards'
-    #return dict(ecu_list='Luke, I am your father')
-    #return dict(ecu_list=SQLFORM.grid(db.vehicle_db.id==3))
-    #records = db(db.ecu_db.ecu_type=='ecu1')
-    #print records
-    #print 'yep'
-    # THIS WORKS
-    #return dict(ecu_list=SQLFORM.grid(mod_query))
-
-    #content = dict(ecu_list=SQLFORM.grid(mod_query, selectable=lambda ecu_id: selected_ecus(ecu_id_list)))
-    # Uncomment these two lines if you want it to work
-    #content=SQLFORM.grid(mod_query, selectable=lambda ecu_id: selected_ecus(ecu_id_list))
-    #return content
+    #print('mod query: {0}'.format(mod_query))
 
     return dict(ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list,
                 ecu_list=SQLFORM.grid(mod_query, selectable=lambda ecus: selected_ecus(ecus), csv=False,
@@ -580,10 +523,7 @@ def ecu_list():
                                       selectable_submit_button='Create Bundle',
                                       onupdate=create_bundle_update()),
                 vehicle_note=vehicle_note)#, selected=ecu_id_list))
-    #return dict(ecu_list=SQLFORM.grid((db.ecu_db.ecu_type=='ecu1') | (db.ecu_db.ecu_type=='ecu2')))
-    #redirect(URL('ecu_list', vars=dict(ecu_list=SQLFORM.grid((db.ecu_db.ecu_type=='ecu1') | (db.ecu_db.ecu_type=='ecu1'))))
 
-    #db_contents = SQLFORM.grid(db.vehicle_db.oem==auth.user.username, selectable=lambda vehicle_id: selected_vehicle(vehicle_id))
 
 @auth.requires_login()
 def create_bundle_update():
@@ -592,7 +532,7 @@ def create_bundle_update():
 
 @auth.requires_login()
 def selected_ecus(selected_ecus):
-    print('inside selected ecus')
+    #print('inside selected ecus')
     ecu_id_list = request.vars['ecu_id_list']
     changed_ecu_list = []
     vehicle_id = request.vars['vehicle_id']
@@ -604,7 +544,7 @@ def selected_ecus(selected_ecus):
         else:
             print(str(ecu) + ' is in the list!')
 
-    print('changed_ecu_list: {0}'.format(changed_ecu_list))
+    #print('changed_ecu_list: {0}'.format(changed_ecu_list))
     if changed_ecu_list:
         db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
         if len(changed_ecu_list) == 1:
@@ -613,18 +553,18 @@ def selected_ecus(selected_ecus):
                                                     ':' + str(demo.DIRECTOR_SERVER_PORT))
 
             cur_ecu = db(db.ecu_db.id==changed_ecu_list[0]).select().first()
-            print('\ncur_ecu: {0}'.format(cur_ecu))
+            #print('\ncur_ecu: {0}'.format(cur_ecu))
 
             # Do a check to see if it's the Primary (potentially add it after appending to
             #   changed_ecu_list w/ boolean is_primary)
             is_primary = True if cur_ecu.ecu_type == 'INFO' else False
 
-            print('\ncur_ecu: {0}'.format(cur_ecu))
-            print('\nis_primary: {0}'.format(is_primary))
+            #print('\ncur_ecu: {0}'.format(cur_ecu))
+            #print('\nis_primary: {0}'.format(is_primary))
 
             # Add the bundle to the vehicle
             cwd = os.getcwd()
-            print('\ncwd now2: {0}'.format(cwd))
+            #print('\ncwd now2: {0}'.format(cwd))
 
             # Retrieve the filename
             filename = return_filename(cur_ecu.update_image)
@@ -632,11 +572,11 @@ def selected_ecus(selected_ecus):
 
 
             vehicle_id = request.vars['vehicle_id']
-            print('vehicle_id: {0}'.format(vehicle_id))
+            #print('vehicle_id: {0}'.format(vehicle_id))
             vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
             ecu_serial = cur_ecu.ecu_type+str(vin)
 
-            print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
+            #print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
 
             director.add_target_to_director(filepath, filename, vin, ecu_serial)
             director.write_director_repo(vin)
@@ -651,10 +591,6 @@ def selected_ecus(selected_ecus):
             print('\necu.type+vin: {0}{1}\tform.vars.vin: {2}\tis_primary: {3}'.format(cur_ecu.ecu_type, str(vin), vin, is_primary))
             director.register_ecu_serial(cur_ecu.ecu_type+str(vin), ecu_pub_key, vin, is_primary)
 
-
-
-
-
     redirect(URL('index', vars=dict(ecu_id_list=ecu_id_list, selected_ecu_list=selected_ecus, changed_ecu_list=changed_ecu_list, vehicle_id=vehicle_id)))
 
 @auth.requires_login()
@@ -668,6 +604,11 @@ def return_filename(update_image):
     print('filename: {0}'.format(filename))
     return str(filename)
 
+
+# This function is intended to be used with a Director/OEM resetting their system
+@auth.requires_login()
+def reset_system():
+    print('\nTime to reset the system!')
 
 # The calls below are intended to be used with the hacked.html page
 @auth.requires_login()

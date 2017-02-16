@@ -107,6 +107,9 @@ select.autocomplete {
 .background {
     background: url(../images/background.jpg) no-repeat center center;
 }
+.hacked_background {
+    background: url(../images/hack_background.png) no-repeat center center;
+}
 body {
     padding-top: 60px;
     margin-bottom: 60px;
@@ -350,14 +353,26 @@ input.safety_btn{
 }
 
 .hack_body {
-    background-color: red;
+    background-image: url(../images/hacked_background.jpg);
+    /*background-image: url(../images/background.jpg);
+    background-color: red;*/
+
 }
 
 .safety_btn{
     height:100px;
     width:100px;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/480px-Yes_Check_Circle.svg.png)
+    background-image: url(../images/safety_btn_img.png)
     background-size: 100%;
+}
+
+.reset_system {
+    background-image: url(../images/refresh.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:80px;
+    width:80px;
+    display: block;
 }
 
 .hack_table{
@@ -373,6 +388,7 @@ input.safety_btn{
 .hack_links{
     font-size:30px;
 }
+
 
 .tdhack1 {
     background-image: url(../images/Evil.png);

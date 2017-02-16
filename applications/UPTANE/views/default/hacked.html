@@ -1,8 +1,16 @@
 {{extend 'layout.html'}}
 
-<!--
+{{block header}}
+    <header class="container-fluid ">
+      <div class="jumbotron text-center">
+        {{if response.title:}}
+        <h1>{{=response.title}}
+                <small> - HACKED OEM Repo</small></h1>
+        {{pass}}
+      </div>
+    </header>
+{{end}}
 
--->
 <body class="hack_body">
 
 {{if 'db_contents' in globals():}}
@@ -38,11 +46,11 @@
             console.log({{=available_updates}}[i]);
             var id_num = {{=available_updates}}[i];
             jQuery('tr[id=' + id_num + ']').each(function(){
-                var button = $("<td><a id='available_update_button' href='/UPTANE/default/index'>AVAILABLE UPDATE</a></td>");
-                button.click(function(){
-                    alert($("#available_update_button").attr("href"));
-                    jQuery('input[value=id_num]').attr('checked', 'checked');
-                });
+                var button = $("<td><a id='available_update_button'>AVAILABLE UPDATE</a></td>");
+                //button.click(function(){
+                //    alert($("#available_update_button").attr("href"));
+                //    jQuery('input[value=id_num]').attr('checked', 'checked');
+                //});
                 button.appendTo(jQuery(this));
             });
         }
@@ -61,12 +69,6 @@
                     <td>{{=A('', _title="Supplier Restore", _class="fix3", callback=URL('fix3'))}}</td><td>{{=A('', _title="Director Restore", _class="fix4", callback=URL('fix4'))}}</td>
                     <td>{{=A('', _title="Update Supplier Key", _class="fix5", callback=URL('fix5'))}}</td><td>{{=A('', _title="Update Director Key", _class="fix6", callback=URL('fix6'))}}</td></tr></h1>
 </table>
-<!--
-                    <tr>
-                        <td><a class="tdhack1" data-w2p_method="POST" href="/UPTANE/default/hack1"></a></td>
-                        <td>{{=A('hello', _class="tdhack2", callback=URL('hack2'))}}</td>
-                    </tr>
--->
 
 <h1 align="center"><input type="button" class="safety_btn" onclick="location.href='/UPTANE/default/index';"/></h1>
 
