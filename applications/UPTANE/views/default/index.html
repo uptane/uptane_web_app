@@ -62,9 +62,9 @@
             var id_num = {{=available_updates}}[i];
             jQuery('tr[id=' + id_num + ']').each(function(){
                 var button = $("<td><div id='available_update_button'>AVAILABLE UPDATE</div></td>");
-                button.click(function(){
-                    alert($("#available_update_button").attr("href"));
-                });
+                //button.click(function(){
+                //    alert($("#available_update_button").attr("href"));
+                //});
                 button.appendTo(jQuery(this));
             });
         }
@@ -75,6 +75,7 @@
 
 {{if auth.user.username == 'oem1':}}
 <h1 align="right"><input type="button" class="hacked_btn" onclick="location.href='hacked';"/></h1>
+<h1 align="left">{{=A('', _title="Reset System" , _class="reset_system",callback=URL('reset_system'))}}</h1>
 {{else:}}
 <h1 align="right"><input type="button" class="hacked_btn" onclick="location.href='hacked_repo';"/></h1>
 {{pass}}
@@ -82,62 +83,3 @@
 </body>
 {{end}}
 
-<!--<h1><input type="button" onclick="location.href='http://google.com';" value="HACKED" /></h1>
-<h1><button type="button" onclick="location.href='http://google.com';">HACKED</button></h1>
-<script>
-var url = document.URL;
-console.log(" URL " + url);
-var hacked_bool = url.includes("hacked);
-console.log(" includes()? " + url.includes("hacked"))
-if (hacked_bool){
-var button = $("<h1><button type="button" onclick="location.href='/hacked';" value="HACKED"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Skull_and_crossbones.svg"/></button></h1>");
-button.appendTo(this);
-}
-else{
-<h1><button type="button" onclick="location.href='default/hacked';" value="HACKED"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Skull_and_crossbones.svg"/></button></h1>;
-
-}
-
-</script>
--->
-
-
-
-<!--
-<p class="lead">{{=T('How did you get here?')}}</p>
-<ol>
-  <li>{{=T('You are successfully running web2py')}}</li>
-  <li>{{=XML(T('You visited the url %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
-  <li>{{=XML(T('Which called the function %s located in the file %s',
-    (A(request.function+'()',_href='#'),
-    A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
-    _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
-  <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
-    A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
-    _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
-  <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
-</ol>
-
-
-
-
-
-{{block right_sidebar}}
-<div class="panel panel-info">
-  <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
-      href="{{=URL('admin','default','index')}}">
-      <i class="glyphicon glyphicon-cog"></i>
-      {{=T("admin")}}
-    </a></h3></div>
-  <div class="panel-body">
-    {{=T("Don't know what to do?")}}
-  </div>
-  <ul class="list-group">
-    <li class="list-group-item">{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
-    <li class="list-group-item"><a href="http://web2py.com">web2py.com</a></li>
-    <li class="list-group-item"><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
-  </ul>
-</div>
-
-{{end}}
--->
