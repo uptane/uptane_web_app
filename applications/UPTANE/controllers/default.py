@@ -497,7 +497,7 @@ def ecu_list():
     ecu_id_list =  request.vars['ecu_id_list']
     ecu_type_list = request.vars['ecu_type_list']
     vehicle_id = request.vars['vehicle_id']
-    vehicle_note = db(db.vehicle_db.id==vehicle_id).select().first().note
+    vehicle_vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
 
     # Now have to build the query that will effect what is shown on the screen
     num_ecus = 0
@@ -515,14 +515,14 @@ def ecu_list():
     # This enables us to send the query as the first argument for SQLFORM.grid()
     mod_query = db(eval(query))
     #print('mod query: {0}'.format(mod_query))
-
+    db.ecu_db.id.readable=False
     return dict(ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list,
                 ecu_list=SQLFORM.grid(mod_query, selectable=lambda ecus: selected_ecus(ecus), csv=False,
                                       orderby=[db.ecu_db.ecu_type, ~db.ecu_db.update_version],
                                       searchable=False, editable=False, deletable=False, create=False,details=False,
                                       selectable_submit_button='Create Bundle',
                                       onupdate=create_bundle_update()),
-                vehicle_note=vehicle_note)#, selected=ecu_id_list))
+                vehicle_vin=vehicle_vin)#, selected=ecu_id_list))
 
 
 @auth.requires_login()
