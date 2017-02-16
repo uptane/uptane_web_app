@@ -11,6 +11,7 @@
 
 <body class="hack_body">
 
+<div style="background:WHITE">
 {{if 'db_contents' in globals():}}
 <h2>{{=db_contents}}</h2>
 {{else:}}
@@ -67,7 +68,7 @@
                     <td>{{=A('', _title="Supplier Restore", _class="fix3", callback=URL('fix3'))}}</td><td>{{=A('', _title="Director Restore", _class="fix4", callback=URL('fix4'))}}</td>
                     <td>{{=A('', _title="Update Supplier Key", _class="fix5", callback=URL('fix5'))}}</td><td>{{=A('', _title="Update Director Key", _class="fix6", callback=URL('fix6'))}}</td></tr></h1>
 </table>
-
+</div>
 <h1 align="center"><input type="button" class="safety_btn" onclick="location.href='/UPTANE/default/index';"/></h1>
 
 
