@@ -84,27 +84,31 @@ def determine_available_updates():
     vehicles =  db(db.vehicle_db.oem == auth.user.username).select()
     #print('vehicles:\t {0}'.format(vehicles))
     # Retrieve a list of vehicles associated w/ OEM
-    for v in vehicles:
-        #print('\nv:\t{0}'.format(v))
-        # Iterate through ECUs for each vehicle to determine if a newer one exists
-        for e in v.ecu_list:
-            #print('\ne:\t{0}'.format(e))
-            # Retrieve the ecu based off the id
-            ecu = db(db.ecu_db.id == e).select().first()
-            #print('\necu:\t{0}'.format(ecu))
-            # Retrieve the type from the ecu object
-            ecu_type = ecu.ecu_type
-            #print('\necu_type:\t{0}'.format(ecu_type))
-            # Query the database for updates for ecu_type and select the last one (i.e., most recent update)
-            ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select().last()
-            # If the last update for this ecu_type id is > ecu.id then there's a newer update available
-            # so append the vehicle id to the available update list and break
-            if ecu_type_updates.id > e:
-                available_update_list.append(v.id)
-                break
-            else:
-                continue
-
+    if vehicles:
+        for v in vehicles:
+            #print('\nv:\t{0}'.format(v))
+            # Iterate through ECUs for each vehicle to determine if a newer one exists
+            for e in v.ecu_list:
+                try:
+                    #print('\ne:\t{0}'.format(e))
+                    # Retrieve the ecu based off the id
+                    ecu = db(db.ecu_db.id == e).select().first()
+                    #print('\necu:\t{0}'.format(ecu))
+                    # Retrieve the type from the ecu object
+                    if ecu:
+                        ecu_type = ecu.ecu_type
+                        #print('\necu_type:\t{0}'.format(ecu_type))
+                        # Query the database for updates for ecu_type and select the last one (i.e., most recent update)
+                        ecu_type_updates = db(db.ecu_db.ecu_type == ecu_type).select().last()
+                        # If the last update for this ecu_type id is > ecu.id then there's a newer update available
+                        # so append the vehicle id to the available update list and break
+                        if ecu_type_updates.id > e:
+                            available_update_list.append(v.id)
+                            break
+                        else:
+                            continue
+                except Exception as e:
+                    print('Unable to determine the available updates due to this error: {0}'.format(e))
     #print(available_update_list)
     return available_update_list
 
@@ -132,6 +136,8 @@ def update_form():
 
     supplier = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
                                             ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+
+
     #print(request.args)
     record = db.ecu_db(request.args(1))
     #print(record)
@@ -171,8 +177,6 @@ def update_form():
         response.flash = 'please fill out the form'
     return form
 
-
-
 @auth.requires_login()
 def add_ecu_validation(form):
     meta = create_meta('3')
@@ -187,80 +191,88 @@ def add_ecu_validation(form):
 
 @auth.requires_login()
 def create_vehicle(form):
-    print('\n\nCREATE_VEHICLE()')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
-    print('\n\nAFTER CREATING DIRECTOR@ ADDR: {0}:{1}'.format(str(demo.DIRECTOR_SERVER_HOST), str(demo.DIRECTOR_SERVER_PORT)))
+    try:
+        #print('\n\nCREATE_VEHICLE()')
+        director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                            ':' + str(demo.DIRECTOR_SERVER_PORT))
+        #print('\n\nAFTER CREATING DIRECTOR@ ADDR: {0}:{1}'.format(str(demo.DIRECTOR_SERVER_HOST), str(demo.DIRECTOR_SERVER_PORT)))
 
-    # Add a new vehicle to the director repo (which includes writing to the repo)
-    director.add_new_vehicle(form.vars.vin)
-    director.write_director_repo(form.vars.vin)
+        # Add a new vehicle to the director repo (which includes writing to the repo)
+        director.add_new_vehicle(form.vars.vin)
+        director.write_director_repo(form.vars.vin)
 
-    pri_ecu_key = demo.import_public_key('primary')
-    sec_ecu_key = demo.import_public_key('secondary')
-    ecu_pub_key = ''
-    print('\n\n\ncreating vehicle now\n{0}\ttype: {1}\n'.format(form.vars, type(form.vars)))
-    print('pri_ecu_key: {0}\nsec_ecu_key: {1}\necu_pub_key: {2}'.format(pri_ecu_key, sec_ecu_key, ecu_pub_key))
-    for e_id in form.vars.ecu_list:
-        ecu = db(db.ecu_db.id==e_id).select().first()
+        pri_ecu_key = demo.import_public_key('primary')
+        sec_ecu_key = demo.import_public_key('secondary')
+        ecu_pub_key = ''
+        #print('\n\n\ncreating vehicle now\n{0}\ttype: {1}\n'.format(form.vars, type(form.vars)))
+        #print('pri_ecu_key: {0}\nsec_ecu_key: {1}\necu_pub_key: {2}'.format(pri_ecu_key, sec_ecu_key, ecu_pub_key))
+        for e_id in form.vars.ecu_list:
+            ecu = db(db.ecu_db.id==e_id).select().first()
 
-        # Retrieve the filename to add the target to the director
-        cwd = os.getcwd()
-        filename = return_filename(ecu.update_image)
-        filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
+            # Retrieve the filename to add the target to the director
+            cwd = os.getcwd()
+            filename = return_filename(ecu.update_image)
+            filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
 
-        # Determine if ECU is primary or secondary
-        is_primary = True if ecu.ecu_type == 'INFO' else False
+            # Determine if ECU is primary or secondary
+            is_primary = True if ecu.ecu_type == 'INFO' else False
 
-        # If it's a secondary, then add the target to the director and write to the director repo
-        if not is_primary:
-            director.add_target_to_director(filepath, filename, form.vars.vin, ecu.ecu_type+str(form.vars.vin))
-            director.write_director_repo(form.vars.vin)
+            # If it's a secondary, then add the target to the director and write to the director repo
+            if not is_primary:
+                director.add_target_to_director(filepath, filename, form.vars.vin, ecu.ecu_type+str(form.vars.vin))
+                director.write_director_repo(form.vars.vin)
 
-        # Register the ecu w/ the vehicle
-        ecu_pub_key = pri_ecu_key if is_primary else sec_ecu_key
-        print('\necu.ecu_type: {0} + form.vars.vin: {1}\tis_primary: {2}'.format(ecu.ecu_type, form.vars.vin, is_primary))
-        # only register ecus ONCE - correct?
-        director.register_ecu_serial(ecu.ecu_type+str(form.vars.vin), ecu_pub_key, form.vars.vin, is_primary)
-        # Necessary?
-        #director.write_director_repo(form.vars.vin)
-
+            # Register the ecu w/ the vehicle
+            ecu_pub_key = pri_ecu_key if is_primary else sec_ecu_key
+            #print('\necu.ecu_type: {0} + form.vars.vin: {1}\tis_primary: {2}'.format(ecu.ecu_type, form.vars.vin, is_primary))
+            # only register ecus ONCE - correct?
+            director.register_ecu_serial(ecu.ecu_type+str(form.vars.vin), ecu_pub_key, form.vars.vin, is_primary)
+            # Necessary?
+            #director.write_director_repo(form.vars.vin)
+    except Exception as e:
+        print('Unable to create a new vehicle due to the following issue: {0}'.format(e))
 
 
 @auth.requires_login()
 def get_supplier_versions(list_of_vehicles):
-    info = db(db.ecu_db.ecu_type=='INFO').select().last()
-    bcu = db(db.ecu_db.ecu_type=='BCU').select().last()
-    tcu = db(db.ecu_db.ecu_type=='TCU').select().last()
-    #print('\n\ninfo: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
-    supplier_version = str(bcu.ecu_type) + " : " + str(bcu.update_version) + '\n' + \
-                       str(info.ecu_type) + " : " + str(info.update_version) + '\n' + \
-                       str(tcu.ecu_type) + " : " + str(tcu.update_version)
+    try:
+        info = db(db.ecu_db.ecu_type=='INFO').select().last()
+        bcu = db(db.ecu_db.ecu_type=='BCU').select().last()
+        tcu = db(db.ecu_db.ecu_type=='TCU').select().last()
+        #print('\n\ninfo: {0}\nbcu: {1}\ntcu: {2}'.format(info, bcu, tcu))
+        supplier_version = str(bcu.ecu_type) + " : " + str(bcu.update_version) + '\n' + \
+                           str(info.ecu_type) + " : " + str(info.update_version) + '\n' + \
+                           str(tcu.ecu_type) + " : " + str(tcu.update_version)
 
-    for vehicle in list_of_vehicles:
-        # Assume all vehicles have TCU, BCU, and INFO
-        vehicle.update_record(supplier_version=supplier_version)
+        for vehicle in list_of_vehicles:
+            # Assume all vehicles have TCU, BCU, and INFO
+            vehicle.update_record(supplier_version=supplier_version)
+    except Exception as e:
+        print('Unable to get the supplier versions due to the following error: {0}'.format(e))
 
 @auth.requires_login()
 def get_director_versions(list_of_vehicles):
-    for vehicle in list_of_vehicles:#db(db.vehicle_db.oem==auth.user.username).select():
-        #print('\nvehicle: {0}'.format(vehicle))
-        director_version = ''
-        version_dict = {}
-        #print('ecu_list unsorted: {0}\necu_list sorted: {1}'.format(vehicle.ecu_list, sorted(vehicle.ecu_list)))
-        for ecu in vehicle.ecu_list:
-            ecu_type       = db(db.ecu_db.id==ecu).select().first().ecu_type
-            update_version = db(db.ecu_db.id==ecu).select().first().update_version
-            version_dict[ecu_type] = update_version
-            director_version += ' ' + str(ecu_type) + ' : ' + str(update_version)
-            #print('director_version: {0}'.format(director_version))
-            #print('version_dict: {0}'.format(version_dict))
-            #print('ordered: version_dict: {0}'.format(OrderedDict(sorted(version_dict.items()))))
-        # Director Str Version
-        vehicle.update_record(director_version = director_version)
-        #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = director_version)
-        # Dictionary Version
-        #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = version_dict)
+    try:
+        for vehicle in list_of_vehicles:#db(db.vehicle_db.oem==auth.user.username).select():
+            #print('\nvehicle: {0}'.format(vehicle))
+            director_version = ''
+            version_dict = {}
+            #print('ecu_list unsorted: {0}\necu_list sorted: {1}'.format(vehicle.ecu_list, sorted(vehicle.ecu_list)))
+            for ecu in vehicle.ecu_list:
+                ecu_type       = db(db.ecu_db.id==ecu).select().first().ecu_type
+                update_version = db(db.ecu_db.id==ecu).select().first().update_version
+                version_dict[ecu_type] = update_version
+                director_version += ' ' + str(ecu_type) + ' : ' + str(update_version)
+                #print('director_version: {0}'.format(director_version))
+                #print('version_dict: {0}'.format(version_dict))
+                #print('ordered: version_dict: {0}'.format(OrderedDict(sorted(version_dict.items()))))
+            # Director Str Version
+            vehicle.update_record(director_version = director_version)
+            #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = director_version)
+            # Dictionary Version
+            #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = version_dict)
+    except Exception as e:
+        print('Unable to get the director versions due to the following error: {0}'.format(e))
 
 @auth.requires_login()
 def get_vehicle_versions(list_of_vehicles):
@@ -411,9 +423,14 @@ def database_contents():
                     # Find old 'option' string and replace with newly retrieved ECU Type + Version
                     db_contents = gluon.html.XML(str(db_contents).replace(reg, ecu_str))
 
+        #print('request.args w/ error: {0}'.format(request.args))
+        #print('db_contents: {0}'.format(db_contents))
 
         changed_ecu_list = request.vars['changed_ecu_list']
         edited_vehicle=request.vars['vehicle_id']
+        error_message=request.vars['error_message']
+        #print('request.vars: {0}\n'.format(request.vars))
+        #print('error message: {0}\ntype: {1}'.format(error_message, type(error_message)))
         #print('changed ecu_list: {0}'.format(changed_ecu_list))
         #print('edited_vehicle: {0}'.format(edited_vehicle))
         #print('\nDetermining vehicles w/ available updates')
@@ -422,44 +439,50 @@ def database_contents():
 
         #db_contents = SQLFORM.smartgrid(db.vehicle_db)
         if changed_ecu_list == None:
-            return dict(db_contents=db_contents, available_updates=available_updates)
+            return dict(db_contents=db_contents, available_updates=available_updates, error_message=error_message)
         else:
             return dict(db_contents=db_contents,changed_ecu_list=changed_ecu_list,edited_vehicle=edited_vehicle,
-                        available_updates=available_updates)
+                        available_updates=available_updates, error_message=error_message)
 
 @auth.requires_login()
 def selected_vehicle(vehicle_id):
-    #print vehicle_id[0]
-    #print type(vehicle_id[0])
-    print('vehicle_id')
-    print(vehicle_id)
-    vehicle = db(db.vehicle_db.id==vehicle_id[0]).select().first()
-    #print selected_vehicle
-    #print selected_vehicle.ecu_list
-    vehicle_ecu_list = []
-    ecu_id_list = []
-    ecu_type_list = []
-    for ecu in vehicle.ecu_list:
-        #print ecu
-        #print type(ecu)
-        selected_ecu = db(db.ecu_db.id==ecu).select().first()
-        #print selected_ecu.ecu_type
-        #print type(selected_ecu)
-        # Add all ecu_id's to the ecu_id_list
-        vehicle_ecu_list.append(selected_ecu)
-        ecu_id_list.append(selected_ecu.id)
-        # Only add ecu_types if they are not currently in the ecu_type_list
-        if selected_ecu.ecu_type not in ecu_type_list:ecu_type_list.append(selected_ecu.ecu_type)
-        #name = selected_ecu.ecu_type
-        #print name
-    print('ecu_id_list')
-    print(vehicle_ecu_list)
-    #ecu_view = (dict(ecu_list=SQLFORM.grid((db.ecu_db.id==ecu_id_list[0]))))
-    #return locals()
+    print('Here I am inside of the selectable...')
+    # Ensure that a single vehicle is selected before continuing
+    error_message = None
+    if len(vehicle_id) == 1:
+    #    print('vehicle_id')
+    #    print(vehicle_id)
+        vehicle = db(db.vehicle_db.id==vehicle_id[0]).select().first()
+        #print selected_vehicle
+        #print selected_vehicle.ecu_list
+        vehicle_ecu_list = []
+        ecu_id_list = []
+        ecu_type_list = []
+        for ecu in vehicle.ecu_list:
+            #print ecu
+            #print type(ecu)
+            selected_ecu = db(db.ecu_db.id==ecu).select().first()
+            #print selected_ecu.ecu_type
+            #print type(selected_ecu)
+            # Add all ecu_id's to the ecu_id_list
+            vehicle_ecu_list.append(selected_ecu)
+            ecu_id_list.append(selected_ecu.id)
+            # Only add ecu_types if they are not currently in the ecu_type_list
+            if selected_ecu.ecu_type not in ecu_type_list:ecu_type_list.append(selected_ecu.ecu_type)
+            #name = selected_ecu.ecu_type
+            #print name
+        #print('ecu_id_list')
+        #print(vehicle_ecu_list)
+        #ecu_view = (dict(ecu_list=SQLFORM.grid((db.ecu_db.id==ecu_id_list[0]))))
+        #return locals()
 
-    redirect(URL('ecu_list', vars=dict(vehicle_ecu_list=vehicle_ecu_list, ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list, vehicle_id=vehicle_id)))
-    #ecu_list(ecu_id_list)
-    #redirect(URL('next', 'list_records', vars=vehicle_id[0]))
+        redirect(URL('ecu_list', vars=dict(vehicle_ecu_list=vehicle_ecu_list, ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list, vehicle_id=vehicle_id)))
+        #ecu_list(ecu_id_list)
+        #redirect(URL('next', 'list_records', vars=vehicle_id[0]))
+    else:
+        print('Please select a single vehicle first.')
+        error_message = 'Please select a single vehicle before proceeding.'
+        redirect(URL('index', vars=dict(error_message=error_message)))
 
 @auth.requires_login()
 def ecu_list():
@@ -578,7 +601,38 @@ def return_filename(update_image):
 # This function is intended to be used with a Director/OEM resetting their system
 @auth.requires_login()
 def reset_system():
-    print('\nTime to reset the system!')
+    ''' This method is invoked when the Reset System button is clicked on the OEM screen.
+    The intention of this function is to remove only the latest added ECU update and vehicle.
+    :return: Updated ecu_db and vehicle_db
+    '''
+    try:
+        vehicles = db(db.vehicle_db.oem == auth.user.username).select()
+        ecus     = db(db.ecu_db.supplier_name == 'supplier1').select()
+
+        # If there are more than one ecu's then continue (don't want to delete the last remaining ecu)
+        if ecus and len(ecus) >1:
+            # Get the last ecu from the pydal.Objects.Rows -- could iterate through the rows if necessary
+            ecu = ecus.last()
+
+            # Uncomment this line below if you want to delete the ecu
+            #db(db.ecu_db.id == ecu.id).delete()
+
+        # If there are more than one vehicles then continue (don't want to delete the last remaining vehicle)
+        if vehicles and len(vehicles) >1:
+            # Setup the director to call the XMLRPC call
+            # If the vehicle vin is needed can get it from: vehicle.vin (assuming it's a single vehicle and not the list of vehicles)
+            #director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+            #                            ':' + str(demo.DIRECTOR_SERVER_PORT))
+            #director.clear_vehicle_targets()
+
+            # Get the last vehicle from the pydal.Objects.Rows -- could iterate through the rows if necessary
+            vehicle = vehicles.last()
+
+            # Uncomment this line below if you want to delete the ecu
+            #db(db.vehicle_db.id == vehicle.id).delete()
+
+    except Exception as e:
+        print('Unable to reset the system due to this error: {0}'.format(e))
 
 # The calls below are intended to be used with the hacked.html page
 @auth.requires_login()
