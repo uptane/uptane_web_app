@@ -187,10 +187,10 @@ def add_ecu_validation(form):
 
 @auth.requires_login()
 def create_vehicle(form):
-    print('\n\nCREATE_VEHICLE()')
+    #print('\n\nCREATE_VEHICLE()')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
-    print('\n\nAFTER CREATING DIRECTOR@ ADDR: {0}:{1}'.format(str(demo.DIRECTOR_SERVER_HOST), str(demo.DIRECTOR_SERVER_PORT)))
+    #print('\n\nAFTER CREATING DIRECTOR@ ADDR: {0}:{1}'.format(str(demo.DIRECTOR_SERVER_HOST), str(demo.DIRECTOR_SERVER_PORT)))
 
     # Add a new vehicle to the director repo (which includes writing to the repo)
     director.add_new_vehicle(form.vars.vin)
@@ -199,8 +199,8 @@ def create_vehicle(form):
     pri_ecu_key = demo.import_public_key('primary')
     sec_ecu_key = demo.import_public_key('secondary')
     ecu_pub_key = ''
-    print('\n\n\ncreating vehicle now\n{0}\ttype: {1}\n'.format(form.vars, type(form.vars)))
-    print('pri_ecu_key: {0}\nsec_ecu_key: {1}\necu_pub_key: {2}'.format(pri_ecu_key, sec_ecu_key, ecu_pub_key))
+    #print('\n\n\ncreating vehicle now\n{0}\ttype: {1}\n'.format(form.vars, type(form.vars)))
+    #print('pri_ecu_key: {0}\nsec_ecu_key: {1}\necu_pub_key: {2}'.format(pri_ecu_key, sec_ecu_key, ecu_pub_key))
     for e_id in form.vars.ecu_list:
         ecu = db(db.ecu_db.id==e_id).select().first()
 
@@ -219,7 +219,7 @@ def create_vehicle(form):
 
         # Register the ecu w/ the vehicle
         ecu_pub_key = pri_ecu_key if is_primary else sec_ecu_key
-        print('\necu.ecu_type: {0} + form.vars.vin: {1}\tis_primary: {2}'.format(ecu.ecu_type, form.vars.vin, is_primary))
+        #print('\necu.ecu_type: {0} + form.vars.vin: {1}\tis_primary: {2}'.format(ecu.ecu_type, form.vars.vin, is_primary))
         # only register ecus ONCE - correct?
         director.register_ecu_serial(ecu.ecu_type+str(form.vars.vin), ecu_pub_key, form.vars.vin, is_primary)
         # Necessary?
@@ -411,9 +411,13 @@ def database_contents():
                     # Find old 'option' string and replace with newly retrieved ECU Type + Version
                     db_contents = gluon.html.XML(str(db_contents).replace(reg, ecu_str))
 
+        #print('request.args w/ error: {0}'.format(request.args))
+        #print('db_contents: {0}'.format(db_contents))
 
         changed_ecu_list = request.vars['changed_ecu_list']
         edited_vehicle=request.vars['vehicle_id']
+        error_message=request.vars['error_message']
+        print('error message: {0}\ntype: {1}'.format(error_message, type(error_message)))
         #print('changed ecu_list: {0}'.format(changed_ecu_list))
         #print('edited_vehicle: {0}'.format(edited_vehicle))
         #print('\nDetermining vehicles w/ available updates')
@@ -422,44 +426,50 @@ def database_contents():
 
         #db_contents = SQLFORM.smartgrid(db.vehicle_db)
         if changed_ecu_list == None:
-            return dict(db_contents=db_contents, available_updates=available_updates)
+            return dict(db_contents=db_contents, available_updates=available_updates, error_message=error_message)
         else:
             return dict(db_contents=db_contents,changed_ecu_list=changed_ecu_list,edited_vehicle=edited_vehicle,
-                        available_updates=available_updates)
+                        available_updates=available_updates, error_messag=error_message)
 
 @auth.requires_login()
 def selected_vehicle(vehicle_id):
-    #print vehicle_id[0]
-    #print type(vehicle_id[0])
-    print('vehicle_id')
-    print(vehicle_id)
-    vehicle = db(db.vehicle_db.id==vehicle_id[0]).select().first()
-    #print selected_vehicle
-    #print selected_vehicle.ecu_list
-    vehicle_ecu_list = []
-    ecu_id_list = []
-    ecu_type_list = []
-    for ecu in vehicle.ecu_list:
-        #print ecu
-        #print type(ecu)
-        selected_ecu = db(db.ecu_db.id==ecu).select().first()
-        #print selected_ecu.ecu_type
-        #print type(selected_ecu)
-        # Add all ecu_id's to the ecu_id_list
-        vehicle_ecu_list.append(selected_ecu)
-        ecu_id_list.append(selected_ecu.id)
-        # Only add ecu_types if they are not currently in the ecu_type_list
-        if selected_ecu.ecu_type not in ecu_type_list:ecu_type_list.append(selected_ecu.ecu_type)
-        #name = selected_ecu.ecu_type
-        #print name
-    print('ecu_id_list')
-    print(vehicle_ecu_list)
-    #ecu_view = (dict(ecu_list=SQLFORM.grid((db.ecu_db.id==ecu_id_list[0]))))
-    #return locals()
+    print('Here I am inside of the selectable...')
+    # Ensure that a single vehicle is selected before continuing
+    error_message = None
+    if len(vehicle_id) == 1:
+    #    print('vehicle_id')
+    #    print(vehicle_id)
+        vehicle = db(db.vehicle_db.id==vehicle_id[0]).select().first()
+        #print selected_vehicle
+        #print selected_vehicle.ecu_list
+        vehicle_ecu_list = []
+        ecu_id_list = []
+        ecu_type_list = []
+        for ecu in vehicle.ecu_list:
+            #print ecu
+            #print type(ecu)
+            selected_ecu = db(db.ecu_db.id==ecu).select().first()
+            #print selected_ecu.ecu_type
+            #print type(selected_ecu)
+            # Add all ecu_id's to the ecu_id_list
+            vehicle_ecu_list.append(selected_ecu)
+            ecu_id_list.append(selected_ecu.id)
+            # Only add ecu_types if they are not currently in the ecu_type_list
+            if selected_ecu.ecu_type not in ecu_type_list:ecu_type_list.append(selected_ecu.ecu_type)
+            #name = selected_ecu.ecu_type
+            #print name
+        print('ecu_id_list')
+        print(vehicle_ecu_list)
+        #ecu_view = (dict(ecu_list=SQLFORM.grid((db.ecu_db.id==ecu_id_list[0]))))
+        #return locals()
 
-    redirect(URL('ecu_list', vars=dict(vehicle_ecu_list=vehicle_ecu_list, ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list, vehicle_id=vehicle_id)))
-    #ecu_list(ecu_id_list)
-    #redirect(URL('next', 'list_records', vars=vehicle_id[0]))
+        redirect(URL('ecu_list', vars=dict(vehicle_ecu_list=vehicle_ecu_list, ecu_type_list=ecu_type_list, ecu_id_list=ecu_id_list, vehicle_id=vehicle_id)))
+        #ecu_list(ecu_id_list)
+        #redirect(URL('next', 'list_records', vars=vehicle_id[0]))
+    else:
+        print('Please select a single vehicle first.')
+        error_message = 'Please select a single vehicle before proceeding.'
+        redirect(URL('index', vars=dict(error_message=error_message)))
 
 @auth.requires_login()
 def ecu_list():

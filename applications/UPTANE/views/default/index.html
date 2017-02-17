@@ -18,6 +18,11 @@
 
 {{block body}}
 
+<!--{{if 'error_message' != None:}}
+<h2>{{=error_message}}</h2>
+{{else:}}
+{{pass}}-->
+
 {{if 'form' in globals():}}
 <h2>{{=form}}</h2>
 {{else:}}
@@ -28,6 +33,7 @@
 <h2>{{=db_contents}}</h2>
 {{else:}}
 {{pass}}
+
 
 
 
