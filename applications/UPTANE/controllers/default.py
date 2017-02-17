@@ -2,7 +2,7 @@
 # this file is released under public domain and you can use without limitations
 
 # -------------------------------------------------------------------------
-# This is a sample controller
+# This is the main controller
 # - index is the default action of any application
 # - user is required for authentication and authorization
 # - download is for downloading files uploaded in the db (does streaming)
@@ -16,7 +16,7 @@ import os
 import re
 import xmlrpc.client
 
-#print('\n\n\n\npath: {0}'.format(os.path.abspath(demo.__file__)))
+
 @auth.requires_login()
 def index():
     """
@@ -35,7 +35,7 @@ def index():
         return database_contents()
     # if Supplier 1
     if user == 'supplier1':
-        return dict(form=update_form(), db_contents=database_contents())#,form=update_form())
+        return dict(form=update_form(), db_contents=database_contents())
     # if Supplier 2
     if user == 'supplier2':
         return dict(form=update_form(), db_contents=database_contents())
@@ -126,75 +126,34 @@ def all_records():
 
 @auth.requires_login()
 def update_form():
-    print('\ncreating supplier now')
+    ''' This is the form the Supplier will see at the top of the screen that allows them to upload a new firmware image
+    :return: the form that will be utilized by the user
+    '''
+
     supplier = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
                                             ':' + str(demo.MAIN_REPO_SERVICE_PORT))
-    print(request.args)
+    #print(request.args)
     record = db.ecu_db(request.args(1))
-    print(record)
+    #print(record)
     form=SQLFORM(db.ecu_db)#, record)
-    #form=SQLFORM(db.ecu_db, record)
-    #print db.tables
-    #print db.supplier_db.fields
-    #print type(db.supplier_db)
-    #print type(db['supplier_db'])
-    #print db.supplier_db.applicable_oem.type
 
     if form.validate():
-        #print'applicable_oem: '+ form.vars.applicable_oem
-        #print'update_version: '+ form.vars.update_version
-        #print'supplier_name: '+ auth.user.username
-        #print db(db.supplier_db).select(db.supplier_db.applicable_oem==str(form.vars.applicable_oem))
-        #print db(db.supplier_db.applicable_oem==str(form.vars.applicable_oem)).select()
-
-        #val = db(db.supplier_db.applicable_oem==form.vars.applicable_oem).select().first()
-        #if val:
-        #    val.update_record(supplier_name=auth.user.username,
-        #                      update_version=form.vars.update_version)
-        #    print 'update'
-        #else:
-        #    print 'new'
-        #print type(db.supplier_db.applicable_oem==form.vars.applicable_oem)
-        #print type(db.supplier_db.applicable_oem)
-        #print db.supplier_db.update_version==form.vars.update_version
-        print('before update_or_insert')
-        #exists = db(db.supplier_db).select(db.supplier_db.applicable_oem=str(form.vars.applicable_oem))
-        #print exists
-
-        #id_added = db.supplier_db.update_or_insert(supplier_name=auth.user.username,
-        #                                     update_version=form.vars.update_version,
-        #                                     applicable_oem=form.vars.applicable_oem,
-        #                                     update_image=form.vars.update_image)#,
-                                             #metadata=meta)
-        # print form.vars.applicable_oem
-        # print type(form.vars.applicable_oem)
-        # print form.vars.update_version
-        # print type(form.vars.update_version)
-        # print auth.user.username
-        # print type(auth.user.username)
-        #db.supplier_db.update()
-
-
         # Adding the update to the supplier_repo
         cwd = os.getcwd()
-        print('current working directory: {0}'.format(cwd))
         update_image = form.vars.update_image
-        #print('directory of update_image: {0}'.format(update_image))
+
         # After getting the file image name, convert the name of the file from hex to ascii
         # and use this value to populate the supplier db with
         filename = return_filename(update_image)
-        #fname_after_split=str(update_image).split('.')[-2]
-        #fname = bytes.fromhex(fname_after_split).decode('utf-8')
-        #print('fname: {0}'.format(fname))
 
         # Add uploaded images to supplier repo + write to repo
         supplier.add_target_to_supplier_repo(cwd+'/applications/UPTANE/static/uploads/'+update_image, filename)
-        #print('supplier.add_target_to_supplier_repo: {0}\n'.format(var1))
         supplier.write_supplier_repo()
-        #print('write_supplier_repo: {0}'.format(var2))
 
-
+        # Metadata was initially intended to be showed, so this place holder function call was created
         meta = create_meta(form.vars.ecu_type + '_' + form.vars.update_version)
+
+        # Add or Update this instantiation of the ECU in the ECU db
         id_added = db.ecu_db.update_or_insert((db.ecu_db.supplier_name == auth.user.username) &
                                         (db.ecu_db.ecu_type == form.vars.ecu_type) &
                                         (db.ecu_db.update_version == form.vars.update_version),
@@ -204,7 +163,7 @@ def update_form():
                                         metadata=meta,
                                         update_image=form.vars.update_image)
         print('id_added: {0}\necu:{1}'.format(id_added, db.ecu_db.id==id_added))
-        print('after update or insert')
+
         response.flash = 'form accepted'
     elif form.process().errors:
         response.flash = 'form has errors'
@@ -294,9 +253,9 @@ def get_director_versions(list_of_vehicles):
             update_version = db(db.ecu_db.id==ecu).select().first().update_version
             version_dict[ecu_type] = update_version
             director_version += ' ' + str(ecu_type) + ' : ' + str(update_version)
-            print('director_version: {0}'.format(director_version))
+            #print('director_version: {0}'.format(director_version))
             #print('version_dict: {0}'.format(version_dict))
-            print('ordered: version_dict: {0}'.format(OrderedDict(sorted(version_dict.items()))))
+            #print('ordered: version_dict: {0}'.format(OrderedDict(sorted(version_dict.items()))))
         # Director Str Version
         vehicle.update_record(director_version = director_version)
         #db.vehicle_db(db.vehicle_db.id == vehicle).update_record(director_version = director_version)
@@ -312,25 +271,36 @@ def get_vehicle_versions(list_of_vehicles):
     for vehicle in list_of_vehicles:
         #print('vehicle: {0} : vin#: {1}'.format(vehicle, vehicle.vin))
         try:
+            # Currently we're iterating through the 3 ECU types we limit the Supplier in uploading in order to retrieve
+            #  their ECU manifests.  These are used to append to the ecu_serial_string.
             ecu_list = ['BCU', 'INFO', 'TCU']
-            ecu_serial_list = ''
+            ecu_serial_string = ''
+            # If the default file is returned from the ECU manifests (secondary_firmware.txt), then is_default stays true
+            #  and the checkin time for the vehicle will not be updated.  However, if the ECU manifests have a different
+            #  file (i.e., the vehicle has 'updated'), then is_default gets set to False and the checkin time shall be
+            #  updated.
             is_default = True
+            update_checkin_time = False
             # Iterate through the list of ECU's (which is currently hardcoded) and gather their ecu_manifest
-            #   From each ecu_manifest, parse the file name of their current image and add it to the ecu_serial_list
+            #   From each ecu_manifest, parse the file name of their current image and add it to the ecu_serial_string
             for ecu in ecu_list:
                 ecu_manifest = director.get_last_ecu_manifest(str(ecu)+str(vehicle.vin))
                 try:
                     file_path = ecu_manifest['signed']['installed_image']['filepath']
                     if file_path == '/secondary_firmware.txt':
-                        ecu_serial_list += '{0} : {1}  '.format(str(ecu), 'N/A')
+                        ecu_serial_string += '{0} : {1}  '.format(str(ecu), 'N/A')
                     else:
                         is_default = False
-                        ecu_serial_list += '{0} : {1}  '.format(str(ecu), file_path[-7:-4])
+                        update_checkin_time = True
+                        ecu_serial_string += '{0} : {1}  '.format(str(ecu), file_path[-7:-4])
                 except Exception:
                     # This is to catch the error received from an ECU manifest that returns an error
-                    ecu_serial_list += '{0} : {1}  '.format(str(ecu), 'N/A') if is_default else '{0} : {1}  '.format(str(ecu), '1.0')
+                    ecu_serial_string += '{0} : {1}  '.format(str(ecu), 'N/A') if is_default else '{0} : {1}  '.format(str(ecu), '1.0')
 
-            vehicle.update_record(vehicle_version=ecu_serial_list)
+            vehicle.update_record(vehicle_version=ecu_serial_string)
+            cur_time = datetime.datetime.now()
+
+            vehicle.update_record(checkin_date=cur_time) if update_checkin_time else print('Checkin date will not be updated for vehicle: {0}'.format(vehicle.vin))
         except Exception as e:
             vehicle.update_record(vehicle_version='None')
             print('did not work with this error: {0}'.format(e))
@@ -361,7 +331,7 @@ def get_status(list_of_vehicles):
 
             # If the attack_status is not the default of '' then we'll return the reported attack_status
             #   otherwise, we'll return a value of 'Good'
-            attack_status = attack_status if attack_status else 'Good1'
+            attack_status = attack_status if attack_status else 'Good'
             vehicle.update_record(status=attack_status)
 
         except Exception as e:
@@ -397,7 +367,7 @@ def database_contents():
             # The following sets the ID#'s to non-readable and pulls all ECU's created by the current user
             db.ecu_db.id.readable=False
             db_contents = SQLFORM.grid(db.ecu_db.supplier_name==auth.user.username, searchable=False, csv=False,
-                                       create=False)
+                                       create=False, editable=False, details=False)
                                        #onvalidation=add_ecu_validation)
         else:
             db_contents = T('Hello, you have no ecu/vehicles....')
@@ -405,7 +375,7 @@ def database_contents():
 
     # Else it's an OEM; so display database applicable to them
     else:
-        print('\nrequest: {0}'.format(request.vars['ecu_list']))
+        #print('\nrequest: {0}'.format(request.vars['ecu_list']))
         list_of_vehicles = db(db.vehicle_db.oem==auth.user.username).select()
         get_supplier_versions(list_of_vehicles)
         get_director_versions(list_of_vehicles)
@@ -444,9 +414,9 @@ def database_contents():
 
         changed_ecu_list = request.vars['changed_ecu_list']
         edited_vehicle=request.vars['vehicle_id']
-        print('changed ecu_list: {0}'.format(changed_ecu_list))
-        print('edited_vehicle: {0}'.format(edited_vehicle))
-        print('\nDetermining vehicles w/ available updates')
+        #print('changed ecu_list: {0}'.format(changed_ecu_list))
+        #print('edited_vehicle: {0}'.format(edited_vehicle))
+        #print('\nDetermining vehicles w/ available updates')
         available_updates = []
         available_updates = determine_available_updates()
 
