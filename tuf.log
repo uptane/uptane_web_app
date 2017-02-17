@@ -2789,3 +2789,21 @@ Added a console handler.
 [2017-02-17 13:36:54,995 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
 Added a console handler.
 
+[2017-02-17 13:52:32,914 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-02-17 13:52:50,892 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-02-17 14:28:16,885 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/primary.pub)
+
+[2017-02-17 14:28:16,887 UTC] [tuf.util] [DEBUG] [load_json_file:936@util.py]
+open(/Users/ecain/Projects/SOTA/uptane_web_app/demo/keys/secondary.pub)
+
+[2017-02-17 14:56:00,173 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
+[2017-02-17 14:56:34,944 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
