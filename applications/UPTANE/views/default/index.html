@@ -1,20 +1,29 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
+
 {{block header}}
-    <header class="container-fluid background">
-      <div class="jumbotron text-center">
-        {{if response.title:}}
-        <h1>{{=response.title}}
-            {{if auth.user.username == 'oem1':}}
-                <small> - OEM Repository</small></h1>
-            {{else:}}
-                <small> - Image Repository</small></h1>
+    {{if auth.user.username == 'oem1':}}
+        <header class="container-fluid background">
+          <div class="jumbotron text-center">
+            {{if response.title:}}
+            <h1>{{=response.title}}
+                    <small> - Director Repository</small></h1>
             {{pass}}
-        {{pass}}
-      </div>
-    </header>
+          </div>
+        </header>
+    {{else:}}
+        <header class="container-fluid road_background">
+          <div class="jumbotron text-center">
+            {{if response.title:}}
+            <h1>{{=response.title}}
+                    <small> - Image Repository</small></h1>
+            {{pass}}
+          </div>
+        </header>
+    {{pass}}
 {{end}}
+
 
 {{block body}}
 
@@ -81,7 +90,7 @@
 
 {{if auth.user.username == 'oem1':}}
 <h1 align="right"><input type="button" class="hacked_btn" onclick="location.href='hacked';"/></h1>
-<h1 align="left">{{=A('', _title="Reset System" , _class="reset_system",callback=URL('reset_system'))}}</h1>
+<!--<h1 align="left">{{=A('', _title="Reset System" , _class="reset_system",callback=URL('reset_system'))}}</h1>-->
 {{else:}}
 <h1 align="right"><input type="button" class="hacked_btn" onclick="location.href='hacked_repo';"/></h1>
 {{pass}}
