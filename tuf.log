@@ -2831,3 +2831,6 @@ Added a console handler.
 >>>>>>> f27f344525a79d4f0405d3154de3762676e0ec73
 Added a console handler.
 
+[2017-02-23 21:02:22,729 UTC] [tuf] [DEBUG] [add_console_handler:323@log.py]
+Added a console handler.
+
