@@ -1,13 +1,1 @@
-<<<<<<< HEAD
-password="pbkdf2(1000,20,sha512)$9a3050ed14d7577a$273cb905095cba74cf231a2e4963aac07cfa4557"
-=======
-<<<<<<< HEAD
-password="pbkdf2(1000,20,sha512)$a2a3c3f3de82742e$5abb5cf50120fb651763710771560009b3ea5435"
-=======
-<<<<<<< HEAD
-password="pbkdf2(1000,20,sha512)$98066c684ed07724$8ff5315cbed7f5b422c5168db2500e266f42435a"
-=======
-password="pbkdf2(1000,20,sha512)$85cab89db16dcbe9$796919e8f02281c341da4bc4a5ad6d2d5b3507a0"
->>>>>>> 846c8909424f14a500ca00b2a57d2e829d761109
->>>>>>> dfff1100e83e80863f2cf10c733a287b257da6d7
->>>>>>> f27f344525a79d4f0405d3154de3762676e0ec73
+password="pbkdf2(1000,20,sha512)$bb6f43e39af55af7$7d6d85fb525e82fb6bdcd4ad03f6f774f03ea9b9"
