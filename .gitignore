@@ -1,0 +1,7 @@
+*.pyc
+*.log
+applications/UPTANE/static/uploads/ecu_db.update_image.*
+*.pid
+applications/UPTANE/sessions/*
+applications/UPTANE/errors/*
+applications/admin/sessions/*
