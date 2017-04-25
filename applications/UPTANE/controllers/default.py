@@ -540,12 +540,19 @@ def selected_ecus(selected_ecus):
     #print('changed_ecu_list: {0}'.format(changed_ecu_list))
     if changed_ecu_list:
         db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
-        if len(changed_ecu_list) == 1:
+        #if len(changed_ecu_list) == 1: # <~> Why use this condition?
+        print('changed_ecu_list contains ' + repr(len(changed_ecu_list)))
 
-            director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                                    ':' + str(demo.DIRECTOR_SERVER_PORT))
+        director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                                ':' + str(demo.DIRECTOR_SERVER_PORT))
+        # <~> I'd expect vin to be the same within this call, since this
+        # dialog is for an individual vehicle. No?
+        vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
+        director.clear_vehicle_targets(vin)
+        for i in range(len(changed_ecu_list)):
 
-            cur_ecu = db(db.ecu_db.id==changed_ecu_list[0]).select().first()
+
+            cur_ecu = db(db.ecu_db.id==changed_ecu_list[i]).select().first()
             #print('\ncur_ecu: {0}'.format(cur_ecu))
 
             # Do a check to see if it's the Primary (potentially add it after appending to
@@ -566,7 +573,6 @@ def selected_ecus(selected_ecus):
 
             vehicle_id = request.vars['vehicle_id']
             #print('vehicle_id: {0}'.format(vehicle_id))
-            vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
             ecu_serial = cur_ecu.ecu_type+str(vin)
 
             #print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
