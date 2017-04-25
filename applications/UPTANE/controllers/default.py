@@ -668,8 +668,6 @@ def hack5():
 @auth.requires_login()
 def hack6():
     print('\n\nHack6 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def fix1():
@@ -680,8 +678,6 @@ def fix1():
 @auth.requires_login()
 def fix2():
     print('\n\nFix2 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def fix3():
@@ -704,8 +700,6 @@ def fix5():
 @auth.requires_login()
 def fix6():
     print('\n\nFix6 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 # The calls below are intended to be used with the hacked_repo.html page
 @auth.requires_login()
@@ -717,14 +711,10 @@ def repo_hack1():
 @auth.requires_login()
 def repo_hack2():
     print('\n\nRepo Hack2 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def repo_hack3():
     print('\n\nRepo Hack3 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def repo_hack4():
@@ -735,14 +725,10 @@ def repo_hack4():
 @auth.requires_login()
 def repo_hack5():
     print('\n\nRepo Hack5 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def repo_hack6():
     print('\n\nRepo Hack6 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def repo_fix1():
@@ -753,14 +739,10 @@ def repo_fix1():
 @auth.requires_login()
 def repo_fix2():
     print('\n\nRepo Fix2 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def repo_fix3():
     print('\n\nRepo Fix3 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def repo_fix4():
@@ -771,11 +753,7 @@ def repo_fix4():
 @auth.requires_login()
 def repo_fix5():
     print('\n\nRepo Fix5 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
 
 @auth.requires_login()
 def repo_fix6():
     print('\n\nRepo Fix6 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
