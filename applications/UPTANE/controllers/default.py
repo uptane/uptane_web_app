@@ -568,6 +568,8 @@ def selected_ecus(selected_ecus):
 
             # Retrieve the filename
             filename = return_filename(cur_ecu.update_image)
+            # <~> Why are we using test_uploads paths? We can't assume the
+            # image files exist in the test_uploads folder.
             filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
 
 
