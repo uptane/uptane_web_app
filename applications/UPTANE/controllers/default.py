@@ -758,7 +758,7 @@ def repo_hack4():
     print('\n\nImage Repo Hack4 - Arbitrary Package Compromised Key CLICKED!')
     imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
                                         ':' + str(demo.MAIN_REPO_SERVICE_PORT))
-    imagerepo.keyed_arbitrary_package_attack('TCU-1.2.jpg')
+    imagerepo.keyed_arbitrary_package_attack('TCU-1.1.jpg')
 
 @auth.requires_login()
 def repo_hack5():
@@ -789,7 +789,7 @@ def repo_fix4():
     print('\n\nImage Repo Fix4 - Arbitrary Package Compromised Key Recovery CLICKED!')
     imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
                                         ':' + str(demo.MAIN_REPO_SERVICE_PORT))
-    imagerepo.undo_keyed_arbitrary_package_attack('TCU-1.2.jpg')
+    imagerepo.undo_keyed_arbitrary_package_attack('TCU-1.1.jpg')
 
 @auth.requires_login()
 def repo_fix5():
