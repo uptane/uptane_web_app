@@ -655,6 +655,7 @@ def hack1():
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.mitm_arbitrary_package_attack('democar', 'TCU-1.1.jpg')
+    print('\n\nDirector Hack1 - Arbitrary Package Nokeys - Done')
 
 @auth.requires_login()
 def hack2():
@@ -662,6 +663,7 @@ def hack2():
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.prepare_replay_attack_nokeys('democar')
+    print('\n\nDirector Hack2 - Prepare for Replay Attack Nokeys - Done')
 
 @auth.requires_login()
 def hack3():
@@ -669,25 +671,28 @@ def hack3():
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.replay_attack_nokeys('democar')
+    print('\n\nDirector Hack3 - Replay Attack Nokeys - Done')
 
 @auth.requires_login()
 def hack4():
-    print('\n\nDirector Repo Hack4 - Arbitrary Package Compromised Key CLICKED!')
+    print('\n\nDirector Repo Hack4 - Arbitrary Package Attack w/ Key CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.keyed_arbitrary_package_attack(
         'democar', 'TCUdemocar', 'TCU-1.1.jpg')
+    print('\n\nDirector Repo Hack4 - Arbitrary Package Attack w/ Key - Done!')
 
 @auth.requires_login()
 def hack5():
-    print('\n\nDirector Repo Hack5 - Sign with Compromised Keys CLICKED!')
+    print('\n\nDirector Repo Hack5 - Sign with Compromised Keys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.sign_with_compromised_keys_attack()
+    print('\n\nDirector Repo Hack5 - Sign with Compromised Keys - Done')
 
 @auth.requires_login()
 def hack6():
-    print('\n\nHack6 CLICKED!!!!')
+    print('\n\nHack6 Clicked - No Action')
 
 @auth.requires_login()
 def fix1():
@@ -695,36 +700,40 @@ def fix1():
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.undo_mitm_arbitrary_package_attack('democar', 'TCU-1.1.jpg')
+    print('\n\nDirector Fix1 - Undo Arbitrary Package Nokeys - Done')
 
 @auth.requires_login()
 def fix2():
-    print('\n\nFix2 CLICKED!!!!')
+    print('\n\nFix2 Clicked - No Action')
 
 @auth.requires_login()
 def fix3():
-    print('\n\Director Fix3 - Undo Replay Attack Nokeys CLICKED!')
+    print('\n\Director Fix3 - Undo Replay Attack Nokeys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.undo_replay_attack_nokeys('democar')
+    print('\n\Director Fix3 - Undo Replay Attack Nokeys - Done')
 
 @auth.requires_login()
 def fix4():
-    print('\n\nDirector Fix4 - Undo Arbitrary Package Compromised Key CLICKED!')
+    print('\n\nDirector Fix4 - Undo Arbitrary Package Attack w/ Key - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.undo_keyed_arbitrary_package_attack(
         'democar', 'TCUdemocar', 'TCU-1.1.jpg')
+    print('\n\nDirector Fix4 - Undo Arbitrary Package Attack w/ Key - Done')
 
 @auth.requires_login()
 def fix5():
-    print('\n\nDirector Fix5 - Undo Sign with Compromised Keys CLICKED!')
+    print('\n\nDirector Fix5 - Undo Sign with Compromised Keys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
     director.undo_sign_with_compromised_keys_attack()
+    print('\n\nDirector Fix5 - Undo Sign with Compromised Keys - Done')
 
 @auth.requires_login()
 def fix6():
-    print('\n\nFix6 CLICKED!!!!')
+    print('\n\nFix6 Clicked - No Action')
 
 # The calls below are intended to be used with the hacked_repo.html page
 # for a hacked Image Repository.
@@ -738,11 +747,11 @@ def repo_hack1():
 
 @auth.requires_login()
 def repo_hack2():
-    print('\n\nRepo Hack2 CLICKED!!!!')
+    print('\n\nRepo Hack2 Clicked - No Action')
 
 @auth.requires_login()
 def repo_hack3():
-    print('\n\nRepo Hack3 CLICKED!!!!')
+    print('\n\nRepo Hack3 Clicked - No Action')
 
 @auth.requires_login()
 def repo_hack4():
@@ -753,11 +762,11 @@ def repo_hack4():
 
 @auth.requires_login()
 def repo_hack5():
-    print('\n\nRepo Hack5 CLICKED!!!!')
+    print('\n\nRepo Hack5 Clicked - No Action')
 
 @auth.requires_login()
 def repo_hack6():
-    print('\n\nRepo Hack6 CLICKED!!!!')
+    print('\n\nRepo Hack6 Clicked - No Action')
 
 @auth.requires_login()
 def repo_fix1():
@@ -769,11 +778,11 @@ def repo_fix1():
 
 @auth.requires_login()
 def repo_fix2():
-    print('\n\nRepo Fix2 CLICKED!!!!')
+    print('\n\nRepo Fix2 Clicked - No Action')
 
 @auth.requires_login()
 def repo_fix3():
-    print('\n\nRepo Fix3 CLICKED!!!!')
+    print('\n\nRepo Fix3 Clicked - No Action')
 
 @auth.requires_login()
 def repo_fix4():
@@ -784,8 +793,8 @@ def repo_fix4():
 
 @auth.requires_login()
 def repo_fix5():
-    print('\n\nRepo Fix5 CLICKED!!!!')
+    print('\n\nRepo Fix5 Clicked - No Action')
 
 @auth.requires_login()
 def repo_fix6():
-    print('\n\nRepo Fix6 CLICKED!!!!')
+    print('\n\nRepo Fix6 Clicked - No Action')
