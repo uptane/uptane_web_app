@@ -412,7 +412,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack3 {
-    background-image: url(../images/Rollback.png); /*MixAndMatch*/
+    background-image: url(../images/Rollback.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -456,7 +456,7 @@ input.safety_btn{
     display: block;
 }
 .fix3 {
-    background-image: url(../images/Safety.png);/*../images/Partial.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -464,7 +464,7 @@ input.safety_btn{
     display: block;
 }
 .fix4 {
-    background-image: url(../images/Safety.png);/*Silence.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -472,7 +472,7 @@ input.safety_btn{
     display: block;
 }
 .fix5 {
-    background-image: url(../images/Safety.png);/*SlowRetrieval.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -526,7 +526,7 @@ input.safety_btn{
 
 
 .repofix1 {
-    background-image: url(../images/Safety.png);/*Infinite.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -544,7 +544,7 @@ input.safety_btn{
     display: block;
 }
 .repofix4 {
-    background-image: url(../images/Safety.png);/*Silence.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
