@@ -540,12 +540,20 @@ def selected_ecus(selected_ecus):
     #print('changed_ecu_list: {0}'.format(changed_ecu_list))
     if changed_ecu_list:
         db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
-        if len(changed_ecu_list) == 1:
 
-            director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                                    ':' + str(demo.DIRECTOR_SERVER_PORT))
+        #if len(changed_ecu_list) == 1: # <~> Why use this condition?
+        print('changed_ecu_list contains ' + repr(len(changed_ecu_list)))
 
-            cur_ecu = db(db.ecu_db.id==changed_ecu_list[0]).select().first()
+        director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
+                                                ':' + str(demo.DIRECTOR_SERVER_PORT))
+        # <~> I'd expect vin to be the same within this call, since this
+        # dialog is for an individual vehicle. No?
+        vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
+        director.clear_vehicle_targets(vin)
+        for i in range(len(changed_ecu_list)):
+
+
+            cur_ecu = db(db.ecu_db.id==changed_ecu_list[i]).select().first()
             #print('\ncur_ecu: {0}'.format(cur_ecu))
 
             # Do a check to see if it's the Primary (potentially add it after appending to
@@ -561,12 +569,13 @@ def selected_ecus(selected_ecus):
 
             # Retrieve the filename
             filename = return_filename(cur_ecu.update_image)
+            # <~> Why are we using test_uploads paths? We can't assume the
+            # image files exist in the test_uploads folder.
             filepath = cwd + str('/applications/UPTANE/test_uploads/'+filename)
 
 
             vehicle_id = request.vars['vehicle_id']
             #print('vehicle_id: {0}'.format(vehicle_id))
-            vin = db(db.vehicle_db.id==vehicle_id).select().first().vin
             ecu_serial = cur_ecu.ecu_type+str(vin)
 
             #print('filepath: {0}\nfilename: {1}\nvin: {2}\necu_serial: {3}'.format(filepath, filename, vin, ecu_serial))
@@ -634,148 +643,158 @@ def reset_system():
     except Exception as e:
         print('Unable to reset the system due to this error: {0}'.format(e))
 
+
 # The calls below are intended to be used with the hacked.html page
+# for a hacked Director Repository.
+# In each of the attack scripts and recovery scripts below, we'll hard-code the
+# vehicle identifier and image filename for the demo.
+
 @auth.requires_login()
 def hack1():
-    print('\n\nHack1 CLICKED!!!!')
+    print('\n\nDirector Hack1 - Arbitrary Package Nokeys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.mitm_arbitrary_package_attack('democar', 'TCU1.1.txt')
+    print('\n\nDirector Hack1 - Arbitrary Package Nokeys - Done')
 
 @auth.requires_login()
 def hack2():
-    print('\n\nHack2 CLICKED!!!!')
+    print('\n\nDirector Hack2 - Prepare for Replay Attack Nokeys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.prepare_replay_attack_nokeys('democar')
+    print('\n\nDirector Hack2 - Prepare for Replay Attack Nokeys - Done')
 
 @auth.requires_login()
 def hack3():
-    print('\n\nHack3 CLICKED!!!!')
+    print('\n\nDirector Hack3 - Replay Attack Nokeys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.replay_attack_nokeys('democar')
+    print('\n\nDirector Hack3 - Replay Attack Nokeys - Done')
 
 @auth.requires_login()
 def hack4():
-    print('\n\nHack4 CLICKED!!!!')
+    print('\n\nDirector Repo Hack4 - Arbitrary Package Attack w/ Key CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.keyed_arbitrary_package_attack(
+        'democar', 'TCUdemocar', 'TCU1.1.txt')
+    print('\n\nDirector Repo Hack4 - Arbitrary Package Attack w/ Key - Done!')
 
 @auth.requires_login()
 def hack5():
-    print('\n\nHack5 CLICKED!!!!')
+    print('\n\nDirector Repo Hack5 - Sign with Compromised Keys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.sign_with_compromised_keys_attack()
+    print('\n\nDirector Repo Hack5 - Sign with Compromised Keys - Done')
 
 @auth.requires_login()
 def hack6():
-    print('\n\nHack6 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nHack6 Clicked - No Action')
 
 @auth.requires_login()
 def fix1():
-    print('\n\nFix1 CLICKED!!!!')
+    print('\n\nDirector Fix1 - Undo Arbitrary Package Nokeys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.undo_mitm_arbitrary_package_attack('democar', 'TCU1.1.txt')
+    print('\n\nDirector Fix1 - Undo Arbitrary Package Nokeys - Done')
 
 @auth.requires_login()
 def fix2():
-    print('\n\nFix2 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nFix2 Clicked - No Action')
 
 @auth.requires_login()
 def fix3():
-    print('\n\nFix3 CLICKED!!!!')
+    print('\n\Director Fix3 - Undo Replay Attack Nokeys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.undo_replay_attack_nokeys('democar')
+    print('\n\Director Fix3 - Undo Replay Attack Nokeys - Done')
 
 @auth.requires_login()
 def fix4():
-    print('\n\nFix4 CLICKED!!!!')
+    print('\n\nDirector Fix4 - Undo Arbitrary Package Attack w/ Key - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.undo_keyed_arbitrary_package_attack(
+        'democar', 'TCUdemocar', 'TCU1.1.txt')
+    print('\n\nDirector Fix4 - Undo Arbitrary Package Attack w/ Key - Done')
 
 @auth.requires_login()
 def fix5():
-    print('\n\nFix5 CLICKED!!!!')
+    print('\n\nDirector Fix5 - Undo Sign with Compromised Keys - CLICKED!')
     director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
                                         ':' + str(demo.DIRECTOR_SERVER_PORT))
+    director.undo_sign_with_compromised_keys_attack()
+    print('\n\nDirector Fix5 - Undo Sign with Compromised Keys - Done')
 
 @auth.requires_login()
 def fix6():
-    print('\n\nFix6 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nFix6 Clicked - No Action')
 
 # The calls below are intended to be used with the hacked_repo.html page
+# for a hacked Image Repository.
 @auth.requires_login()
 def repo_hack1():
-    print('\n\nRepo Hack1 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    """Arbitrary Package Attack on the Image Repo without Compromised Keys"""
+    print('\n\nImage Repo Hack1 - MITM Arbitrary Package Nokeys - CLICKED!')
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
+                                        ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo.mitm_arbitrary_package_attack('TCU1.1.txt')
 
 @auth.requires_login()
 def repo_hack2():
-    print('\n\nRepo Hack2 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nRepo Hack2 Clicked - No Action')
 
 @auth.requires_login()
 def repo_hack3():
-    print('\n\nRepo Hack3 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nRepo Hack3 Clicked - No Action')
 
 @auth.requires_login()
 def repo_hack4():
-    print('\n\nRepo Hack4 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nImage Repo Hack4 - Arbitrary Package Compromised Key CLICKED!')
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
+                                        ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo.keyed_arbitrary_package_attack('TCU1.1.txt')
 
 @auth.requires_login()
 def repo_hack5():
-    print('\n\nRepo Hack5 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nRepo Hack5 Clicked - No Action')
 
 @auth.requires_login()
 def repo_hack6():
-    print('\n\nRepo Hack6 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nRepo Hack6 Clicked - No Action')
 
 @auth.requires_login()
 def repo_fix1():
-    print('\n\nRepo Fix1 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    """Undo Arbitrary Package attack w/out compromised keys"""
+    print('\n\nImage Repo Fix1 - MITM Arbitrary Package Nokeys - CLICKED!')
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
+                                        ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo.undo_mitm_arbitrary_package_attack('TCU1.1.txt')
 
 @auth.requires_login()
 def repo_fix2():
-    print('\n\nRepo Fix2 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nRepo Fix2 Clicked - No Action')
 
 @auth.requires_login()
 def repo_fix3():
-    print('\n\nRepo Fix3 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nRepo Fix3 Clicked - No Action')
 
 @auth.requires_login()
 def repo_fix4():
-    print('\n\nRepo Fix4 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nImage Repo Fix4 - Arbitrary Package Compromised Key Recovery CLICKED!')
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
+                                        ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo.undo_keyed_arbitrary_package_attack('TCU1.1.txt')
 
 @auth.requires_login()
 def repo_fix5():
-    print('\n\nRepo Fix5 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nRepo Fix5 Clicked - No Action')
 
 @auth.requires_login()
 def repo_fix6():
-    print('\n\nRepo Fix6 CLICKED!!!!')
-    director = xmlrpc.client.ServerProxy('http://' + str(demo.DIRECTOR_SERVER_HOST) +
-                                        ':' + str(demo.DIRECTOR_SERVER_PORT))
+    print('\n\nRepo Fix6 Clicked - No Action')
