@@ -137,7 +137,8 @@ html {
 }
 header h1 {
     color: #FFF!important;
-    text-shadow: 0 0 7px #000;
+    text-shadow: 0 0 7px #FFF;
+    background-color: #000;
 }
 header small {
     color: white;
@@ -356,7 +357,7 @@ input.safety_btn{
 }
 
 .hack_body {
-    background-image: url(../images/hacked_background.jpg);
+    /*background-image: url(../images/plain_black.jpg); /*hacked_background.jpg);*/
     /*background-image: url(../images/background.jpg);
     background-color: red;*/
 
@@ -411,7 +412,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack3 {
-    background-image: url(../images/Rollback.png); /*MixAndMatch*/
+    background-image: url(../images/Rollback.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -419,7 +420,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack4 {
-    background-image: url(../images/Evil.png); /*Devious*/
+    background-image: url(../images/evil_with_key.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -427,7 +428,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack5 {
-    background-image: url(../images/Evil.png); /*Eavesdrop*/
+    background-image: url(../images/evil_with_xd_out_key.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -435,9 +436,6 @@ input.safety_btn{
     display: block;
 }
 .tdhack6 {
-    background-image: url(../images/Blank.jpg); /*Freeze*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
@@ -453,15 +451,12 @@ input.safety_btn{
     display: block;
 }
 .fix2 {
-    background-image: url(../images/Blank.jpg);/*MixBundle.png);*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
 }
 .fix3 {
-    background-image: url(../images/Safety.png);/*../images/Partial.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -469,7 +464,7 @@ input.safety_btn{
     display: block;
 }
 .fix4 {
-    background-image: url(../images/Safety.png);/*Silence.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -477,7 +472,7 @@ input.safety_btn{
     display: block;
 }
 .fix5 {
-    background-image: url(../images/Safety.png);/*SlowRetrieval.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -485,9 +480,6 @@ input.safety_btn{
     display: block;
 }
 .fix6 {
-    background-image: url(../images/Blank.jpg);/*Rollback.png);*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
@@ -504,23 +496,17 @@ input.safety_btn{
 }
 .repohack2
 {
-    background-image: url(../images/Blank.jpg); /*Rollback*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
 }
 .repohack3 {
-    background-image: url(../images/Blank.jpg); /*MixAndMatch*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
 }
 .repohack4 {
-    background-image: url(../images/Evil.png); /*Devious*/
+    background-image: url(../images/evil_with_key.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -528,17 +514,11 @@ input.safety_btn{
     display: block;
 }
 .repohack5 {
-    background-image: url(../images/Blank.jpg); /*Eavesdrop*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
 }
 .repohack6 {
-    background-image: url(../images/Blank.jpg); /*Freeze*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
@@ -546,7 +526,7 @@ input.safety_btn{
 
 
 .repofix1 {
-    background-image: url(../images/Safety.png);/*Infinite.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -554,23 +534,17 @@ input.safety_btn{
     display: block;
 }
 .repofix2 {
-    background-image: url(../images/Blank.jpg);/*MixBundle.png);*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
 }
 .repofix3 {
-    background-image: url(../images/Blank.jpg);/*Partial.png);*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
 }
 .repofix4 {
-    background-image: url(../images/Safety.png);/*Silence.png);*/
+    background-image: url(../images/Safety.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -578,17 +552,11 @@ input.safety_btn{
     display: block;
 }
 .repofix5 {
-    background-image: url(../images/Blank.jpg);/*SlowRetrieval.png);*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
 }
 .repofix6 {
-    background-image: url(../images/Blank.jpg);/*Rollback.png);*/
-    background-repeat:no-repeat;
-    background-position: center center;
     height:80px;
     width:80px;
     display: block;
