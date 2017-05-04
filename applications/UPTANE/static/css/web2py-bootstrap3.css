@@ -420,7 +420,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack4 {
-    background-image: url(../images/Evil.png); /*Devious*/
+    background-image: url(../images/evil_with_key.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -428,7 +428,7 @@ input.safety_btn{
     display: block;
 }
 .tdhack5 {
-    background-image: url(../images/Evil.png); /*Eavesdrop*/
+    background-image: url(../images/evil_with_xd_out_key.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
@@ -521,7 +521,7 @@ input.safety_btn{
     display: block;
 }
 .repohack4 {
-    background-image: url(../images/Evil.png); /*Devious*/
+    background-image: url(../images/evil_with_key.png);
     background-repeat:no-repeat;
     background-position: center center;
     height:80px;
