@@ -137,7 +137,8 @@ html {
 }
 header h1 {
     color: #FFF!important;
-    text-shadow: 0 0 7px #000;
+    text-shadow: 0 0 7px #FFF;
+    background-color: #000;
 }
 header small {
     color: white;
@@ -356,7 +357,7 @@ input.safety_btn{
 }
 
 .hack_body {
-    background-image: url(../images/hacked_background.jpg);
+    /*background-image: url(../images/plain_black.jpg); /*hacked_background.jpg);*/
     /*background-image: url(../images/background.jpg);
     background-color: red;*/
 
