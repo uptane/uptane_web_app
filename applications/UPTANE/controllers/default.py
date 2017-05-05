@@ -134,8 +134,8 @@ def update_form():
     :return: the form that will be utilized by the user
     '''
 
-    supplier = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
-                                            ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.IMAGE_REPO_SERVICE_HOST) +
+                                            ':' + str(demo.IMAGE_REPO_SERVICE_PORT))
 
 
     #print(request.args)
@@ -144,17 +144,17 @@ def update_form():
     form=SQLFORM(db.ecu_db)#, record)
 
     if form.validate():
-        # Adding the update to the supplier_repo
+        # Adding the update to the Image (Supplier) Repo
         cwd = os.getcwd()
         update_image = form.vars.update_image
 
         # After getting the file image name, convert the name of the file from hex to ascii
-        # and use this value to populate the supplier db with
+        # and use this value to populate the imagerepo db with
         filename = return_filename(update_image)
 
-        # Add uploaded images to supplier repo + write to repo
-        supplier.add_target_to_supplier_repo(cwd+'/applications/UPTANE/static/uploads/'+update_image, filename)
-        supplier.write_supplier_repo()
+        # Add uploaded images to imagerepo repo + write to repo
+        imagerepo.add_target_to_image_repo(cwd+'/applications/UPTANE/static/uploads/'+update_image, filename)
+        imagerepo.write_image_repo()
 
         # Metadata was initially intended to be showed, so this place holder function call was created
         meta = create_meta(form.vars.ecu_type + '_' + form.vars.update_version)
@@ -741,8 +741,8 @@ def fix6():
 def repo_hack1():
     """Arbitrary Package Attack on the Image Repo without Compromised Keys"""
     print('\n\nImage Repo Hack1 - MITM Arbitrary Package Nokeys - CLICKED!')
-    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
-                                        ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.IMAGE_REPO_SERVICE_HOST) +
+                                        ':' + str(demo.IMAGE_REPO_SERVICE_PORT))
     imagerepo.mitm_arbitrary_package_attack('TCU1.1.txt')
 
 @auth.requires_login()
@@ -756,8 +756,8 @@ def repo_hack3():
 @auth.requires_login()
 def repo_hack4():
     print('\n\nImage Repo Hack4 - Arbitrary Package Compromised Key CLICKED!')
-    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
-                                        ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.IMAGE_REPO_SERVICE_HOST) +
+                                        ':' + str(demo.IMAGE_REPO_SERVICE_PORT))
     imagerepo.keyed_arbitrary_package_attack('TCU1.1.txt')
 
 @auth.requires_login()
@@ -772,8 +772,8 @@ def repo_hack6():
 def repo_fix1():
     """Undo Arbitrary Package attack w/out compromised keys"""
     print('\n\nImage Repo Fix1 - MITM Arbitrary Package Nokeys - CLICKED!')
-    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
-                                        ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.IMAGE_REPO_SERVICE_HOST) +
+                                        ':' + str(demo.IMAGE_REPO_SERVICE_PORT))
     imagerepo.undo_mitm_arbitrary_package_attack('TCU1.1.txt')
 
 @auth.requires_login()
@@ -787,8 +787,8 @@ def repo_fix3():
 @auth.requires_login()
 def repo_fix4():
     print('\n\nImage Repo Fix4 - Arbitrary Package Compromised Key Recovery CLICKED!')
-    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.MAIN_REPO_SERVICE_HOST) +
-                                        ':' + str(demo.MAIN_REPO_SERVICE_PORT))
+    imagerepo = xmlrpc.client.ServerProxy('http://' + str(demo.IMAGE_REPO_SERVICE_HOST) +
+                                        ':' + str(demo.IMAGE_REPO_SERVICE_PORT))
     imagerepo.undo_keyed_arbitrary_package_attack('TCU1.1.txt')
 
 @auth.requires_login()
