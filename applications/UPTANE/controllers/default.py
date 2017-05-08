@@ -540,6 +540,7 @@ def selected_ecus(selected_ecus):
     #print('changed_ecu_list: {0}'.format(changed_ecu_list))
     if changed_ecu_list:
         db.vehicle_db(db.vehicle_db.id == vehicle_id).update_record(ecu_list=selected_ecus)
+
         #if len(changed_ecu_list) == 1: # <~> Why use this condition?
         print('changed_ecu_list contains ' + repr(len(changed_ecu_list)))
 
@@ -641,7 +642,6 @@ def reset_system():
 
     except Exception as e:
         print('Unable to reset the system due to this error: {0}'.format(e))
-
 
 
 # The calls below are intended to be used with the hacked.html page
