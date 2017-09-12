@@ -586,11 +586,14 @@ def selected_ecus(selected_ecus):
             sec_ecu_key = demo.import_public_key('secondary')
             ecu_pub_key = ''
 
-            # Register the ecu w/ the vehicle
-            is_primary = True if cur_ecu.ecu_type == 'INFO' else False
-            ecu_pub_key = pri_ecu_key if is_primary else sec_ecu_key
-            print('\necu.type+vin: {0}{1}\tform.vars.vin: {2}\tis_primary: {3}'.format(cur_ecu.ecu_type, str(vin), vin, is_primary))
-            director.register_ecu_serial(cur_ecu.ecu_type+str(vin), ecu_pub_key, vin, is_primary)
+
+            # <~> Why would we register the ECU every time we want to update it?
+            # (Am I missing something?)
+            # # Register the ecu w/ the vehicle
+            # is_primary = True if cur_ecu.ecu_type == 'INFO' else False
+            # ecu_pub_key = pri_ecu_key if is_primary else sec_ecu_key
+            # print('\necu.type+vin: {0}{1}\tform.vars.vin: {2}\tis_primary: {3}'.format(cur_ecu.ecu_type, str(vin), vin, is_primary))
+            # director.register_ecu_serial(cur_ecu.ecu_type+str(vin), ecu_pub_key, vin, is_primary)
 
     redirect(URL('index', vars=dict(ecu_id_list=ecu_id_list, selected_ecu_list=selected_ecus, changed_ecu_list=changed_ecu_list, vehicle_id=vehicle_id)))
 
