@@ -1,1 +1,1 @@
-Please note that this is a web application that was used for several Uptane demonstrations.  It is not maintained and supported.  Please see github.com/uptane/uptane for Uptane reference implementation and console demonstration code.
+Please note that this is a web application that was used for several Uptane demonstrations.  It is not maintained and supported.  Please see https://github.com/uptane/uptane for Uptane reference implementation and console demonstration code.
